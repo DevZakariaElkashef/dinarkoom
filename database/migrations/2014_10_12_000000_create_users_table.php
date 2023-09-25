@@ -17,8 +17,11 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->boolean('role')->comment('0 => super_admin 1 => admin = 2 => users');
+            $table->boolean('role')->default(2)->comment('0 => super_admin 1 => admin 2 => users');
             $table->tinyInteger('is_online')->default(0)->comment('0 => offline 1 => online');
+            $table->string('civil_id')->unique();
+            $table->string('phone')->unique();
+            $table->string('addition_phone')->unique()->nullable();
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();
