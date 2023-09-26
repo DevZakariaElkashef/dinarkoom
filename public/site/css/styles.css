@@ -41,7 +41,8 @@
   --bs-warning: #ffc107;
   --bs-danger: #dc3545;
   --bs-light: #f8f9fa;
-  --bs-dark: #0a0a0a;
+  --bs-dark: #292929;
+  --bs-hard-dark: ##121212;
   --bs-primary-rgb: 13, 110, 253;
   --bs-secondary-rgb: 108, 117, 125;
   --bs-success-rgb: 25, 135, 84;
@@ -8168,6 +8169,11 @@ textarea.form-control-lg {
   background-color: var(--bs-dark) !important;
 }
 
+.bg-hard-dark {
+  --bs-bg-opacity: 1;
+  background-color: var(--bs-hard-dark) !important;
+}
+
 .bg-black {
   --bs-bg-opacity: 1;
   background-color: rgba(var(--bs-black-rgb), var(--bs-bg-opacity)) !important;
@@ -10845,7 +10851,7 @@ textarea.form-control-lg {
 .header-circle-text {
   width: 100%;
   position: absolute;
-  top: 50%;
+  top: 30%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
@@ -10866,3 +10872,39 @@ img {
       margin-top: 10px;
     }
 }
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--bs-primary);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+@keyframes beat {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.2);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  .animated-icon {
+    animation: beat 1s infinite;
+  }

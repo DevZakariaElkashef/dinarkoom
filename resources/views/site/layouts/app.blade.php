@@ -11,19 +11,50 @@
         <!-- Bootstrap icons-->
         <link href="{{ asset('site/css/bootstrap-icons.css') }}" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link href="{{ asset('site/css/styles.css') }}" rel="stylesheet" />
+
+        <link href="plugins/notification/snackbar/snackbar.min.css" rel="stylesheet" type="text/css" />
+
+        <style>
+            .sweet-notify {
+                position: absolute;
+                top: 20px;
+                right: 20px;
+                background-color: #007bff; /* Bootstrap primary color */
+                color: #fff;
+                padding: 10px;
+                border-radius: 4px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                max-width: 400px;
+            }
+            .sweet-notify .close {
+                color: #fff;
+                font-size: 20px;
+                font-weight: bold;
+                cursor: pointer;
+                top: 3%;
+                right: 3%;
+                position: absolute;
+            }
+          </style>
+
+          @yield('style')
+
     </head>
     <body class="">
         <!-- Responsive navbar-->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top navbar-default navbar-fixed-top" style="background-color: #121212">
             <div class="container px-5">
                 <a class="navbar-brand" href="#!">Start Bootstrap</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
                         <li class="nav-item"><a class="nav-link" href="{{ route('home') }}">{{ __('home') }}</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#!">{{ __("contact us") }}</a></li>
-                        <li class="nav-item"><a class="nav-link" href="about.html">{{ __('about us') }}</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ route('countact_us.index') }}">{{ __("contact us") }}</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ route('about_us.index') }}">{{ __('about us') }}</a></li>
                         <li class="nav-item"><a class="nav-link" href="winner.html">{{ __('Winners') }}</a></li>
                         <div class="dropdown">
                             <a href="#" class="dropdown-toggle nav-link" type="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -59,10 +90,33 @@
                             <li class="nav-item"><a class="nav-link active" aria-current="page" href="{{ route("login") }}">{{ __('Login') }}</a></li>
                             <li class="nav-item"><a class="nav-link" href="{{ route("register") }}">{{ __('Register') }}</a></li>
                         @else
-                            <li class="nav-item"><a onclick="$('#logoutForm').submit()" class="nav-link active" aria-current="page" href="javascript:void(0)">{{ __("Logout") }}</a></li>
-                            <form id="logoutForm" action="{{ route('logout') }}" method="post">
-                                @csrf
-                            </form>
+                        
+                            
+                            <div class="dropdown">
+                                <a href="#"  class="dropdown-toggle nav-link" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512">
+                                        <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                                        <path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z" fill="#ffffff"/>
+                                    </svg> 
+
+                                    <p class="ms-1 d-inline">{{ Auth::user()->name }}</p>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    @if(in_array(Auth::user()->role, [1, 0])) <li><a class="dropdown-item" href="{{ route('dashboard.index') }}">{{ __("Dashboard") }}</a></li> @endif
+                                    <li><a class="dropdown-item" href="{{ route('profile.index') }}">{{ __("Profile") }}</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('profile.editPassword') }}">{{ __("Change Password") }}</a></li>
+                                    <li>
+                                        <a class="dropdown-item" onclick="$('#logoutForm').submit()" href="#">
+                                            {{ __("Logout") }}
+                                        </a>
+                                
+                                        <form id="logoutForm" action="{{ route('logout') }}" method="post">
+                                            @csrf
+                                        </form>
+                                    </li>
+                                </ul>
+                            </div>
+
                         @endguest
                     </ul>
                 </div>
@@ -70,6 +124,14 @@
         </nav>
 
         @yield('content')
+
+        @if(session('message'))
+        <div class="sweet-notify">
+            {{ session('message') }}
+            <span class="close">&times;</span>
+        </div>
+        @endif
+        
 
         <!-- Footer-->
         <footer class="py-1 bg-dark">
@@ -84,6 +146,22 @@
         <!-- * *                               SB Forms JS                               * *-->
         <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js" integrity="sha512-uKQ39gEGiyUJl4AI6L+ekBdGKpGw4xJ55+xyJG7YFlJokPNYegn9KwQ3P8A7aFQAUtUsAQHep+d/lrGqrbPIDQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <script src="{{ asset('site/js/sb-forms-0.4.1.js') }}"></script>
+
+        <script>
+            const notifyDiv = document.querySelector('.sweet-notify');
+            const closeButton = document.querySelector('.sweet-notify .close');
+        
+            closeButton.addEventListener('click', () => {
+              notifyDiv.style.display = 'none';
+            });
+        
+            setTimeout(() => {
+              notifyDiv.style.display = 'none';
+            }, 2000);
+
+        </script>
+        @yield('script')
     </body>
 </html>

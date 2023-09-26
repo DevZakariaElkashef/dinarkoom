@@ -6,7 +6,7 @@
         <div class="container px-5 my-5 px-5 py-2">
             <div class="text-center mb-5">
                 <h2 class="fw-bolder">{{ __('Login') }}</h2>
-                <p class="lead mb-0">Don't have an account yet? <a class="text-danger" href="{{ route("register") }}">Register Now!</a></p>
+                <p class="lead mb-0">Don't have an account yet? <a class="text-primary" href="{{ route("register") }}">Register Now!</a></p>
             </div>
             <div class="row gx-5 justify-content-center">
                 <div class="col-lg-6">
@@ -39,7 +39,7 @@
                         <!---->
                         <!-- This is what your users will see when there is-->
                         <!-- an error submitting the form-->
-                        <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
+                        <div class="d-none" id="submitErrorMessage"><div class="text-center text-primary mb-3">Error sending message!</div></div>
                         <!-- Submit Button-->
                         <div class="d-grid"><button type="submit" class="btn btn-primary btn-lg" id="submitButton" type="submit">Submit</button></div>
                     </form>
