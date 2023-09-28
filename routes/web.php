@@ -1,11 +1,14 @@
 <?php
 
 use App\Http\Controllers\Admin\HomeController as AdminHomeController;
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Site\ContactUsController;
 use App\Http\Controllers\Site\ProfileController;
 use App\Http\Controllers\Site\TextPageController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,6 +37,13 @@ function () {
         Route::post('profile/update', [ProfileController::class, 'update'])->name('profile.update');
         Route::get('profile/edit-password', [ProfileController::class, 'editPassword'])->name('profile.editPassword');
         Route::post('profile/update-password', [ProfileController::class, 'updatePassword'])->name('profile.updatePassword');
+
+
+
+
+        // admin
+        Route::get('dashboard', [AdminHomeController::class, 'index'])->name('dashboard.index');
+        Route::resource('users', UserController::class);
     });
 
 
@@ -50,8 +60,7 @@ function () {
 
 
 
-    // admin
-    Route::get('dashboard', [AdminHomeController::class, 'index'])->name('dashboard.index');
+    
     
 });
 

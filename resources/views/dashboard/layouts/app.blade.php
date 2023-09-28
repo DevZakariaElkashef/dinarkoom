@@ -17,7 +17,8 @@
     <!-- END GLOBAL MANDATORY STYLES -->
 
     <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM STYLES -->
-    <link href="{{ asset("dashboard/>". app()->getLocale() ."/plugins/notification/snackbar/snackbar.min.css") }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset("dashboard/". app()->getLocale() ."/plugins/notification/snackbar/snackbar.min.css") }}" rel="stylesheet" type="text/css" />
+    
 
     <style>
         .layout-px-spacing {

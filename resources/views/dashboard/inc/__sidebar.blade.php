@@ -33,10 +33,10 @@
                 </a>
                 <ul class="submenu list-unstyled collapse" id="users-dropdown" data-parent="#accordionExample" style="">
                     <li class="">
-                        <a href="#"> {{ __("Add User") }} </a>
+                        <a href="{{ route('users.create') }}"> {{ __("Add User") }} </a>
                     </li>
                     <li class="">
-                        <a href="#"> {{ __("View User") }} </a>
+                        <a href="{{ route('users.index') }}"> {{ __("View User") }} </a>
                     </li>
                 </ul>
             </li>

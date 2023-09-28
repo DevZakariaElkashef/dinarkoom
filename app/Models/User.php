@@ -6,6 +6,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Validation\Rule;
 use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
@@ -47,4 +48,21 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+
+    public static function rules($userId = null)
+    {
+        $uniqueRule = Rule::unique('users')->ignore($userId);
+
+        $rules = [
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'email', $uniqueRule],
+            'civil_id' => ['required', $uniqueRule],
+            'phone' => ['required', 'string', 'max:255', $uniqueRule],
+            'addition_phone' => ['required', 'string', 'max:255', $uniqueRule],
+            'password' => ['nullable', 'min:8']
+        ];
+
+        return $rules;
+    }
 }
