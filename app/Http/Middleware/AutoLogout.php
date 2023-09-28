@@ -9,7 +9,7 @@ use Illuminate\Session\Store;
 class AutoLogout
 {
     protected $session;
-    protected $timeout = 900; // 15 minutes
+    protected $timeout = 10; // 15 minutes
 
     public function __construct(Store $session)
     {
@@ -26,6 +26,11 @@ class AutoLogout
             $lastActivity = $this->session->get('lastActivity');
 
             if (time() - $lastActivity > $this->timeout) {
+                // turn off online
+                $user = $request->user();
+                $user->is_online = 0;
+                $user->save();
+
                 Auth::logout();
                 $this->session->flush();
                 return redirect('/login')->with('message', 'Session expired. Please log in again.');

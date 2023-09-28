@@ -3,7 +3,7 @@
 
 <!-- Contact section-->
     <section class="bg-dark text-light py-5">
-        <div class="container px-5 my-5 px-5 py-2">
+        <div class="container px-5 my-5 px-5 py-5">
             <div class="text-center mb-5">
                 <h2 class="fw-bolder">{{ __('Login') }}</h2>
                 <p class="lead mb-0">Don't have an account yet? <a class="text-primary" href="{{ route("register") }}">Register Now!</a></p>
