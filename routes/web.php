@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\HomeController as AdminHomeController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\HomeController;
@@ -44,6 +45,7 @@ function () {
         // admin
         Route::get('dashboard', [AdminHomeController::class, 'index'])->name('dashboard.index');
         Route::resource('users', UserController::class);
+        Route::resource('banners', BannerController::class);
     });
 
 

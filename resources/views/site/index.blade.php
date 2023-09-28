@@ -8,7 +8,7 @@
                 <div class="col-lg-12">
                     <div class="text-center my-3">
                         <div class="row">
-                            <div class="col-md-4 hide-on-mobile "><img class="rounded-4" src="{{ asset('site/assets/img/header-sides.jpg') }}" alt=""></div>
+                            <div class="col-md-4 hide-on-mobile"><img class="rounded-4" src="{{ $leftImage ? Storage::url($leftImage) : asset('site/assets/img/header.gif') }}" alt=""></div>
                             <div class="col-md-4 header-circle-div">
                                 <img src="{{ asset('site/assets/img/header.gif') }}" alt="" style="width: 100%;">
                                 <div class="header-circle-text">
@@ -33,7 +33,7 @@
                                   </div>
 
                             </div>
-                            <div class="col-md-4 "><img class="rounded-4" src="{{ asset('site/assets/img/header-sides.jpg') }}" alt=""></div>
+                            <div class="col-md-4 "><img class="rounded-4" src="{{ $rightImage ? Storage::url($rightImage) : asset('site/assets/img/header.gif') }}" alt=""></div>
                         </div>
                         {{-- <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
                             

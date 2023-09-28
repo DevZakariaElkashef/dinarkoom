@@ -40,6 +40,27 @@
                     </li>
                 </ul>
             </li>
+           
+           
+            <li class="menu">
+                <a href="#banners-dropdown" data-toggle="collapse" class="dropdown-toggle">
+                    <div class="">
+                        <i class="fa-solid fa-images"></i>
+                        <span>{{ __("Sliders") }}</span>
+                    </div>
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                    </div>
+                </a>
+                <ul class="submenu list-unstyled collapse" id="banners-dropdown" data-parent="#accordionExample" style="">
+                    <li class="">
+                        <a href="{{ route('banners.create') }}"> {{ __("Add Slider") }} </a>
+                    </li>
+                    <li class="">
+                        <a href="{{ route('banners.index') }}"> {{ __("View Slider") }} </a>
+                    </li>
+                </ul>
+            </li>
 
             <li class="menu">
                 <a href="javascript:void(0);" aria-expanded="false" class="dropdown-toggle">
