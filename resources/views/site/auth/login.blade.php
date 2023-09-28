@@ -21,7 +21,7 @@
                         @csrf
                         <!-- Email address input-->
                         <div class="form-floating mb-3">
-                            <input class="form-control" name="email" id="email" type="email" placeholder="name@example.com" data-sb-validations="required,email" />
+                            <input class="form-control" name="email" id="email" type="email" placeholder="name@example.com" data-sb-validations="required,email" value="{{ old('email') }}" />
                             <label for="email">Email address</label>
                             @error('email')
                                 <div class="text-danger" >{{ $message }}</div>

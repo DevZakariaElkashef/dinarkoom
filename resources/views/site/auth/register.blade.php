@@ -22,7 +22,7 @@
                         @csrf
                         <!-- Name input-->
                         <div class="form-floating mb-3">
-                            <input class="form-control" name="name" id="userName" type="text" placeholder="User name" data-sb-validations="required" />
+                            <input class="form-control" value="{{ old('name') }}" name="name" id="userName" type="text" placeholder="User name" data-sb-validations="required" />
                             <label for="userName">Name as in Civil ID</label>
                             @error('name')
                                 <div class="text-danger" >{{ $message }}</div>
@@ -31,7 +31,7 @@
                         </div>
                         <!-- Civil no input-->
                         <div class="form-floating mb-3">
-                            <input class="form-control" name="civil_id" id="IdNubmer" type="text" placeholder="Civil ID number " data-sb-validations="required" />
+                            <input class="form-control" value="{{ old('civil_id') }}" name="civil_id" id="IdNubmer" type="text" placeholder="Civil ID number " data-sb-validations="required" />
                             <label for="IdNubmer">Civil ID number </label>
                             @error('civil_id')
                                 <div class="text-danger" >{{ $message }}</div>
@@ -39,7 +39,7 @@
                         </div>
                         <!-- MObile no input-->
                         <div class="form-floating mb-3">
-                            <input class="form-control" name="phone" id="mobile1" type="text" placeholder="Mobile number " data-sb-validations="required" />
+                            <input class="form-control" value="{{ old('phone') }}" name="phone" id="mobile1" type="text" placeholder="Mobile number " data-sb-validations="required" />
                             <label for="mobile1">Mobile number </label>
                             @error('phone')
                                 <div class="text-danger" >{{ $message }}</div>
@@ -47,7 +47,7 @@
                         </div>
                         <!-- MObile no input-->
                         <div class="form-floating mb-3">
-                            <input class="form-control" name="addition_phone" id="mobile2" type="text" placeholder="Additional mobile number " data-sb-validations="required" />
+                            <input class="form-control" value="{{ old("addition_phone") }}" name="addition_phone" id="mobile2" type="text" placeholder="Additional mobile number " data-sb-validations="required" />
                             <label for="mobile2">Additional mobile number </label>
                             @error('addition_phone')
                                 <div class="text-danger" >{{ $message }}</div>
@@ -55,7 +55,7 @@
                         </div>
                         <!-- Email address input-->
                         <div class="form-floating mb-3">
-                            <input class="form-control" name="email" id="email" type="email" placeholder="name@example.com" data-sb-validations="required,email" />
+                            <input class="form-control" value="email" name="email" id="email" type="email" placeholder="name@example.com" data-sb-validations="required,email" />
                             <label for="email">Email address</label>
                             @error('email')
                                 <div class="text-danger" >{{ $message }}</div>
@@ -63,7 +63,7 @@
                         </div>
                         <!-- Password input-->
                         <div class="form-floating mb-3">
-                            <input class="form-control" name="password" id="password" type="password" placeholder="Enter your password" data-sb-validations="required" />
+                            <input class="form-control"  name="password" id="password" type="password" placeholder="Enter your password" data-sb-validations="required" />
                             <label for="password">Password</label>
                             @error('password')
                                 <div class="text-danger" >{{ $message }}</div>

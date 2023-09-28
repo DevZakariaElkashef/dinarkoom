@@ -37,6 +37,7 @@
                                 @method('PUT')
                                 <input type="hidden" name="dir" value="0">
                                 <input onchange="RightPreviewImage(this)" type="file" name="right_image">
+                                <input type="text" class="form-control mt-2" name="url" placeholder="{{ __("URL") }}" value="{{ $rightImage ? $rightImage->url : '' }}">
                                 @error('right_image')
                                     <div class="text-danger">
                                         {{ $message }}
@@ -58,6 +59,7 @@
                                 @method('PUT')
                                 <input type="hidden" name="dir" value="1">
                                 <input type="file" onchange="leftPreviewImage(this)" name="left_image">
+                                <input type="text" class="form-control mt-2" name="url" placeholder="{{ __("URL") }}" value="{{ $leftImage ? $leftImage->url : '' }}">
                                 @error('left_image')
                                     <div class="text-danger">
                                         {{ $message }}

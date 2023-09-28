@@ -40,33 +40,34 @@
                     </li>
                 </ul>
             </li>
-           
-           
+
+            
+
             <li class="menu">
-                <a href="#banners-dropdown" data-toggle="collapse" class="dropdown-toggle">
+                <a href="#images-dropdown" data-toggle="collapse" class="dropdown-toggle">
                     <div class="">
-                        <i class="fa-solid fa-images"></i>
-                        <span>{{ __("Sliders") }}</span>
+                        <i class="fa-solid fa-image"></i>
+                        <span>{{ __("Images") }}</span>
                     </div>
                     <div>
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg>
                     </div>
                 </a>
-                <ul class="submenu list-unstyled collapse" id="banners-dropdown" data-parent="#accordionExample" style="">
+                <ul class="submenu list-unstyled collapse" id="images-dropdown" data-parent="#accordionExample" style="">
                     <li class="">
-                        <a href="{{ route('banners.create') }}"> {{ __("Add Slider") }} </a>
+                        <a href="{{ route('images.create') }}"> {{ __("Add Image") }} </a>
                     </li>
                     <li class="">
-                        <a href="{{ route('banners.index') }}"> {{ __("View Slider") }} </a>
+                        <a href="{{ route('images.index') }}"> {{ __("View Image") }} </a>
                     </li>
                 </ul>
             </li>
 
             <li class="menu">
-                <a href="javascript:void(0);" aria-expanded="false" class="dropdown-toggle">
+                <a href="{{ route('banners.index') }}" aria-expanded="false" class="dropdown-toggle">
                     <div class="">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-                        <span> Menu 1</span>
+                        <i class="fa-solid fa-images"></i>
+                        <span>{{ __("Sliders") }}</span>
                     </div>
                 </a>
             </li>

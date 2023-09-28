@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Banner;
+use App\Models\Image;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -24,9 +25,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $rightImage = Banner::where('dir', 0)->first() ? Banner::where('dir', 0)->first()->image : null;
-        $leftImage = Banner::where('dir', 1)->first() ? Banner::where('dir', 1)->first()->image : null;
+        $rightImage = Banner::where('dir', 0)->first() ? Banner::where('dir', 0)->first() : null;
+        $leftImage = Banner::where('dir', 1)->first() ? Banner::where('dir', 1)->first() : null;
+        $image = Image::where('active', 1)->first();
 
-        return view('site.index', compact('rightImage', 'leftImage'));
+        return view('site.index', compact('rightImage', 'leftImage', 'image'));
     }
 }

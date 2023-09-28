@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->tinyInteger('dir')->comment('0 => right - 1 => left');
             $table->string('image');
+            $table->string('url');
             $table->timestamps();
         });
     }
