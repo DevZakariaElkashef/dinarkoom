@@ -8,7 +8,14 @@
                 <div class="col-lg-12">
                     <div class="text-center my-3">
                         <div class="row">
-                            <div class="col-md-4 hide-on-mobile"><a href="{{ $leftImage ? $leftImage->url : "" }}"><img class="rounded-4" src="{{ $leftImage ? Storage::url($leftImage->image) : asset('site/assets/img/header-sides.jpg') }}" alt=""></a></div>
+                            <div class="col-md-4 hide-on-mobile">
+                                <div class="">
+                                    <a href="{{ $leftImage ? $leftImage->url : "" }}">
+                                        <img style="height: 481px !important;" class="rounded-4" src="{{ $leftImage ? Storage::url($leftImage->image) : asset('site/assets/img/header-sides.jpg') }}" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                            
                             <div class="col-md-4 header-circle-div">
                                 <img src="{{ asset('site/assets/img/header.gif') }}" alt="" style="width: 100%;">
                                 <div class="header-circle-text">
@@ -30,10 +37,17 @@
                                         </div>
                                       </div>
                                     </div>
-                                  </div>
+                                </div>
 
                             </div>
-                            <div class="col-md-4 "><a href="{{ $rightImage ? $leftImage->url : "" }}"><img class="rounded-4" src="{{ $rightImage ? Storage::url($rightImage->image) : asset('site/assets/img/header-sides.jpg') }}" alt=""></a></div>
+                            
+                            <div class="col-md-4 ">
+                                <div class="">
+                                    <a href="{{ $rightImage ? $leftImage->url : "" }}">
+                                        <img style="height: 481px !important;" class="rounded-4 w-100" src="{{ $rightImage ? Storage::url($rightImage->image) : asset('site/assets/img/header-sides.jpg') }}" alt="">
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                         {{-- <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
                             

@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\Admin\AboutUsController;
 use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\HomeController as AdminHomeController;
 use App\Http\Controllers\Admin\ImageController;
+use App\Http\Controllers\Admin\TextPageController as AdminTextPageController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Site\ContactUsController;
@@ -44,12 +46,19 @@ function () {
 
 
         // admin
-        Route::get('dashboard', [AdminHomeController::class, 'index'])->name('dashboard.index');
-        Route::resource('users', UserController::class);
-        Route::resource('banners', BannerController::class);
-        Route::resource('images', ImageController::class);
-        Route::get('images-active\{id}', [ImageController::class, 'active'])->name('images.active');
-        Route::get('images-deactive\{id}', [ImageController::class, 'deactive'])->name('images.deactive');
+        Route::prefix('admin')->group(function(){
+
+            Route::get('dashboard', [AdminHomeController::class, 'index'])->name('dashboard.index');
+            Route::resource('users', UserController::class);
+            Route::resource('banners', BannerController::class);
+            Route::resource('images', ImageController::class);
+            Route::get('images-active\{id}', [ImageController::class, 'active'])->name('images.active');
+            Route::get('images-deactive\{id}', [ImageController::class, 'deactive'])->name('images.deactive');
+            Route::get('page/about-us', [AdminTextPageController::class, 'aboutIndex'])->name('about-us.index');
+            Route::post('page/about-us', [AdminTextPageController::class, 'aboutStore'])->name('about-us.store');
+            Route::get('page/terms', [AdminTextPageController::class, 'termsIndex'])->name('page.terms.index');
+            Route::post('page/terms', [AdminTextPageController::class, 'termsStore'])->name('page.terms.store');
+        });
     });
 
 

@@ -19,7 +19,7 @@
         <style>
             .sweet-notify {
                 position: absolute;
-                top: 20px;
+                top: 80px;
                 right: 20px;
                 background-color: #007bff; /* Bootstrap primary color */
                 color: #fff;
@@ -29,6 +29,7 @@
                 justify-content: space-between;
                 align-items: center;
                 max-width: 400px;
+                padding-right: 20px
             }
             .sweet-notify .close {
                 color: #fff;
@@ -38,6 +39,7 @@
                 top: 3%;
                 right: 3%;
                 position: absolute;
+                
             }
           </style>
 
@@ -127,7 +129,7 @@
 
         @if(session('message'))
         <div class="sweet-notify">
-            {{ session('message') }}
+            <span>{{ session('message') }}</span>
             <span class="close">&times;</span>
         </div>
         @endif
@@ -160,6 +162,7 @@
             setTimeout(() => {
               notifyDiv.style.display = 'none';
             }, 2000);
+            
 
         </script>
         @yield('script')

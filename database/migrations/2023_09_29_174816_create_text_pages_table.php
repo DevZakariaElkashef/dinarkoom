@@ -13,8 +13,11 @@ return new class extends Migration
     {
         Schema::create('text_pages', function (Blueprint $table) {
             $table->id();
-            $table->text('name');
-            $table->longText('details');
+            $table->tinyInteger('type')->comment('0 => aboutus - 1 => terms');
+            $table->longText('content_ar');
+            $table->longText('content_en');
+            $table->longText('content_ur');
+            $table->longText('content_fil');
             $table->timestamps();
         });
     }
