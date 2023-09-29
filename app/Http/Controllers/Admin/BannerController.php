@@ -65,7 +65,7 @@ class BannerController extends Controller
 
     private function uploadeImage($file)
     {
-        $name = $file->store();
+        $name = $file->store('banners');
         return $name;
     }
 

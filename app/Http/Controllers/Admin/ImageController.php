@@ -53,7 +53,7 @@ class ImageController extends Controller
         }
 
         $data = $request->except('thumbnail', '_token');
-        $data['thumbnail'] = $request->thumbnail->store();
+        $data['thumbnail'] = $request->thumbnail->store('images');
         $data['user_id'] = $request->user()->id;
         Image::create($data);
 
@@ -96,7 +96,7 @@ class ImageController extends Controller
         
         if($request->has('thumbnail')) {
 
-            $data['thumbnail'] = $request->thumbnail->store();
+            $data['thumbnail'] = $request->thumbnail->store('images');
             Storage::delete($image->thumbnail);
         }
 

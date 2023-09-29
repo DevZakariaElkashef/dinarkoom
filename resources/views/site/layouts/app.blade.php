@@ -41,6 +41,9 @@
                 position: absolute;
                 
             }
+            html {
+                background: #292929;
+            }
           </style>
 
           @yield('style')

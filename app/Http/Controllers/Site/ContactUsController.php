@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Site;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreContactMessageReqeust;
+use App\Mail\ContactReplay;
 use App\Models\ContactUs;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class ContactUsController extends Controller
 {
@@ -19,6 +21,8 @@ class ContactUsController extends Controller
         $data = $request->all();
 
         ContactUs::create($data);
+
+        Mail::to($data['email'])->send(new ContactReplay($data['name']));
 
         return back()->with('message', __('Your Message Sent Successfully.'));
     }
