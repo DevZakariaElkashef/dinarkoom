@@ -21,7 +21,7 @@
                 <h1>Terms and Conditions</h1>
                 <h3>Dear : @auth {{ Auth::user()->name }} @endauth</h3>
                 <div class="terms-content">
-                    {!! $content !!}
+                    @if($content) {!! $content !!} @else <h2 class="text-center text-muted mt-5">Add Your Text</h2> @endif
                 </div>
             </div>
         </section>

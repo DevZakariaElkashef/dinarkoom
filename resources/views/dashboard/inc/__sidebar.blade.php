@@ -103,6 +103,16 @@
                 </a>
             </li>
 
+
+            <li class="menu">
+                <a href="{{ route('settings.index') }}" data-active="{{ isActiveRoute(['settings.index']) ? 'true' : 'false' }}" aria-expanded="{{ isActiveRoute(['settings.index']) ? 'true' : 'false' }}" class="dropdown-toggle">
+                    <div class="">
+                        <i class="fa-solid fa-gear"></i>
+                        <span>{{ __("Setting") }}</span>
+                    </div>
+                </a>
+            </li>
+
             
         </ul>
         

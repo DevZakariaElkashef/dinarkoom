@@ -10,8 +10,8 @@ class TextPageController extends Controller
 {
     public function aboutUs()
     {
-        $column = 'content_' . app()->getLocale();
-        $content = TextPage::where('type', 0)->first()->$column;
+        
+        $content = TextPage::where('type', 0)->first() ? TextPage::where('type', 0)->first()->{'content_' . app()->getLocale()} : null;
 
         return view('site.text_pages.about', compact('content'));
     }
@@ -19,7 +19,7 @@ class TextPageController extends Controller
     public function terms()
     {
         $column = 'content_' . app()->getLocale();
-        $content = TextPage::where('type', 1)->first()->$column;
+        $content = TextPage::where('type', 1)->first() ? TextPage::where('type', 1)->first()->{'content_' . app()->getLocale()} : null;
 
         return view('site.text_pages.terms', compact('content'));
     }

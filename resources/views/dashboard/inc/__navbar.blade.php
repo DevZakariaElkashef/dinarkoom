@@ -3,12 +3,12 @@
 
         <ul class="navbar-item theme-brand flex-row  text-center">
             <li class="nav-item theme-logo">
-                <a href="{{ route('dashboard.index') }}">
-                    <img src="{{ asset('dashboard/'. app()->getLocale() .'/assets/img/90x90.jpg') }}" class="navbar-logo" alt="logo">
+                <a href="{{ route('home') }}">
+                    <img src="{{ $app && $app->logo ? Storage::url($app->logo) : asset('dashboard/'. app()->getLocale() .'/assets/img/90x90.jpg') }}" class="navbar-logo" alt="logo">
                 </a>
             </li>
             <li class="nav-item theme-text">
-                <a href="{{ route('dashboard.index') }}" class="nav-link"> CORK </a>
+                <a href="{{ route('home') }}" class="nav-link"> {{ $app->{'name_' . app()->getLocale()} }} </a>
             </li>
         </ul>
 
