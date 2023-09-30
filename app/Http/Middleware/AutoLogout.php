@@ -9,7 +9,6 @@ use Illuminate\Session\Store;
 class AutoLogout
 {
     protected $session;
-    protected $timeout = 900000; // 15 minutes
 
     public function __construct(Store $session)
     {
@@ -25,7 +24,7 @@ class AutoLogout
         if ($this->session->has('lastActivity')) {
             $lastActivity = $this->session->get('lastActivity');
 
-            if (time() - $lastActivity > $this->timeout) {
+            if (time() - $lastActivity > env('SESSION_LIFETIME')) {
                 // turn off online
                 $user = $request->user();
                 $user->is_online = 0;
