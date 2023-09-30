@@ -22,7 +22,7 @@ class ContactUsController extends Controller
 
         ContactUs::create($data);
 
-        Mail::to($data['email'])->send(new ContactReplay($data['name']));
+        // Mail::to($data['email'])->send(new ContactReplay($data['name']));
 
         return back()->with('message', __('Your Message Sent Successfully.'));
     }

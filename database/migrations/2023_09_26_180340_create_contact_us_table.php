@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('email');
             $table->string('phone')->nullable();
             $table->longText('message');
+            $table->boolean('status')->default(0)->comment("0 => admin did'nt replay");
             $table->timestamps();
         });
     }

@@ -10,4 +10,12 @@ class ContactUs extends Model
     use HasFactory;
 
     protected $guarded = [];
+
+
+    public function replay()
+    {
+        return $this->hasMany(ContactUs::class, 'replay_id');
+    }
+
+
 }

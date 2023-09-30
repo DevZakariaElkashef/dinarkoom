@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AboutUsController;
 use App\Http\Controllers\Admin\BannerController;
+use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\HomeController as AdminHomeController;
 use App\Http\Controllers\Admin\ImageController;
 use App\Http\Controllers\Admin\TextPageController as AdminTextPageController;
@@ -78,6 +79,7 @@ function () {
             Route::post('page/about-us', [AdminTextPageController::class, 'aboutStore'])->name('about-us.store');
             Route::get('page/terms', [AdminTextPageController::class, 'termsIndex'])->name('page.terms.index');
             Route::post('page/terms', [AdminTextPageController::class, 'termsStore'])->name('page.terms.store');
+            Route::resource('contacts', ContactController::class);
         });
     });
 

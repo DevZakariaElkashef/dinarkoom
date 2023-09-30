@@ -94,6 +94,15 @@
                 </ul>
             </li>
 
+            <li class="menu">
+                <a href="{{ route('contacts.index') }}" data-active="{{ isActiveRoute(['contacts.index']) ? 'true' : 'false' }}" aria-expanded="{{ isActiveRoute(['contacts.index']) ? 'true' : 'false' }}" class="dropdown-toggle">
+                    <div class="">
+                        <i class="fa-solid fa-message"></i>
+                        <span>{{ __("Contact") }}</span>
+                    </div>
+                </a>
+            </li>
+
             
         </ul>
         
