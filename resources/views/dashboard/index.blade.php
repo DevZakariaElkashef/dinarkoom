@@ -17,7 +17,7 @@
     <div class="col-md-4">
         <div class="card">
             <div class="card-body text-center">
-                <h3>100</h3>
+                <h3>{{ $users }}</h3>
                 <p class="card-text">Users</p>
             </div>
             
@@ -26,7 +26,7 @@
     <div class="col-md-4">
         <div class="card">
             <div class="card-body text-center">
-                <h3>100</h3>
+                <h3>{{ $messages }}</h3>
                 <p class="card-text">Messages</p>
             </div>
             
