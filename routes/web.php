@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\HomeController as AdminHomeController;
 use App\Http\Controllers\Admin\ImageController;
+use App\Http\Controllers\Admin\ProfileController as AdminProfileController;
 use App\Http\Controllers\Admin\TextPageController as AdminTextPageController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\HomeController;
@@ -80,6 +81,8 @@ function () {
             Route::get('page/terms', [AdminTextPageController::class, 'termsIndex'])->name('page.terms.index');
             Route::post('page/terms', [AdminTextPageController::class, 'termsStore'])->name('page.terms.store');
             Route::resource('contacts', ContactController::class);
+            Route::get('profile', [AdminProfileController::class, 'index'])->name('admin-profile.index');
+            Route::put('profile', [AdminProfileController::class, 'update'])->name('admin-profile.update');
         });
     });
 
