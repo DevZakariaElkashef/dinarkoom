@@ -169,6 +169,8 @@
                                     <ul class="dropdown-menu">
                                         @if(in_array(Auth::user()->role, [1, 0])) <li><a class="dropdown-item" href="{{ route('dashboard.index') }}">{{ __("Dashboard") }}</a></li> @endif
                                         <li><a class="dropdown-item" href="{{ route('profile.index') }}">{{ __("Profile") }}</a></li>
+                                        <li><a class="dropdown-item" href="{{ route('relatives.index') }}">{{ __("Relatives") }}</a></li>
+
                                         <li><a class="dropdown-item" href="{{ route('profile.editPassword') }}">{{ __("Change Password") }}</a></li>
                                         <li>
                                             <a class="dropdown-item" onclick="$('#logoutForm').submit()" href="#">

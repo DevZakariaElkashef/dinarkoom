@@ -40,6 +40,29 @@
                     </li>
                 </ul>
             </li>
+            
+            <li class="menu">
+                <a href="#relatives-dropdown" data-active="{{ isActiveRoute(['admin-relatives.create', 'admin-relatives.index, relative-types']) ? 'true' : 'false' }}" aria-expanded="{{ isActiveRoute(['admin-relatives.create', 'admin-relatives.index, relative-types']) ? 'true' : 'false' }}" data-toggle="collapse" class="dropdown-toggle">
+                    <div class="">
+                        <i class="fa-solid fa-people-roof"></i>
+                        <span>{{ __("Relatives") }}</span>
+                    </div>
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                    </div>
+                </a>
+                <ul class="submenu list-unstyled collapse {{ isActiveRoute(['admin-relatives.create', 'admin-relatives.index', 'relative-types']) ? 'show' : '' }}" id="relatives-dropdown" data-parent="#accordionExample" style="">
+                    <li class="{{ isActiveRoute('admin-relatives.create') }}">
+                        <a href="{{ route('admin-relatives.create') }}"> {{ __("Add Relative") }} </a>
+                    </li>
+                    <li class="{{ isActiveRoute('admin-relatives.index') }}">
+                        <a href="{{ route('admin-relatives.index') }}"> {{ __("View Retiaves") }} </a>
+                    </li>
+                    <li class="{{ isActiveRoute('relative-types.index') }}">
+                        <a href="{{ route('relative-types.index') }}"> {{ __("Retiaves Types") }} </a>
+                    </li>
+                </ul>
+            </li>
 
             
 

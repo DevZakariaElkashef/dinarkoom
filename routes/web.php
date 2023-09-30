@@ -6,12 +6,15 @@ use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\HomeController as AdminHomeController;
 use App\Http\Controllers\Admin\ImageController;
 use App\Http\Controllers\Admin\ProfileController as AdminProfileController;
+use App\Http\Controllers\Admin\RelativeController as AdminRelativeController;
+use App\Http\Controllers\Admin\RelativeTypeController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\TextPageController as AdminTextPageController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Site\ContactUsController;
 use App\Http\Controllers\Site\ProfileController;
+use App\Http\Controllers\Site\RelativeController;
 use App\Http\Controllers\Site\TextPageController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
@@ -64,7 +67,7 @@ function () {
         Route::post('profile/update', [ProfileController::class, 'update'])->name('profile.update');
         Route::get('profile/edit-password', [ProfileController::class, 'editPassword'])->name('profile.editPassword');
         Route::post('profile/update-password', [ProfileController::class, 'updatePassword'])->name('profile.updatePassword');
-
+        Route::resource('relatives', RelativeController::class);
 
 
 
@@ -77,6 +80,8 @@ function () {
             Route::resource('images', ImageController::class);
             Route::resource('contacts', ContactController::class);
             Route::resource('settings', SettingController::class);
+            Route::resource('admin-relatives', AdminRelativeController::class);
+            Route::resource('relative-types', RelativeTypeController::class);
             Route::get('images-active\{id}', [ImageController::class, 'active'])->name('images.active');
             Route::get('images-deactive\{id}', [ImageController::class, 'deactive'])->name('images.deactive');
             Route::get('page/about-us', [AdminTextPageController::class, 'aboutIndex'])->name('about-us.index');

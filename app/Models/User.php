@@ -51,6 +51,11 @@ class User extends Authenticatable implements MustVerifyEmail
         'password' => 'hashed',
     ];
 
+    public function relatives()
+    {
+        return $this->hasMany(Relative::class);
+    }
+
 
     public static function rules($userId = null)
     {
