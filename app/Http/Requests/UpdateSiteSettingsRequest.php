@@ -43,6 +43,16 @@ class UpdateSiteSettingsRequest extends FormRequest
             "phone" => 'nullable|string',
             "email" => 'nullable|string',
             "address" => 'nullable|string',
+            'facebook_icon' => 'nullable',
+            'whatsapp_icon' => 'nullable',
+            'instagram_icon' => 'nullable',
+            'youtube_icon' => 'nullable',
+            'linkedin_icon' => 'nullable',
+            'snapchat_icon' => 'nullable',
+            'tiktok_icon' => 'nullable',
+            'pinterest_icon' => 'nullable',
+            'twitter_icon' => 'nullable',
+            'home_gif_images' => 'nullable'
         ];
     }
 }

@@ -108,7 +108,7 @@
             </div>
     
             <!-- Responsive navbar-->
-            <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #121212">
+            <nav class="navbar navbar-expand-lg navbar-dark" style="">
                 <div class="container px-5">
                     <a class="navbar-brand " href="{{ route('home') }}">
                         <img style="max-width: 50px;" src="{{ $app && $app->logo ? Storage::url($app->logo) : asset('dashboard/'. app()->getLocale() .'/assets/img/90x90.jpg') }}" class="navbar-logo" alt="logo">

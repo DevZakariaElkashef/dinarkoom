@@ -18,7 +18,7 @@
                         <button class="nav-link" id="social-tab" data-toggle="tab" data-target="#social" type="button" role="tab" aria-controls="social" aria-selected="false">social</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="contact-tab" data-toggle="tab" data-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">Contact</button>
+                        <button class="nav-link" id="contact-tab" data-toggle="tab" data-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">Site</button>
                     </li>
                 </ul>
                 <div class="tab-content" id="myTabContent">
@@ -102,67 +102,192 @@
                     </div>
                     <div class="tab-pane fade" id="social" role="tabpanel" aria-labelledby="social-tab">
 
-                        <div class="row mt-3">
-                            <div class="col-md-6 mb-2">
-                                <div class="form-group">
-                                    <label for="facebook">Facebook</label>
-                                    <input id="facebook" class="form-control" type="text" name="facebook" value="{{ $setts->facebook ?? '' }}">
+                        <div class="row mt-3 px-2">
+                            <div class="col-md-12 mb-2 border rounded">
+                                <label class="my-1">Facbook</label>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="facebookIcon">Icon</label>
+                                            <input id="facebookIcon" class="form-control" type="file" name="facebook_icon">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="facebook">Url</label>
+                                            <input id="facebook" class="form-control" type="text" name="facebook" value="{{ $setts->facebook ?? '' }}">
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-md-6 mb-2">
-                                <div class="form-group">
-                                    <label for="whatsapp">whatsapp</label>
-                                    <input id="whatsapp" class="form-control" type="text" name="whatsapp" value="{{ $setts->whatsapp ?? '' }}">
+
+
+                            <div class="col-md-12 my-2 border rounded">
+                                <label class="my-1">Whatsapp</label>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="whatsappIcon">Icon</label>
+                                            <input id="whatsappIcon" class="form-control" type="file" name="whatsapp_icon">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="whatsapp">Url</label>
+                                            <input id="whatsapp" class="form-control" type="text" name="whatsapp" value="{{ $setts->whatsapp ?? '' }}">
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+
+
+                            <div class="col-md-12 my-2 border rounded">
+                                <label class="my-2">youtube</label>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="youtubeIcon">Icon</label>
+                                            <input id="youtubeIcon" class="form-control" type="file" name="youtube_icon" >
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="youtube">Url</label>
+                                            <input id="youtube" class="form-control" type="text" name="youtube" value="{{ $setts->youtube ?? '' }}">
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+
+
+                            <div class="col-md-12 my-2 border rounded">
+                                <label class="my-1">linkedin</label>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="linkedinIcon">Icon</label>
+                                            <input id="linkedinIcon" class="form-control" type="file" name="linkedin_icon">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="linkedin">Url</label>
+                                            <input id="linkedin" class="form-control" type="text" name="linkedin" value="{{ $setts->linkedin ?? '' }}">
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+
+
+                            <div class="col-md-12 my-2 border rounded">
+                                <label class="my-1">twitter</label>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="twitterIcon">Icon</label>
+                                            <input id="twitterIcon" class="form-control" type="file" name="twitter_icon">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="twitter">Url</label>
+                                            <input id="twitter" class="form-control" type="text" name="twitter" value="{{ $setts->twitter ?? '' }}">
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-md-6 mb-2">
-                                <div class="form-group">
-                                    <label for="youtube">youtube</label>
-                                    <input id="youtube" class="form-control" type="text" name="youtube" value="{{ $setts->youtube ?? '' }}">
+
+
+                            <div class="col-md-12 my-2 border rounded">
+                                <label class="my-1">pinterest</label>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="pinterestIcon">Icon</label>
+                                            <input id="pinterestIcon" class="form-control" type="file" name="pinterest_icon">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="pinterest">Url</label>
+                                            <input id="pinterest" class="form-control" type="text" name="pinterest" value="{{ $setts->pinterest ?? '' }}">
+                                        </div>
+                                    </div>
                                 </div>
+                                
                             </div>
-                            <div class="col-md-6 mb-2">
-                                <div class="form-group">
-                                    <label for="linkedin">linkedin</label>
-                                    <input id="linkedin" class="form-control" type="text" name="linkedin" value="{{ $setts->linkedin ?? '' }}">
+
+
+                            <div class="col-md-12 my-2 border rounded">
+                                <label class="my-1">instagram</label>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="instagramIcon">Icon</label>
+                                            <input id="instagramIcon" class="form-control" type="file" name="instagram_icon">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="instagram">Url</label>
+                                            <input id="instagram" class="form-control" type="text" name="instagram" value="{{ $setts->instagram ?? '' }}">
+                                        </div>
+                                    </div>
                                 </div>
+                                
                             </div>
-                            <div class="col-md-6 mb-2">
-                                <div class="form-group">
-                                    <label for="twitter">twitter</label>
-                                    <input id="twitter" class="form-control" type="text" name="twitter" value="{{ $setts->twitter ?? '' }}">
+
+
+                            <div class="col-md-12 my-2 border rounded">
+                                <label class="my-1">snapchat</label>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="snapchatIcon">Icon</label>
+                                            <input id="snapchatIcon" class="form-control" type="file" name="snapchat_icon" >
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="snapchat">Url</label>
+                                            <input id="snapchat" class="form-control" type="text" name="snapchat" value="{{ $setts->snapchat ?? '' }}">
+                                        </div>
+                                    </div>
                                 </div>
+                                
                             </div>
-                            <div class="col-md-6 mb-2">
-                                <div class="form-group">
-                                    <label for="pinterest">pinterest</label>
-                                    <input id="pinterest" class="form-control" type="text" name="pinterest" value="{{ $setts->pinterest ?? '' }}">
+
+
+                            <div class="col-md-12 my-2 border rounded">
+                                <label class="my-1">tiktok</label>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="tiktokIcon">Icon</label>
+                                            <input id="tiktokIcon" class="form-control" type="file" name="tiktok_icon">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="tiktok">Url</label>
+                                            <input id="tiktok" class="form-control" type="text" name="tiktok" value="{{ $setts->tiktok ?? '' }}">
+                                        </div>
+                                    </div>
                                 </div>
+                                
                             </div>
-                            <div class="col-md-6 mb-2">
-                                <div class="form-group">
-                                    <label for="instagram">instagram</label>
-                                    <input id="instagram" class="form-control" type="text" name="instagram" value="{{ $setts->instagram ?? '' }}">
-                                </div>
-                            </div>
-                            <div class="col-md-6 mb-2">
-                                <div class="form-group">
-                                    <label for="snapchat">snapchat</label>
-                                    <input id="snapchat" class="form-control" type="text" name="snapchat" value="{{ $setts->snapchat ?? '' }}">
-                                </div>
-                            </div>
-                            <div class="col-md-6 mb-2">
-                                <div class="form-group">
-                                    <label for="tiktok">tiktok</label>
-                                    <input id="tiktok" class="form-control" type="text" name="tiktok" value="{{ $setts->tiktok ?? '' }}">
-                                </div>
-                            </div>
+
+
                         </div>
 
                     </div>
                     <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
 
                         <div class="row mt-3">
+
                             <div class="col-md-6 mb-2">
                                 <div class="form-group">
                                     <label for="phone">Phone</label>
@@ -204,6 +329,18 @@
         
         reader.onload = function(e) {
           document.getElementById('leftPreview').setAttribute('src', e.target.result);
+        }
+        
+        reader.readAsDataURL(input.files[0]);
+      }
+  }
+
+  function secondPreviewImage(input) {
+      if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        
+        reader.onload = function(e) {
+          document.getElementById('secondPreview').setAttribute('src', e.target.result);
         }
         
         reader.readAsDataURL(input.files[0]);
