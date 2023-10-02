@@ -90,7 +90,17 @@
                 <a href="{{ route('banners.index') }}" data-active="{{ isActiveRoute(['banners.index']) ? 'true' : 'false' }}" aria-expanded="{{ isActiveRoute(['banners.index']) ? 'true' : 'false' }}" class="dropdown-toggle">
                     <div class="">
                         <i class="fa-solid fa-images"></i>
-                        <span>{{ __("Sliders") }}</span>
+                        <span>{{ __("Ads") }}</span>
+                    </div>
+                </a>
+            </li>
+
+
+            <li class="menu">
+                <a href="{{ route('orders.index') }}" data-active="{{ isActiveRoute(['orders.index']) ? 'true' : 'false' }}" aria-expanded="{{ isActiveRoute(['orders.index']) ? 'true' : 'false' }}" class="dropdown-toggle">
+                    <div class="">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <span>{{ __("Orders") }}</span>
                     </div>
                 </a>
             </li>
@@ -121,7 +131,7 @@
                 <a href="{{ route('contacts.index') }}" data-active="{{ isActiveRoute(['contacts.index']) ? 'true' : 'false' }}" aria-expanded="{{ isActiveRoute(['contacts.index']) ? 'true' : 'false' }}" class="dropdown-toggle">
                     <div class="">
                         <i class="fa-solid fa-message"></i>
-                        <span>{{ __("Contact") }}</span>
+                        <span>{{ __("messages") }}</span>
                     </div>
                 </a>
             </li>

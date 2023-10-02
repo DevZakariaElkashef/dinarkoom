@@ -6,6 +6,7 @@
             /* position: absolute; */
             /* top: -255px; */
             right: -15px;
+            background-color: #000;
         }
     </style>
 @endsection
@@ -35,7 +36,7 @@
                                     <p class="text-light header-circle-sentence">Prize of the month</p>
                                 </div>
 
-                                <div class="card  border-0 mb-3 mt-3 text-light image-to-buy" style="max-width: 300px;background: #292929;">
+                                <div class="card  border-0 mb-3 mt-3 text-light image-to-buy" style="max-width: 300px;background: #000;">
                                     <div class="row g-0">
                                         <div class="col-md-4">
                                             <img class="rounded-2" src="{{ $image ? Storage::url($image->thumbnail) : asset('site/assets/img/header-sides.jpg') }}" class="img-fluid rounded-start" alt="...">

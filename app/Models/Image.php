@@ -16,6 +16,13 @@ class Image extends Model
         return $this->belongsTo(User::class, 'user_id')->where("role", '!=', 2);
     }
 
+    public function scopeOnline($query)
+    {
+        $currentMonth = date('n'); // Get the current month number
+        return $query->where('active', 1)
+                    ->where('month', $currentMonth);
+    }
+
 
     public static function rules()
     {

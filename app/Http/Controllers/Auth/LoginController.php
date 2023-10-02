@@ -41,6 +41,10 @@ class LoginController extends Controller
     {
         $user->is_online = true;
         $user->save();
+
+        if (auth('guest')->check()) {
+            auth('guest')->logout();
+        }
     }
 
 

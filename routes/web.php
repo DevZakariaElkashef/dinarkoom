@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\HomeController as AdminHomeController;
 use App\Http\Controllers\Admin\ImageController;
+use App\Http\Controllers\Admin\OrderController as AdminOrderController;
 use App\Http\Controllers\Admin\ProfileController as AdminProfileController;
 use App\Http\Controllers\Admin\RelativeController as AdminRelativeController;
 use App\Http\Controllers\Admin\RelativeTypeController;
@@ -13,6 +14,8 @@ use App\Http\Controllers\Admin\TextPageController as AdminTextPageController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Site\ContactUsController;
+use App\Http\Controllers\Site\GuestController;
+use App\Http\Controllers\Site\OrderController;
 use App\Http\Controllers\Site\ProfileController;
 use App\Http\Controllers\Site\RelativeController;
 use App\Http\Controllers\Site\TextPageController;
@@ -61,6 +64,12 @@ function () {
 
     Route::get('/', [HomeController::class, 'index'])->name('home');
 
+    Route::get('guest/register', [GuestController::class, 'register'])->name('guest.register');
+    Route::post('guest/register', [GuestController::class, 'store'])->name('guest.store');
+
+
+
+
     Route::middleware(['auth', 'verified'])->group(function(){
 
         Route::get('profile', [ProfileController::class, 'index'])->name('profile.index');
@@ -90,6 +99,9 @@ function () {
             Route::post('page/terms', [AdminTextPageController::class, 'termsStore'])->name('page.terms.store');
             Route::get('profile', [AdminProfileController::class, 'index'])->name('admin-profile.index');
             Route::put('profile', [AdminProfileController::class, 'update'])->name('admin-profile.update');
+            Route::get('orders', [AdminOrderController::class, 'index'])->name('orders.index');
+            Route::delete('orders/{id}', [AdminOrderController::class, 'destroy'])->name('orders.destroy');
+            Route::put('orders/{id}', [AdminOrderController::class, 'update'])->name('orders.update');
         });
     });
 
@@ -101,6 +113,9 @@ function () {
 
     Route::get("contact-us", [ContactUsController::class, 'index'])->name('countact_us.index');
     Route::post("contact-us", [ContactUsController::class, 'store'])->name('countact_us.store');
+
+    Route::get('checkout', [OrderController::class, 'checkout'])->name('order.checkout');
+    Route::post('order/store', [OrderController::class, 'store'])->name('order.store');
 
 
 

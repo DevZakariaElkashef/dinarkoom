@@ -35,8 +35,13 @@
                                 <div class="text-danger" >{{ $message }}</div>
                             @enderror
                         </div>
-                        <label  class="text-light">
-                            <input type="checkbox" checked="checked" name="remember"> {{ __("Remember Me") }}
+                        <label  class="text-light mb-1 d-flex justify-content-between">
+                            <div class="">
+                                <input type="checkbox" checked="checked" name="remember"> {{ __("Remember Me") }}
+                            </div>
+                            <div class="">
+                                <a class="text-light" href="{{ route('password.request') }}">Forget Password?</a>
+                            </div>
                         </label>
                         <!-- Submit error message-->
                         <!---->
@@ -45,6 +50,7 @@
                         <div class="d-none" id="submitErrorMessage"><div class="text-center text-primary mb-3">Error sending message!</div></div>
                         <!-- Submit Button-->
                         <div class="d-grid"><button type="submit" class="btn btn-primary btn-lg" id="submitButton" type="submit">Submit</button></div>
+                        <div class="d-grid mt-2"><a href="{{ url('/') }}" class="btn btn-primary btn-lg">Continue As Guest</a></div>
                     </form>
                 </div>
             </div>

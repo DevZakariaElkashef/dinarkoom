@@ -40,6 +40,11 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+
+        'guest' => [
+            'driver' => 'session',
+            'provider' => 'guests',
+        ],
     ],
 
     /*
@@ -65,10 +70,12 @@ return [
             'model' => App\Models\User::class,
         ],
 
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
+        'guests' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\User::class,
+            'table' => 'users',
+            'where' => ['is_guest' => true],
+        ],
     ],
 
     /*
@@ -94,6 +101,13 @@ return [
         'users' => [
             'provider' => 'users',
             'table' => 'password_reset_tokens',
+            'expire' => 60,
+            'throttle' => 60,
+        ],
+
+        'guests' => [
+            'provider' => 'guests',
+            'table' => 'password_resets',
             'expire' => 60,
             'throttle' => 60,
         ],

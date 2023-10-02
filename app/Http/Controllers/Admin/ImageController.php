@@ -55,10 +55,16 @@ class ImageController extends Controller
         $data = $request->except('thumbnail', '_token');
         $data['thumbnail'] = $request->thumbnail->store('images');
         $data['user_id'] = $request->user()->id;
-        Image::create($data);
+        $image = Image::create($data);
+
+        if ($image->active) {
+            foreach(Image::where('id', '!=', $image->id)->get() as $image) {
+                $image->active = 0;
+                $image->save();
+            }
+        }
 
         return back()->with('message', __("added_Image_successfully"));
-
 
     }
 
