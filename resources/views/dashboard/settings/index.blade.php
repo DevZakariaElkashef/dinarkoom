@@ -313,7 +313,9 @@
        
             </div>
             <div class="card-footer d-flex justify-content-end">
+                @if(auth()->user()->can('edit settings'))
                 <button type="submit" class="btn btn-primary">Update</button>
+                @endif
             </div>
         </form>
         </div>

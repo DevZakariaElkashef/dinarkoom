@@ -1,46 +1,48 @@
-@extends('dashboard.layouts.app')
-
-
-@section('breadcrumb')
-<nav class="breadcrumb-one" aria-label="breadcrumb">
-    <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="{{ route("dashboard.index") }}">{{ __("Dashboard") }}</a></li>
-        <li class="breadcrumb-item"><a href="{{ route("users.index") }}">{{ __("Users") }}</a></li>
-        <li class="breadcrumb-item active" aria-current="page"><span>{{ __("Add") }}</span></li>
-    </ol>
-</nav>
-@endsection
-
-@section('content')
-<div class="card mt-3">
-    <div class="card-header ">
-        <div class="p-2 row justify-content-between">
-            <h4>{{ __("Add_Users") }}</h4>
-            
-            <a href="{{ route('users.index') }}" class="btn btn-secondary">{{ __("Back") }}</a>
+{{-- delete user modal --}}
+<div class="modal fade" id="deleteUserModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">{{ __("Delete User") }}</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
         </div>
+        <form id="deleteUserForm" method="post">
+            @csrf
+            @method('DELETE')
+            <div class="modal-body text-center fs-1">
+                <p class="text-bold">{{ __("Are_You_sure!") }}</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ __("Close") }}</button>
+              <button type="submit" class="btn btn-danger">{{ __("Delete") }}</button>
+            </div>
+        </form>
+      </div>
     </div>
-    <form action="{{ route("users.store") }}" method="post">
-        @csrf
-        <div class="card-body">
-            <div class="form-group">
+</div>
+
+
+{{-- View user modal --}}
+<div class="modal fade" id="editUserModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{ __("Update_User") }}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+        <form id="updateUserForm" method="post">
+          @csrf
+          @method('PUT')
+          <div class="modal-body ">
+
+              <div class="form-group">
                 <label for="editName">{{ __("Name") }}</label>
                 <input name="name" type="text" class="form-control" id="editName">
                 @error('name')
-                  <div class="text-danger">
-                    {{ $message }}
-                  </div>
-                @enderror
-              </div>
-            
-              <div class="form-group">
-                <label for="role_id">{{ __("Role") }}</label>
-                <select name="role_id" class="form-control" id="role_id">
-                  @foreach ($roles as $role)
-                    <option value="{{ $role->id }}">{{ $role->name }}</option>
-                  @endforeach
-                </select>
-                @error('role_id')
                   <div class="text-danger">
                     {{ $message }}
                   </div>
@@ -95,25 +97,13 @@
                     {{ $message }}
                   </div>
                 @enderror
-            
-        </div>
-
-        <div class="card-footer d-flex justify-content-end">
-            <button class="btn btn-primary" type="submit">{{ __("Save") }}</button>
-        </div>
-    </form>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ __("Close") }}</button>
+              <button type="submit" class="btn btn-primary">{{ __("Update") }}</button>
+            </div>
+          </form>
+    </div>
+  </div>
 </div>
-@endsection
-
-
-@section('script')
-@if(session('message'))
-<script>
-    Snackbar.show({
-        text: '{{ session("message") }}',
-        pos: 'top-right',
-        duration: 5000,
-    });
-</script>
-@endif
-@endsection

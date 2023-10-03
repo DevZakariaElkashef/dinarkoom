@@ -6,6 +6,7 @@ use App\Models\Banner;
 use App\Models\Image;
 use App\Models\Order;
 use Illuminate\Http\Request;
+use Spatie\Permission\Models\Permission;
 
 class HomeController extends Controller
 {

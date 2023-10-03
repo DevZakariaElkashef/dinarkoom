@@ -1,7 +1,6 @@
 @extends('dashboard.layouts.app')
 
 @section('style')
-
     <style>
         .contact-thumbnail {
             width: 100px;
@@ -20,19 +19,17 @@
             justify-content: center;
             align-items: center;
         }
-
     </style>
-
 @endsection
 
 @section('breadcrumb')
-<nav class="breadcrumb-one" aria-label="breadcrumb">
-    <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="{{ route("dashboard.index") }}">{{ __("Dashboard") }}</a></li>
-        <li class="breadcrumb-item"><a href="{{ route("orders.index") }}">{{ __("Orders") }}</a></li>
-        <li class="breadcrumb-item active" aria-current="page"><span>{{ __("view") }}</span></li>
-    </ol>
-</nav>
+    <nav class="breadcrumb-one" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{{ route('dashboard.index') }}">{{ __('Dashboard') }}</a></li>
+            <li class="breadcrumb-item"><a href="{{ route('orders.index') }}">{{ __('Orders') }}</a></li>
+            <li class="breadcrumb-item active" aria-current="page"><span>{{ __('view') }}</span></li>
+        </ol>
+    </nav>
 @endsection
 
 
@@ -40,7 +37,7 @@
     <div class="card mt-3">
         <div class="card-header ">
             <div class="p-2 row justify-content-between">
-                <h4>{{ __("View contacts") }}</h4>
+                <h4>{{ __('View contacts') }}</h4>
             </div>
         </div>
         <div class="card-body">
@@ -49,48 +46,55 @@
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th class="text-center">{{ __("User") }}</th>
-                            <th class="text-center">{{ __("purchased for") }}</th>
-                            <th class="text-center">{{ __("Status") }}</th>
-                            <th class="text-center">{{ __("Date") }}</th>
-                            <th class="">{{ __("Action") }}</th>
+                            <th class="text-center">{{ __('User') }}</th>
+                            <th class="text-center">{{ __('purchased for') }}</th>
+                            <th class="text-center">{{ __('Status') }}</th>
+                            <th class="text-center">{{ __('Date') }}</th>
+                            <th class="">{{ __('Action') }}</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($orders as $order)
                             <tr>
                                 <td class="text-center">{{ $loop->iteration }}</td>
-                                
+
                                 <td class="text-center">{{ $order->user->name }}</td>
-                                <td class="text-center">@if($order->relative_id) {{ $order->relative->type->{'name_'. app()->getLocale()} }} @else {{ __("hemself") }} @endif</td>
                                 <td class="text-center">
-                                    @if($order->status)
-                                        <span class="badge badge-success">{{ __("success") }}</span>
+                                    @if ($order->relative_id)
+                                        {{ $order->relative->type->{'name_' . app()->getLocale()} }}
                                     @else
-                                        <span class="badge badge-danger">{{ __("failed") }}</span>
+                                        {{ __('hemself') }}
+                                    @endif
+                                </td>
+                                <td class="text-center">
+                                    @if ($order->status)
+                                        <span class="badge badge-success">{{ __('success') }}</span>
+                                    @else
+                                        <span class="badge badge-danger">{{ __('failed') }}</span>
                                     @endif
                                 </td>
                                 <td class="text-center">{{ $order->created_at->format('y/m/d -- h-i-s a') }}</td>
                                 <td class="">
-                                    <a href="#"
-                                        class="m-1 edit-order-btn"
-                                        data-id="{{ $order->id }}"
+                                    <a href="#" class="m-1 edit-order-btn" data-id="{{ $order->id }}"
                                         data-date="{{ $order->date }}"
                                         data-status="{{ $order->status ? 'success' : 'faild' }}"
                                         data-user_name="{{ $order->user->name }}"
                                         data-user_email="{{ $order->user->email }}"
                                         data-user_phone="{{ $order->user->phone }}"
                                         data-user_addition_phone="{{ $order->user->addition_phone }}"
-                                        data-user_civil_id="{{ $order->user->civil_id }}"
-                                        data-toggle="modal" 
+                                        data-user_civil_id="{{ $order->user->civil_id }}" data-toggle="modal"
                                         data-target="#editOrderModal">
                                         <i class="fa-solid fa-eye"></i>
-                                        </a>
-                                    <a href="#" class="delete-orders-btn m-1" data-id="{{ $order->id }}" data-toggle="modal" data-target="#deleteOrderModal"><i class="fa-solid fa-trash"></i></a>
+                                    </a>
+                                    @if (auth()->user()->can('delete orders'))
+                                        <a href="#" class="delete-orders-btn m-1" data-id="{{ $order->id }}"
+                                            data-toggle="modal" data-target="#deleteOrderModal"><i
+                                                class="fa-solid fa-trash"></i></a>
+                                    @endif
                                 </td>
                             </tr>
                         @endforeach
-                        
+
                     </tbody>
                 </table>
 
@@ -101,28 +105,27 @@
 
 
             @include('dashboard.orders.__modals')
-            
+
         </div>
     </div>
 @endsection
 
 
 @section('script')
-<script src="https://cdn.ckeditor.com/ckeditor5/39.0.2/classic/ckeditor.js"></script>
+    <script src="https://cdn.ckeditor.com/ckeditor5/39.0.2/classic/ckeditor.js"></script>
     <script>
-
         // delete usre
-        $(document).on('click', '.delete-orders-btn', function(){
+        $(document).on('click', '.delete-orders-btn', function() {
             let id = $(this).data('id');
 
-            let url = '{{ route("orders.destroy", ":id") }}';
+            let url = '{{ route('orders.destroy', ':id') }}';
             url = url.replace(':id', id);
             console.log(url);
             $('#deleteOrderForm').attr('action', url);
         })
 
         // show user info in the modal
-        $(document).on('click', '.edit-order-btn', function(){
+        $(document).on('click', '.edit-order-btn', function() {
             let id = $(this).data("id");
             let date = $(this).data("date");
             let status = $(this).data("status");
@@ -141,23 +144,20 @@
             $('#OrderStatus').text(status);
             $('#OrderDate').text(date);
 
-            let url = '{{ route("orders.update", ":id") }}'
+            let url = '{{ route('orders.update', ':id') }}'
             url = url.replace(':id', id);
             $('#updateOrderForm').attr('action', url)
 
         })
-
     </script>
 
-@if(session('message'))
+    @if (session('message'))
         <script>
             Snackbar.show({
-                text: '{{ session("message") }}',
+                text: '{{ session('message') }}',
                 pos: 'top-right',
                 duration: 5000,
             });
         </script>
-@endif
-
-
+    @endif
 @endsection

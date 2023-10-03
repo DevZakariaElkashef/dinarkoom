@@ -188,7 +188,7 @@
                                         <p class="ms-1 d-inline">{{ Auth::user()->name }}</p>
                                     </a>
                                     <ul class="dropdown-menu">
-                                        @if(in_array(Auth::user()->role, [1, 0])) <li><a class="dropdown-item" href="{{ route('dashboard.index') }}">{{ __("Dashboard") }}</a></li> @endif
+                                        @if(auth()->user()->can('see dashboard')) <li><a class="dropdown-item" href="{{ route('dashboard.index') }}">{{ __("Dashboard") }}</a></li> @endif
                                         <li><a class="dropdown-item" href="{{ route('profile.index') }}">{{ __("Profile") }}</a></li>
                                         <li><a class="dropdown-item" href="{{ route('relatives.index') }}">{{ __("Relatives") }}</a></li>
                                         @if(Auth::check() && Auth::user()->orders)

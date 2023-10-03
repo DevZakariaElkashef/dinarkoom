@@ -1,7 +1,6 @@
 @extends('dashboard.layouts.app')
 
 @section('style')
-
     <style>
         .contact-thumbnail {
             width: 100px;
@@ -20,19 +19,17 @@
             justify-content: center;
             align-items: center;
         }
-
     </style>
-
 @endsection
 
 @section('breadcrumb')
-<nav class="breadcrumb-one" aria-label="breadcrumb">
-    <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="{{ route("dashboard.index") }}">{{ __("Dashboard") }}</a></li>
-        <li class="breadcrumb-item"><a href="{{ route("contacts.index") }}">{{ __("Contacts") }}</a></li>
-        <li class="breadcrumb-item active" aria-current="page"><span>{{ __("view") }}</span></li>
-    </ol>
-</nav>
+    <nav class="breadcrumb-one" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{{ route('dashboard.index') }}">{{ __('Dashboard') }}</a></li>
+            <li class="breadcrumb-item"><a href="{{ route('contacts.index') }}">{{ __('Contacts') }}</a></li>
+            <li class="breadcrumb-item active" aria-current="page"><span>{{ __('view') }}</span></li>
+        </ol>
+    </nav>
 @endsection
 
 
@@ -40,7 +37,7 @@
     <div class="card mt-3">
         <div class="card-header ">
             <div class="p-2 row justify-content-between">
-                <h4>{{ __("View contacts") }}</h4>
+                <h4>{{ __('View contacts') }}</h4>
             </div>
         </div>
         <div class="card-body">
@@ -49,50 +46,50 @@
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>{{ __("Name") }}</th>
-                            <th>{{ __("Phone") }}</th>
-                            <th>{{ __("Email") }}</th>
-                            <th>{{ __("Message") }}</th>
-                            <th>{{ __("Status") }}</th>
-                            <th>{{ __("Date") }}</th>
-                            <th>{{ __("Action") }}</th>
+                            <th>{{ __('Name') }}</th>
+                            <th>{{ __('Phone') }}</th>
+                            <th>{{ __('Email') }}</th>
+                            <th>{{ __('Message') }}</th>
+                            <th>{{ __('Status') }}</th>
+                            <th>{{ __('Date') }}</th>
+
+                            <th>{{ __('Action') }}</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($contacts as $contact)
                             <tr>
                                 <td class="text-center">{{ $loop->iteration }}</td>
-                                
+
                                 <td class="text-center">{{ $contact->name }}</td>
                                 <td class="text-center">{{ $contact->phone }}</td>
                                 <td class="text-center">{{ $contact->email }}</td>
                                 <td class="text-center">{{ $contact->message }}</td>
                                 <td class="text-center">
-                                    @if($contact->status)
-                                        <span class="badge badge-success">{{ __("Replaid") }}</span>
+                                    @if ($contact->status)
+                                        <span class="badge badge-success">{{ __('Replaid') }}</span>
                                     @else
-                                        <span class="badge badge-danger">{{ __("Not Replaid") }}</span>
+                                        <span class="badge badge-danger">{{ __('Not Replaid') }}</span>
                                     @endif
                                 </td>
                                 <td class="text-center">{{ $contact->created_at->diffForHumans() }}</td>
                                 <td class="">
-                                    <a href="#"
-                                        class="m-1 edit-contact-btn"
-                                        data-id="{{ $contact->id }}"
-                                        data-name="{{ $contact->name }}"
-                                        data-phone="{{ $contact->phone }}"
-                                        data-email="{{ $contact->email }}"
-                                        data-message="{{ $contact->message }}"
-                                        data-replay_message="@if($contact->replay->first()) {{ strip_tags($contact->replay->first()->message) }} @endif"
-                                        data-toggle="modal" 
-                                        data-target="#editContactModal">
+                                    <a href="#" class="m-1 edit-contact-btn" data-id="{{ $contact->id }}"
+                                        data-name="{{ $contact->name }}" data-phone="{{ $contact->phone }}"
+                                        data-email="{{ $contact->email }}" data-message="{{ $contact->message }}"
+                                        data-replay_message="@if ($contact->replay->first()) {{ strip_tags($contact->replay->first()->message) }} @endif"
+                                        data-toggle="modal" data-target="#editContactModal">
                                         <i class="fa-solid fa-eye"></i>
-                                        </a>
-                                    <a href="#" class="delete-contacts-btn m-1" data-id="{{ $contact->id }}" data-toggle="modal" data-target="#deleteContactModal"><i class="fa-solid fa-trash"></i></a>
+                                    </a>
+                                    @if (auth()->user()->can('delete messages'))
+                                        <a href="#" class="delete-contacts-btn m-1" data-id="{{ $contact->id }}"
+                                            data-toggle="modal" data-target="#deleteContactModal"><i
+                                                class="fa-solid fa-trash"></i></a>
+                                    @endif
                                 </td>
                             </tr>
                         @endforeach
-                        
+
                     </tbody>
                 </table>
 
@@ -103,28 +100,27 @@
 
 
             @include('dashboard.contacts.__modals')
-            
+
         </div>
     </div>
 @endsection
 
 
 @section('script')
-<script src="https://cdn.ckeditor.com/ckeditor5/39.0.2/classic/ckeditor.js"></script>
+    <script src="https://cdn.ckeditor.com/ckeditor5/39.0.2/classic/ckeditor.js"></script>
     <script>
-
         // delete usre
-        $(document).on('click', '.delete-contacts-btn', function(){
+        $(document).on('click', '.delete-contacts-btn', function() {
             let id = $(this).data('id');
 
-            let url = '{{ route("contacts.destroy", ":id") }}';
+            let url = '{{ route('contacts.destroy', ':id') }}';
             url = url.replace(':id', id);
             console.log(url);
             $('#deleteContactForm').attr('action', url);
         })
 
         // show user info in the modal
-        $(document).on('click', '.edit-contact-btn', function(){
+        $(document).on('click', '.edit-contact-btn', function() {
             let name = $(this).data("name");
             let phone = $(this).data("phone");
             let email = $(this).data("email");
@@ -139,51 +135,47 @@
             $('#replaymessage').text(replay_message);
             $('#replayId').val(id);
 
-            let url = '{{ route("contacts.update", ":id") }}'
+            let url = '{{ route('contacts.update', ':id') }}'
             url = url.replace(':id', id);
 
             $('#updateContactForm').attr('action', url)
-            let storeUrl = '{{ route("contacts.store") }}';
+            let storeUrl = '{{ route('contacts.store') }}';
 
             $('#replayContactForm').attr('action', storeUrl)
-            
+
         })
 
-        $(document).on('click', '.contact-thumbnail', function(){
+        $(document).on('click', '.contact-thumbnail', function() {
             $(this).toggleClass('fullscreen');
         });
 
         function leftPreviewcontact(input) {
             if (input.files && input.files[0]) {
                 var reader = new FileReader();
-                
+
                 reader.onload = function(e) {
-                document.getElementById('leftPreview').setAttribute('src', e.target.result);
+                    document.getElementById('leftPreview').setAttribute('src', e.target.result);
                 }
-                
+
                 reader.readAsDataURL(input.files[0]);
             }
         }
 
 
         ClassicEditor
-        .create( document.querySelector( '#message' ) )
-        .catch( error => {
-            console.error( error );
-        } );
-        
-
+            .create(document.querySelector('#message'))
+            .catch(error => {
+                console.error(error);
+            });
     </script>
 
-@if(session('message'))
+    @if (session('message'))
         <script>
             Snackbar.show({
-                text: '{{ session("message") }}',
+                text: '{{ session('message') }}',
                 pos: 'top-right',
                 duration: 5000,
             });
         </script>
-@endif
-
-
+    @endif
 @endsection

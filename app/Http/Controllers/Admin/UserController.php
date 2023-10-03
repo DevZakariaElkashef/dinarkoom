@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
+use Spatie\Permission\Models\Role;
 
 class UserController extends Controller
 {
@@ -18,7 +19,8 @@ class UserController extends Controller
     public function index(Request $request)
     {
         $users = User::where('id', '!=', $request->user()->id)->latest()->paginate(10);
-        return view("dashboard.users.index", compact('users'));
+        $roles = Role::all();
+        return view("dashboard.users.index", compact('users', 'roles'));
     }
 
     /**
@@ -26,7 +28,8 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('dashboard.users.create');
+        $roles = Role::all();
+        return view('dashboard.users.create', compact('roles'));
     }
 
     /**
@@ -44,7 +47,10 @@ class UserController extends Controller
         $data = $request->except('password');
         $data['password'] = Hash::make($request->password);
 
-        User::create($data);
+        $role = Role::find($data['role_id']);
+
+        $user = User::create($data);
+        $user->assignRole($role);
 
         return back()->with('message', __("User_Added_Successfully."));
         
@@ -78,7 +84,9 @@ class UserController extends Controller
      */
     public function destroy(string $id)
     {
-        User::findOrFail($id)->delete();
+        $user = User::findOrFail($id);
+        
+        $user->delete();
         
         return back()->with('message', __("User_Deleted_Successfully."));
     }

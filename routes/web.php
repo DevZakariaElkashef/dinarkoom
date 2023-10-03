@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\OrderController as AdminOrderController;
 use App\Http\Controllers\Admin\ProfileController as AdminProfileController;
 use App\Http\Controllers\Admin\RelativeController as AdminRelativeController;
 use App\Http\Controllers\Admin\RelativeTypeController;
+use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\TextPageController as AdminTextPageController;
 use App\Http\Controllers\Admin\UserController;
@@ -91,6 +92,8 @@ function () {
             Route::resource('settings', SettingController::class);
             Route::resource('admin-relatives', AdminRelativeController::class);
             Route::resource('relative-types', RelativeTypeController::class);
+            Route::resource('roles', RoleController::class);
+            
             Route::get('images-active\{id}', [ImageController::class, 'active'])->name('images.active');
             Route::get('images-deactive\{id}', [ImageController::class, 'deactive'])->name('images.deactive');
             Route::get('page/about-us', [AdminTextPageController::class, 'aboutIndex'])->name('about-us.index');
@@ -118,6 +121,10 @@ function () {
     Route::post('order/store', [OrderController::class, 'store'])->name('order.store');
 
 
+
+
+
+    
 
 
 

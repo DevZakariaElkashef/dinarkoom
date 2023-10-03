@@ -50,6 +50,21 @@
               </div>
 
               <div class="form-group">
+                <label for="role_id">{{ __("Role") }}</label>
+                <select name="role_id" class="form-control" id="role_id">
+                  @foreach ($roles as $role)
+                    <option value="{{ $role->id }}">{{ $role->name }}</option>
+                  @endforeach
+                </select>
+                @error('role_id')
+                  <div class="text-danger">
+                    {{ $message }}
+                  </div>
+                @enderror
+              </div>
+
+
+              <div class="form-group">
                 <label for="email">{{ __("Email") }}</label>
                 <input name="email" type="email" class="form-control" id="email">
                 @error('email')
