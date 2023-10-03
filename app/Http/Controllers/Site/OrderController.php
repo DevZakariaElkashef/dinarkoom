@@ -14,15 +14,11 @@ use Illuminate\Support\Facades\Validator;
 
 class OrderController extends Controller
 {
-    public function checkout()
+    public function index(Request $request)
     {
-        if (!Auth::check() && !auth('guest')->check()) {
+        $orders = $request->user()->orders;
 
-            return to_route('guest.register');
-        }
-
-        // payment gateway
-
+        return view('site.orders.index', compact('orders'));
         
     }
 

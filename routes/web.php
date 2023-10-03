@@ -114,7 +114,7 @@ function () {
     Route::get("contact-us", [ContactUsController::class, 'index'])->name('countact_us.index');
     Route::post("contact-us", [ContactUsController::class, 'store'])->name('countact_us.store');
 
-    Route::get('checkout', [OrderController::class, 'checkout'])->name('order.checkout');
+    Route::get('my-orders', [OrderController::class, 'index'])->name('order.index');
     Route::post('order/store', [OrderController::class, 'store'])->name('order.store');
 
 

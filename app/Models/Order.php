@@ -11,6 +11,11 @@ class Order extends Model
 
     protected $guarded = [];
 
+    public function image()
+    {
+        return $this->belongsTo(Image::class);
+    }
+
 
     public function user()
     {

@@ -84,6 +84,7 @@
                         <div class="d-none" id="submitErrorMessage"><div class="text-center text-primary mb-3">Error sending message!</div></div>
                         <!-- Submit Button-->
                         <div class="d-grid"><button type="submit" class="btn btn-primary btn-lg" id="submitButton" type="submit">Submit</button></div>
+                        <div class="d-grid mt-2"><a href="{{ url('/') }}" class="btn btn-secondary btn-lg">Continue As Guest</a></div>
                     </form>
                 </div>
             </div>

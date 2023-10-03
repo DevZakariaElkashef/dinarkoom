@@ -31,7 +31,7 @@
                             <div class="col-md-4 header-circle-div">
                                 <img src="{{ asset('site/assets/img/header.gif') }}" alt="" style="width: 100%;">
                                 <div class="header-circle-text">
-                                    <p class="header-circle-number">100</p>
+                                    <p class="header-circle-number">{{ $buyers ?? 0 }}</p>
                                     <p class="header-circle-currency">KD</p>
                                     <p class="text-light header-circle-sentence">Prize of the month</p>
                                 </div>
@@ -43,8 +43,8 @@
                                         </div>
                                         <div class="col-md-8">
                                             <div class="card-body">
-                                                <h5 class="card-title">Card title</h5>
-                                                <p class="card-text">This is a wider card</p>
+                                                <h5 class="card-title">Digital Photo</h5>
+                                                <p class="card-text">{{ $sales ?? 0 }}  KD Sales</p>
                                                 <a class="btn btn-primary btn-lg px-4 me-sm-3" href="{{ route("terms.index") }}">Buy Now</a>
                                         </div>
                                       </div>
