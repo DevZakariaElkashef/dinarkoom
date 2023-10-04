@@ -42,6 +42,8 @@ class RelativeController extends Controller
             return Redirect::back()->withErrors($validator)->withInput();
         }
 
+        // dd($request->all());
+
         $data = $request->except('_token');
         $data['user_id'] = $request->user()->id;
 

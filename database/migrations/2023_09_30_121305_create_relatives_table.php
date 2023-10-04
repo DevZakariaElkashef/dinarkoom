@@ -18,10 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('relative_type_id');
             $table->foreign('relative_type_id')->references('id')->on('relative_types')->onDelete('cascade');
             $table->string('name');
-            $table->string('email');
             $table->string('civil_id');
-            $table->string('phone');
-            $table->string('addition_phone')->nullable();
             $table->timestamps();
         });
     }

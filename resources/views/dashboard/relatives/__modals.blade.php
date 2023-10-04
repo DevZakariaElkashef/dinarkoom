@@ -207,36 +207,6 @@
               </div>
 
               <div class="form-group">
-                <label for="email">{{ __("Email") }}</label>
-                <input name="email" type="email" class="form-control" id="email">
-                @error('email')
-                  <div class="text-danger">
-                    {{ $message }}
-                  </div>
-                @enderror
-              </div>
-
-              <div class="form-group">
-                <label for="phone">{{ __("Phone") }}</label>
-                <input name="phone" type="text" class="form-control" id="phone">
-                @error('phone')
-                  <div class="text-danger">
-                    {{ $message }}
-                  </div>
-                @enderror
-              </div>
-
-              <div class="form-group">
-                <label for="additionPhone">{{ __("Addition_Phone") }}</label>
-                <input name="addition_phone" type="text" class="form-control" id="additionPhone">
-                @error('addition_phone')
-                  <div class="text-danger">
-                    {{ $message }}
-                  </div>
-                @enderror
-              </div>
-
-              <div class="form-group">
                 <label for="civilId">{{ __("Civil_id") }}</label>
                 <input name="civil_id" type="text" class="form-control" id="civilId">
                 @error('civil_id')

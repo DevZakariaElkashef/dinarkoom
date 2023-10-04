@@ -60,31 +60,7 @@
                                 <div class="text-danger" >{{ $message }}</div>
                             @enderror
                         </div>
-                        <!-- MObile no input-->
-                        <div class="form-floating mb-3">
-                            <input class="form-control" value="{{ old('phone') }}" name="phone" id="mobile1" type="text" placeholder="{{ __("Phone") }}" data-sb-validations="required" />
-                            <label for="mobile1">{{ __("Phone") }} </label>
-                            @error('phone')
-                                <div class="text-danger" >{{ $message }}</div>
-                            @enderror
-                        </div>
-                        <!-- MObile no input-->
-                        <div class="form-floating mb-3">
-                            <input class="form-control" value="{{ old("addition_phone") }}" name="addition_phone" id="mobile2" type="text" placeholder="{{ __("Addition_Phone") }} " data-sb-validations="required" />
-                            <label for="mobile2">{{ __("Addition_Phone") }} </label>
-                            @error('addition_phone')
-                                <div class="text-danger" >{{ $message }}</div>
-                            @enderror
-                        </div>
-                        <!-- Email address input-->
-                        <div class="form-floating mb-3">
-                            <input class="form-control" value="email" name="email" id="email" type="email" placeholder="name@example.com" data-sb-validations="required,email" />
-                            <label for="email">{{ __("Email") }}</label>
-                            @error('email')
-                                <div class="text-danger" >{{ $message }}</div>
-                            @enderror
-                        </div>
-                        <!---->
+                       
                         <div class="d-grid"><button type="submit" class="btn btn-primary btn-lg" id="submitButton" type="submit">{{ __('Submit') }}</button></div>
                     </form>
                 </div>

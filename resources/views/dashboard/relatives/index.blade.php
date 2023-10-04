@@ -31,8 +31,6 @@
                         <tr>
                             <th>#</th>
                             <th>{{ __('Name') }}</th>
-                            <th>{{ __('Phone') }}</th>
-                            <th>{{ __('Email') }}</th>
                             <th>{{ __('Civil_id') }}</th>
                             @if (auth()->user()->can('edit relatives ') ||
                                     auth()->user()->can('delete relatives'))
@@ -45,17 +43,13 @@
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $user->name }}</td>
-                                <td>{{ $user->phone }}</td>
-                                <td>{{ $user->email }}</td>
                                 <td>{{ $user->civil_id }}</td>
                                 @if (auth()->user()->can('edit relatives ') ||
                                         auth()->user()->can('delete relatives'))
                                     <td class="">
                                         @if (auth()->user()->can('edit relatives'))
                                             <a href="#" class="m-1 edit-relative-btn" data-id="{{ $user->id }}"
-                                                data-name="{{ $user->name }}" data-phone="{{ $user->phone }}"
-                                                data-email="{{ $user->email }}"
-                                                data-addition_phone="{{ $user->addition_phone }}"
+                                                data-name="{{ $user->name }}" 
                                                 data-civil_id="{{ $user->civil_id }}" data-toggle="modal"
                                                 data-target="#editRelativeModal"><i class="fa-solid fa-pen"></i></a>
                                         @endif

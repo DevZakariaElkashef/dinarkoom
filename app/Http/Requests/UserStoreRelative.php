@@ -25,13 +25,10 @@ class UserStoreRelative extends FormRequest
         $uniqueRule = Rule::unique('users')->ignore($userId);
 
         $rules = [
-            'user_id' => ['required'],
+            'user_id' => ['nullable'],
             'relative_type_id' => ['required'],
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'email', $uniqueRule],
             'civil_id' => ['required', $uniqueRule],
-            'phone' => ['required', 'string', 'max:255', $uniqueRule],
-            'addition_phone' => ['required', 'string', 'max:255', $uniqueRule],
         ];
 
         return $rules;

@@ -19,9 +19,6 @@
                 href="#" 
                 class="text-dark text-decoration-none" 
                 data-name="{{ $relative->name }}"
-                data-email="{{ $relative->email }}"
-                data-phone="{{ $relative->phone }}"
-                data-addition_phone="{{ $relative->addition_phone }}"
                 data-civil_id="{{ $relative->civil_id }}"
                 data-bs-toggle="modal" 
                 data-bs-target="#showRelativeModal">
@@ -57,21 +54,7 @@
                 <label for="editName">{{ __("Name") }}</label>
                 <input disabled name="name" type="text" class="form-control" id="editName">
             </div>
-            <div class="form-group">
-                <label for="email">{{ __("Email") }}</label>
-                <input disabled name="email" type="email" class="form-control" id="email">
-            </div>
-
-            <div class="form-group">
-                <label for="phone">{{ __("Phone") }}</label>
-                <input disabled name="phone" type="text" class="form-control" id="phone">
-            </div>
-
-            <div class="form-group">
-                <label for="additionPhone">{{ __("Addition_Phone") }}</label>
-                <input disabled name="addition_phone" type="text" class="form-control" id="additionPhone">
-            </div>
-
+            
             <div class="form-group">
                 <label for="civilId">{{ __("Civil_id") }}</label>
                 <input disabled name="civil_id" type="text" class="form-control" id="civilId">
