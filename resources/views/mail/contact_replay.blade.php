@@ -57,15 +57,15 @@
 
 <body>
   <div id="wrapper">
-    <h1>Thank you for contacting us!</h1>
-    <p>Dear: {{ $name }}</p>
-    <p>We have received your message and will get back to you soon.</p>
-    <p>If you have any further questions, feel free to reach out to us.</p>
-    <p>Best regards,</p>
-    <p>Your Company Name</p>
+    <h1>{{ __("Thank you for contacting us!") }}</h1>
+    <p>{{ __("Dear") }}: {{ $name }}</p>
+    <p>{{ __("We have received your message and will get back to you soon.") }}</p>
+    <p>{{ __("If you have any further questions, feel free to reach out to us.") }}</p>
+    <p>{{ __("Best regards,") }}</p>
+    <p>{{ env('APP_NAME') }}</p>
     
     <p>
-      <a href="{{ config('app.url') }}" class="button">Visit our website</a>
+      <a href="{{ config('app.url') }}" class="button">{{ __("Visit our website") }}</a>
     </p>
   </div>
 </body>

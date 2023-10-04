@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row mb-3 text-light">
         <div class="col-md-6"><h3>{{ __("Relatives") }}</h3></div>
-        <div class="col-md-6 text-end">
+        <div class="col-md-6 @if(app()->getLocale() == 'ar' || app()->getLocale() == 'ur') text-start @else text-end @endif">
             <a href="{{ route('relatives.create') }}" class="btn btn-primary">
                 {{ __("Add Relative") }}
             </a>
@@ -48,7 +48,7 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <h1 class="modal-title fs-5" id="exampleModalLabel">{{ __("Relative Info") }}</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
@@ -79,7 +79,7 @@
 
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ __("Close") }}</button>
         </div>
       </div>
     </div>

@@ -68,8 +68,6 @@ Route::group(
         Route::post('guest/register', [GuestController::class, 'store'])->name('guest.store');
 
 
-
-
         Route::middleware(['auth', 'verified'])->group(function () {
 
             Route::get('profile', [ProfileController::class, 'index'])->name('profile.index');
@@ -77,8 +75,6 @@ Route::group(
             Route::get('profile/edit-password', [ProfileController::class, 'editPassword'])->name('profile.editPassword');
             Route::post('profile/update-password', [ProfileController::class, 'updatePassword'])->name('profile.updatePassword');
             Route::resource('relatives', RelativeController::class);
-
-
 
             // admin
             Route::prefix('admin')->group(function () {

@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" @if(app()->getLocale() == 'ar' || app()->getLocale() == 'ur') dir="rtl" @else dir="ltr" @endif>
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Dinarkoom</title>
+        <title>{{ $app ? $app->{'name_' . app()->getLocale()} : '' }}</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="{{ asset('site/assets/favicon.ico') }}" />
         <!-- Bootstrap icons-->
@@ -60,12 +60,12 @@
                         <div class="col-md-6">
                             <!-- Left content -->
                             <div class="date-info">
-                                <p class="py-2 m-0">{{ now()->format('d F Y - h:i A') }}</p>
+                                <p class="py-2 m-0">{{ now()->translatedFormat('d F Y - h:i A') }}</p>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <!-- Right content -->
-                            <div class="social-media-icons text-end">
+                            <div class="social-media-icons @if(app()->getLocale() == 'ar' || app()->getLocale() == 'ur') text-start @else text-end @endif">
                                 @if($app && $app->facebook)
                                     <a class="text-light py-2 mx-1" style="overflow: hidden;" href="{{ $app->facebook }}">
                                         <img src="{{ Storage::url($app->facebook_icon) }}" style="width: 20px !important;">
@@ -147,10 +147,10 @@
                                       </svg>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="{{ LaravelLocalization::getLocalizedURL('en') }}">English</a></li>
-                                    <li><a class="dropdown-item" href="{{ LaravelLocalization::getLocalizedURL('ar') }}">Arabic</a></li>
-                                    <li><a class="dropdown-item" href="{{ LaravelLocalization::getLocalizedURL('ur') }}">Urdu</a></li>
-                                    <li><a class="dropdown-item" href="{{ LaravelLocalization::getLocalizedURL('fil') }}">Filipino</a></li>
+                                    <li><a class="dropdown-item" href="{{ LaravelLocalization::getLocalizedURL('en') }}">{{ __("English") }}</a></li>
+                                    <li><a class="dropdown-item" href="{{ LaravelLocalization::getLocalizedURL('ar') }}">{{ __("Arabic") }}</a></li>
+                                    <li><a class="dropdown-item" href="{{ LaravelLocalization::getLocalizedURL('ur') }}">{{ __("Urdu") }}</a></li>
+                                    <li><a class="dropdown-item" href="{{ LaravelLocalization::getLocalizedURL('fil') }}">{{ __("Filipino") }}</a></li>
                                 </ul>
                             </div>
                             <div class="dropdown">

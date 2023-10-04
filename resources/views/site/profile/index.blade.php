@@ -14,8 +14,8 @@
                         @csrf
                         <!-- Name input-->
                         <div class="form-floating mb-3">
-                            <input class="form-control" value="{{ Auth::user()->name ?? '' }}" name="name" id="userName" type="text" placeholder="User name" data-sb-validations="required" />
-                            <label for="userName">Name as in Civil ID</label>
+                            <input class="form-control" value="{{ Auth::user()->name ?? '' }}" name="name" id="userName" type="text" placeholder="{{ __("User name") }}" data-sb-validations="required" />
+                            <label for="userName">{{ __('Name as in Civil ID') }}</label>
                             @error('name')
                                 <div class="text-danger" >{{ $message }}</div>
                             @enderror
@@ -23,24 +23,24 @@
                         </div>
                         <!-- Civil no input-->
                         <div class="form-floating mb-3">
-                            <input class="form-control" value="{{ Auth::user()->civil_id ?? '' }}" name="civil_id" id="IdNubmer" type="text" placeholder="Civil ID number " data-sb-validations="required" />
-                            <label for="IdNubmer">Civil ID number </label>
+                            <input class="form-control" value="{{ Auth::user()->civil_id ?? '' }}" name="civil_id" id="IdNubmer" type="text" placeholder="{{ __("Civil ID number") }} " data-sb-validations="required" />
+                            <label for="IdNubmer">{{ __("Civil ID number") }} </label>
                             @error('civil_id')
                                 <div class="text-danger" >{{ $message }}</div>
                             @enderror
                         </div>
                         <!-- MObile no input-->
                         <div class="form-floating mb-3">
-                            <input class="form-control" value="{{ Auth::user()->phone ?? '' }}" name="phone" id="mobile1" type="text" placeholder="Mobile number " data-sb-validations="required" />
-                            <label for="mobile1">Mobile number </label>
+                            <input class="form-control" value="{{ Auth::user()->phone ?? '' }}" name="phone" id="mobile1" type="text" placeholder="{{ __("Phone") }} " data-sb-validations="required" />
+                            <label for="mobile1">{{ __("Phone") }} </label>
                             @error('phone')
                                 <div class="text-danger" >{{ $message }}</div>
                             @enderror
                         </div>
                         <!-- MObile no input-->
                         <div class="form-floating mb-3">
-                            <input class="form-control" value="{{ Auth::user()->addition_phone }}" name="addition_phone" id="mobile2" type="text" placeholder="Additional mobile number " data-sb-validations="required" />
-                            <label for="mobile2">Additional mobile number </label>
+                            <input class="form-control" value="{{ Auth::user()->addition_phone }}" name="addition_phone" id="mobile2" type="text" placeholder="{{ __("Addition_Phone") }} " data-sb-validations="required" />
+                            <label for="mobile2">{{ __("Addition_Phone") }} </label>
                             @error('addition_phone')
                                 <div class="text-danger" >{{ $message }}</div>
                             @enderror
@@ -48,16 +48,13 @@
                         <!-- Email address input-->
                         <div class="form-floating mb-3">
                             <input class="form-control" value="{{ Auth::user()->email }}" name="email" id="email" type="email" placeholder="name@example.com" data-sb-validations="required,email" />
-                            <label for="email">Email address</label>
+                            <label for="email">{{ __("Email") }}</label>
                             @error('email')
                                 <div class="text-danger" >{{ $message }}</div>
                             @enderror
                         </div>
                         <!-- Submit error message-->
                         <!---->
-                        <!-- This is what your users will see when there is-->
-                        <!-- an error submitting the form-->
-                        <div class="d-none" id="submitErrorMessage"><div class="text-center text-primary mb-3">Error sending message!</div></div>
                         <!-- Submit Button-->
                         <div class="d-grid"><button type="submit" class="btn btn-primary btn-lg" id="submitButton" type="submit">{{ __('Update') }}</button></div>
                     </form>

@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="my-3 text-light">
-        <h1 class="text-center">My Orders</h1>
+        <h1 class="text-center">{{ __("My Orders") }}</h1>
 
         <div class="container">
             
@@ -23,7 +23,7 @@
                         <p class="mb-4">Address: 20 fake street</p>
                     </div>
                     <div class="col-md-3 d-flex justify-content-end align-items-center">
-                        <a href="#" class="btn btn-primary">Extract Invoice</a>
+                        <a href="#" class="btn btn-primary">{{ __("Extract Invoice") }}</a>
                     </div>
                 </div>
             @endforeach

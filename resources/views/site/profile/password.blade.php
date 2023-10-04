@@ -14,7 +14,7 @@
                         @csrf
                         <!-- Old Password input-->
                         <div class="form-floating mb-3">
-                            <input class="form-control" name="old_password" id="oldPassword" type="password" placeholder="Enter Old Password" data-sb-validations="required" />
+                            <input class="form-control" name="old_password" id="oldPassword" type="password" placeholder="{{ __("Enter Old Password") }}" data-sb-validations="required" />
                             <label for="oldPassword">{{ __("Old Password") }}</label>
                             @error('old_password')
                                 <div class="text-danger" >{{ $message }}</div>
@@ -24,15 +24,13 @@
                         
                         <!-- New Password input-->
                         <div class="form-floating mb-3">
-                            <input class="form-control" name="new_password" id="newPassword" type="password" placeholder="Enter New Password" data-sb-validations="required" />
+                            <input class="form-control" name="new_password" id="newPassword" type="password" placeholder="{{ __("Enter New Password") }}" data-sb-validations="required" />
                             <label for="newPassword">{{ __("New Password") }}</label>
                             @error('new_password')
                                 <div class="text-danger" >{{ $message }}</div>
                             @enderror
 
                         </div>
-                        <!-- an error submitting the form-->
-                        <div class="d-none" id="submitErrorMessage"><div class="text-center text-primary mb-3">Error sending message!</div></div>
                         <!-- Submit Button-->
                         <div class="d-grid"><button type="submit" class="btn btn-primary btn-lg" id="submitButton" type="submit">{{ __('Update') }}</button></div>
                     </form>
