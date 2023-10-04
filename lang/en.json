@@ -210,7 +210,16 @@
     "Replay" : "Replay",
     "Add Message" : "Add Message",
     "Right_Image" : "Right Image",
-    "Left_Image" : "Left Image"
+    "Left_Image" : "Left Image",
+
+
+
+
+
+    "Register Date": "Register Date",
+    "himself" : "himself",
+    "online" : "online",
+    "address" : "address"
     
     
 }

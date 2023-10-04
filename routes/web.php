@@ -81,11 +81,15 @@ Route::group(
 
                 Route::get('dashboard', [AdminHomeController::class, 'index'])->name('dashboard.index');
                 Route::resource('users', UserController::class);
+                Route::get('users-excel', [UserController::class, 'exportExcel'])->name('users.export_excel');
+                Route::get('users-pdf', [UserController::class, 'exportPdf'])->name('users.export_pdf');
                 Route::resource('banners', BannerController::class);
                 Route::resource('images', ImageController::class);
                 Route::resource('contacts', ContactController::class);
                 Route::resource('settings', SettingController::class);
                 Route::resource('admin-relatives', AdminRelativeController::class);
+                Route::get('admin-relatives-excel', [AdminRelativeController::class, 'exportExcel'])->name('admin-relatives.export_excel');
+                Route::get('admin-relatives-pdf', [AdminRelativeController::class, 'exportPdf'])->name('admin-relatives.export_pdf');
                 Route::resource('relative-types', RelativeTypeController::class);
                 Route::resource('roles', RoleController::class);
 
@@ -98,6 +102,8 @@ Route::group(
                 Route::get('profile', [AdminProfileController::class, 'index'])->name('admin-profile.index');
                 Route::put('profile', [AdminProfileController::class, 'update'])->name('admin-profile.update');
                 Route::get('orders', [AdminOrderController::class, 'index'])->name('orders.index');
+                Route::get('orders-excel', [AdminOrderController::class, 'exportExcel'])->name('orders.export_excel');
+                Route::get('orders-pdf', [AdminOrderController::class, 'exportPdf'])->name('orders.export_pdf');
                 Route::delete('orders/{id}', [AdminOrderController::class, 'destroy'])->name('orders.destroy');
                 Route::put('orders/{id}', [AdminOrderController::class, 'update'])->name('orders.update');
             });

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Exports\UsersExport;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UpdateUserRequest;
 use App\Models\User;
@@ -9,7 +10,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
+use Maatwebsite\Excel\Facades\Excel;
 use Spatie\Permission\Models\Role;
+use PDF;
 
 class UserController extends Controller
 {
@@ -89,5 +92,16 @@ class UserController extends Controller
         $user->delete();
         
         return back()->with('message', __("User_Deleted_Successfully."));
+    }
+
+    public function exportExcel()
+    {
+        return Excel::download(new UsersExport, 'users.xlsx');
+    }
+
+    public function exportPdf()
+    {
+    // $pdf = PDF::loadView('pdf.document', $data);
+    // $pdf->getMpdf()->AddPage(/*...*/);
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Exports\RelativeExport;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreRelativeRequest;
 use App\Models\Relative;
@@ -10,6 +11,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
+use Maatwebsite\Excel\Facades\Excel;
 
 class RelativeController extends Controller
 {
@@ -98,5 +100,16 @@ class RelativeController extends Controller
         $relative = Relative::findOrFail($id);
         $relative->delete();
         return back()->with('message', 'relative deleted successfully');
+    }
+
+    public function exportExcel()
+    {
+        return Excel::download(new RelativeExport, 'relatives.xlsx');
+    }
+
+    public function exportPdf()
+    {
+    // $pdf = PDF::loadView('pdf.document', $data);
+    // $pdf->getMpdf()->AddPage(/*...*/);
     }
 }

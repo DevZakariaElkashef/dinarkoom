@@ -108,7 +108,7 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="facebookIcon">{{ _('Icon') }}</label>
+                                            <label for="facebookIcon">{{ __('Icon') }}</label>
                                             <input id="facebookIcon" class="form-control" type="file" name="facebook_icon">
                                         </div>
                                     </div>
@@ -127,7 +127,7 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="whatsappIcon">{{ _('Icon') }}</label>
+                                            <label for="whatsappIcon">{{ __('Icon') }}</label>
                                             <input id="whatsappIcon" class="form-control" type="file" name="whatsapp_icon">
                                         </div>
                                     </div>
@@ -147,7 +147,7 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="youtubeIcon">{{ _('Icon') }}</label>
+                                            <label for="youtubeIcon">{{ __('Icon') }}</label>
                                             <input id="youtubeIcon" class="form-control" type="file" name="youtube_icon" >
                                         </div>
                                     </div>
@@ -167,7 +167,7 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="linkedinIcon">{{ _('Icon') }}</label>
+                                            <label for="linkedinIcon">{{ __('Icon') }}</label>
                                             <input id="linkedinIcon" class="form-control" type="file" name="linkedin_icon">
                                         </div>
                                     </div>
@@ -187,7 +187,7 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="twitterIcon">{{ _('Icon') }}</label>
+                                            <label for="twitterIcon">{{ __('Icon') }}</label>
                                             <input id="twitterIcon" class="form-control" type="file" name="twitter_icon">
                                         </div>
                                     </div>
@@ -206,7 +206,7 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="pinterestIcon">{{ _('Icon') }}</label>
+                                            <label for="pinterestIcon">{{ __('Icon') }}</label>
                                             <input id="pinterestIcon" class="form-control" type="file" name="pinterest_icon">
                                         </div>
                                     </div>
@@ -226,7 +226,7 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="instagramIcon">{{ _('Icon') }}</label>
+                                            <label for="instagramIcon">{{ __('Icon') }}</label>
                                             <input id="instagramIcon" class="form-control" type="file" name="instagram_icon">
                                         </div>
                                     </div>
@@ -246,7 +246,7 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="snapchatIcon">{{ _('Icon') }}</label>
+                                            <label for="snapchatIcon">{{ __('Icon') }}</label>
                                             <input id="snapchatIcon" class="form-control" type="file" name="snapchat_icon" >
                                         </div>
                                     </div>
@@ -266,7 +266,7 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="tiktokIcon">{{ _('Icon') }}</label>
+                                            <label for="tiktokIcon">{{ __('Icon') }}</label>
                                             <input id="tiktokIcon" class="form-control" type="file" name="tiktok_icon">
                                         </div>
                                     </div>

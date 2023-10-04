@@ -19,7 +19,6 @@
         <div class="card-header ">
             <div class="p-2 row justify-content-between">
                 <h4>{{ __("View Users") }}</h4>
-                {{-- {{ dd(auth()->user()->getPermissionsViaRoles()) }} --}}
                 @if(auth()->user()->can('add users'))
                 <a href="{{ route('users.create') }}" class="btn btn-primary">{{ __("Add User") }}</a>
                 @endif
@@ -27,6 +26,10 @@
         </div>
         <div class="card-body">
             <div class="table-responsive">
+                <div class="mb-2 py-2 row justify-content-end">
+                    <a href="{{ route("users.export_excel") }}" class="btn btn-primary">Excel</a>
+                    <a href="{{ route("users.export_pdf") }}" class="btn btn-primary mx-3">PDF</a>
+                </div>
                 <table class="table table-bordered mb-4">
                     <thead>
                         <tr>
