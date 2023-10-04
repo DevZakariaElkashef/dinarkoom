@@ -219,7 +219,10 @@
     "Register Date": "Register Date",
     "himself" : "himself",
     "online" : "online",
-    "address" : "address"
-    
+    "address" : "address",
+    "Notification" : "Notification",
+    "Title" : "Title",
+    "Selct Users" : "Selct Users",
+    "Send" : "Send"    
     
 }

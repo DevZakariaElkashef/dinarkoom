@@ -137,6 +137,20 @@
                 </ul>
             </li>
 
+            {{-- @if (auth()->user()->can('view notifications')) --}}
+                <li class="menu">
+                    <a href="{{ route('notification.index') }}"
+                        data-active="{{ isActiveRoute(['notification.index']) ? 'true' : 'false' }}"
+                        aria-expanded="{{ isActiveRoute(['notification.index']) ? 'true' : 'false' }}"
+                        class="dropdown-toggle">
+                        <div class="">
+                            <i class="fa-solid fa-bell"></i>
+                            <span>{{ __('Notification') }}</span>
+                        </div>
+                    </a>
+                </li>
+            {{-- @endif --}}
+
             @if (auth()->user()->can('view ads'))
                 <li class="menu">
                     <a href="{{ route('banners.index') }}"

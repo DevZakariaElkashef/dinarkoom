@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\HomeController as AdminHomeController;
 use App\Http\Controllers\Admin\ImageController;
+use App\Http\Controllers\Admin\NotificationController;
 use App\Http\Controllers\Admin\OrderController as AdminOrderController;
 use App\Http\Controllers\Admin\ProfileController as AdminProfileController;
 use App\Http\Controllers\Admin\RelativeController as AdminRelativeController;
@@ -106,6 +107,9 @@ Route::group(
                 Route::get('orders-pdf', [AdminOrderController::class, 'exportPdf'])->name('orders.export_pdf');
                 Route::delete('orders/{id}', [AdminOrderController::class, 'destroy'])->name('orders.destroy');
                 Route::put('orders/{id}', [AdminOrderController::class, 'update'])->name('orders.update');
+                Route::get('notifications', [NotificationController::class, 'index'])->name('notification.index');
+                Route::get('notifications/send', [NotificationController::class, 'create'])->name('notification.create');
+                Route::post('notifications/send', [NotificationController::class, 'store'])->name('notification.store');
             });
         });
 
