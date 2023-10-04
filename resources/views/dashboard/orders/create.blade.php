@@ -5,7 +5,7 @@
 <nav class="breadcrumb-one" aria-label="breadcrumb">
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="{{ route("dashboard.index") }}">{{ __("Dashboard") }}</a></li>
-        <li class="breadcrumb-item"><a href="{{ route("images.index") }}">{{ __("Images") }}</a></li>
+        <li class="breadcrumb-item"><a href="{{ route("images.index") }}">{{ __("Orders") }}</a></li>
         <li class="breadcrumb-item active" aria-current="page"><span>{{ __("Add") }}</span></li>
     </ol>
 </nav>
@@ -15,7 +15,7 @@
 <div class="card mt-3">
     <div class="card-header ">
         <div class="p-2 row justify-content-between">
-            <h4>{{ __("Add_Image") }}</h4>
+            <h4>{{ __("Add_Order") }}</h4>
             
             <a href="{{ route('images.index') }}" class="btn btn-secondary">{{ __("Back") }}</a>
         </div>
@@ -29,7 +29,7 @@
               </div>
               <div class="custom-file">
 
-                <label class="custom-file-label" for="customFile">Choose file</label>
+                <label class="custom-file-label" for="customFile">{{ __('Choose file') }}</label>
                 <input name="thumbnail" type="file" onchange="leftPreviewImage(this)" class="custom-file-input" id="customFile">
                 
                 @error('thumbnail')

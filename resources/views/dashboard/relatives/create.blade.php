@@ -5,7 +5,7 @@
 <nav class="breadcrumb-one" aria-label="breadcrumb">
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="{{ route("dashboard.index") }}">{{ __("Dashboard") }}</a></li>
-        <li class="breadcrumb-item"><a href="{{ route("users.index") }}">{{ __("Users") }}</a></li>
+        <li class="breadcrumb-item"><a href="{{ route("users.index") }}">{{ __("Relatives") }}</a></li>
         <li class="breadcrumb-item active" aria-current="page"><span>{{ __("Add") }}</span></li>
     </ol>
 </nav>
@@ -25,7 +25,7 @@
         <div class="card-body">
             <!-- Name input-->
             <div class="form-group mb-3">
-                <label for="user_id">Relative User</label>
+                <label for="user_id">{{ __("Relative User") }}</label>
                 <select class="form-control" value="{{ old('user_id') }}" name="user_id" id="user_id" data-sb-validations="required">
                     <option selected disabled>{{ __("Choose Relation User") }}</option>
                     @foreach ($users as $user)
@@ -38,7 +38,7 @@
 
             </div>
             <div class="form-group mb-3">
-                <label for="relative_type_id">Relative Type</label>
+                <label for="relative_type_id">{{ __("Relative Type") }}</label>
                 <select class="form-control" value="{{ old('relative_type_id') }}" name="relative_type_id" id="relative_type_id" data-sb-validations="required">
                     <option selected disabled>{{ __("Choose Relation type") }}</option>
                     @foreach ($types as $type)

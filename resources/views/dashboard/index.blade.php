@@ -26,7 +26,7 @@
                 <div class="w-content">
                     <div class="w-info">
                         <h6 class="value">{{ $users }}</h6>
-                        <p class="">Users</p>
+                        <p class="">{{ __("Users") }}</p>
                     </div>
                     <div class="">
                         <div class="w-icon">
@@ -47,7 +47,7 @@
                 <div class="w-content">
                     <div class="w-info">
                         <h6 class="value">{{ $messages }}</h6>
-                        <p class="">Messages</p>
+                        <p class="">{{ __("Messages") }}</p>
                     </div>
                     <div class="">
                         <div class="w-icon">
@@ -68,7 +68,7 @@
                 <div class="w-content">
                     <div class="w-info">
                         <h6 class="value">{{ $orders }}</h6>
-                        <p class="">Orders</p>
+                        <p class="">{{ __('Orders') }}</p>
                     </div>
                     <div class="">
                         <div class="w-icon">

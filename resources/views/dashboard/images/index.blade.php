@@ -37,7 +37,7 @@
     <div class="card mt-3">
         <div class="card-header ">
             <div class="p-2 row justify-content-between">
-                <h4>{{ __('View Images') }}</h4>
+                <h4>{{ __('View Image') }}</h4>
                 @if (auth()->user()->can('add images'))
                     <a href="{{ route('images.create') }}" class="btn btn-primary">{{ __('Add Image') }}</a>
                 @endif

@@ -46,7 +46,7 @@
               </div>
               <div class="custom-file">
 
-                <label class="custom-file-label" for="customFile">Choose file</label>
+                <label class="custom-file-label" for="customFile">{{ __("Choose file") }}</label>
                 <input name="thumbnail" type="file" onchange="leftPreviewImage(this)" class="custom-file-input" id="customFile">
                 
                 @error('thumbnail')

@@ -5,7 +5,7 @@
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="{{ route('dashboard.index') }}">{{ __('Dashboard') }}</a></li>
             <li class="breadcrumb-item active" aria-current="page"><span>{{ __('Pages') }}</span></li>
-            <li class="breadcrumb-item active" aria-current="page"><span>{{ __('Terms') }}</span></li>
+            <li class="breadcrumb-item active" aria-current="page"><span>{{ __('Terms and Conditions') }}</span></li>
         </ol>
     </nav>
 @endsection
@@ -14,7 +14,7 @@
     <div class="card mt-3">
         <div class="card-header ">
             <div class="p-2 row justify-content-between">
-                <h4>{{ __('Terms_Page') }}</h4>
+                <h4>{{ __('Terms and Conditions') }}</h4>
             </div>
         </div>
         <div class="card-body">
@@ -22,13 +22,13 @@
             <nav>
                 <div class="nav nav-tabs" id="nav-tab" role="tablist">
                     <button class="nav-link active" id="nav-en-tab" data-toggle="tab" data-target="#nav-en" type="button"
-                        role="tab" aria-controls="nav-en" aria-selected="true">{{ __('ENGLISH') }}</button>
+                        role="tab" aria-controls="nav-en" aria-selected="true">{{ __('English') }}</button>
                     <button class="nav-link" id="nav-ar-tab" data-toggle="tab" data-target="#nav-ar" type="button"
-                        role="tab" aria-controls="nav-ar" aria-selected="false">{{ __('ARABIC') }}</button>
+                        role="tab" aria-controls="nav-ar" aria-selected="false">{{ __('Arabic') }}</button>
                     <button class="nav-link" id="nav-ur-tab" data-toggle="tab" data-target="#nav-ur" type="button"
-                        role="tab" aria-controls="nav-ur" aria-selected="false">{{ __('URDU') }}</button>
+                        role="tab" aria-controls="nav-ur" aria-selected="false">{{ __('Urdu') }}</button>
                     <button class="nav-link" id="nav-fil-tab" data-toggle="tab" data-target="#nav-fil" type="button"
-                        role="tab" aria-controls="nav-fil" aria-selected="false">{{ __('FILIBINO') }}</button>
+                        role="tab" aria-controls="nav-fil" aria-selected="false">{{ __('Filipino') }}</button>
                 </div>
             </nav>
             <form action="{{ route('page.terms.store') }}" method="post">

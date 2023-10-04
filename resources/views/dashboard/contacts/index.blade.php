@@ -26,7 +26,7 @@
     <nav class="breadcrumb-one" aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="{{ route('dashboard.index') }}">{{ __('Dashboard') }}</a></li>
-            <li class="breadcrumb-item"><a href="{{ route('contacts.index') }}">{{ __('Contacts') }}</a></li>
+            <li class="breadcrumb-item"><a href="{{ route('contacts.index') }}">{{ __('Messages') }}</a></li>
             <li class="breadcrumb-item active" aria-current="page"><span>{{ __('view') }}</span></li>
         </ol>
     </nav>
@@ -37,7 +37,7 @@
     <div class="card mt-3">
         <div class="card-header ">
             <div class="p-2 row justify-content-between">
-                <h4>{{ __('View contacts') }}</h4>
+                <h4>{{ __('View Messages') }}</h4>
             </div>
         </div>
         <div class="card-body">

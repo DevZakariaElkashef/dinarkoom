@@ -15,7 +15,7 @@
 <div class="card mt-3">
     <div class="card-header ">
         <div class="p-2 row justify-content-between">
-            <h4>{{ __("Add_Users") }}</h4>
+            <h4>{{ __("Add User") }}</h4>
             
             <a href="{{ route('users.index') }}" class="btn btn-secondary">{{ __("Back") }}</a>
         </div>

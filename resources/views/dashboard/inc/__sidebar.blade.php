@@ -25,7 +25,7 @@
                 <ul class="submenu list-unstyled collapse {{ isActiveRoute(['dashboard.index']) ? 'show' : '' }}"
                     id="starter-kit" data-parent="#accordionExample" style="">
                     <li class="{{ isActiveRoute('dashboard.index') }}">
-                        <a href="{{ route('dashboard.index') }}"> Sales </a>
+                        <a href="{{ route('dashboard.index') }}"> {{ __('Sales') }} </a>
                     </li>
                 </ul>
             </li>
@@ -58,7 +58,7 @@
 
                     @if (auth()->user()->can('view users'))
                         <li class="{{ isActiveRoute('users.index') }}">
-                            <a href="{{ route('users.index') }}"> {{ __('View User') }} </a>
+                            <a href="{{ route('users.index') }}"> {{ __('View Users') }} </a>
                         </li>
                     @endif
                 </ul>
@@ -91,7 +91,7 @@
 
                     @if (auth()->user()->can('view relatives'))
                         <li class="{{ isActiveRoute('admin-relatives.index') }}">
-                            <a href="{{ route('admin-relatives.index') }}"> {{ __('View Retiaves') }} </a>
+                            <a href="{{ route('admin-relatives.index') }}"> {{ __('View Relative') }} </a>
                         </li>
                     @endif
 
@@ -188,12 +188,12 @@
                     id="pages-dropdown" data-parent="#accordionExample">
                     @if (auth()->user()->can('view about'))
                         <li class="{{ isActiveRoute('about-us.index') }}">
-                            <a href="{{ route('about-us.index') }}"> {{ __('AboutUs') }} </a>
+                            <a href="{{ route('about-us.index') }}"> {{ __('about us') }} </a>
                         </li>
                     @endif
                     @if (auth()->user()->can('view terms'))
                         <li class="{{ isActiveRoute('page.terms.index') }}">
-                            <a href="{{ route('page.terms.index') }}"> {{ __('Terms') }} </a>
+                            <a href="{{ route('page.terms.index') }}"> {{ __('Terms and Conditions') }} </a>
                         </li>
                     @endif
 
@@ -208,7 +208,7 @@
                     class="dropdown-toggle">
                     <div class="">
                         <i class="fa-solid fa-message"></i>
-                        <span>{{ __('messages') }}</span>
+                        <span>{{ __('Messages') }}</span>
                     </div>
                 </a>
             </li>

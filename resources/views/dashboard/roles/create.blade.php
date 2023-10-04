@@ -15,7 +15,7 @@
 <div class="card mt-3">
     <div class="card-header ">
         <div class="p-2 row justify-content-between">
-            <h4>{{ __("Add_Users") }}</h4>
+            <h4>{{ __("Add Roles") }}</h4>
             
             <a href="{{ route('roles.index') }}" class="btn btn-secondary">{{ __("Back") }}</a>
         </div>
@@ -34,11 +34,11 @@
               </div>
 
               <div class="form-group">
-                <label>Permissions</label>
+                <label>{{ __("Permissions") }}</label>
                 <div class="form-check mb-3">
                   <input  class="form-check-input" type="checkbox" id="selectAllCheckbox">
                   <label class="form-check-label" for="selectAllCheckbox">
-                    Select All
+                    {{ __("Select All") }}
                   </label>
                 </div>
                 <div class="row">
@@ -46,7 +46,6 @@
 
                   @foreach ($permissions as $permission)
                   <div class="col-md-3 mb-3">
-                    
                     <div class="form-check">
                       <input class="form-check-input" name="options[]" type="checkbox" value="{{ $permission->id }}" id="permission{{ $permission->id }}">
                       <label class="form-check-label" for="permission{{ $permission->id }}">

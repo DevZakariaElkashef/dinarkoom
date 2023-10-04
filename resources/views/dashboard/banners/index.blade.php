@@ -18,7 +18,7 @@
     <div class="card mt-3">
         <div class="card-header ">
             <div class="p-2 row justify-content-between">
-                <h4>{{ __('Banners') }}</h4>
+                <h4>{{ __('Ads') }}</h4>
             </div>
         </div>
         <div class="card-body">
