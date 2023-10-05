@@ -25,8 +25,73 @@
             <div class="widget-content">
                 <div class="w-content">
                     <div class="w-info">
+                        <h6 class="value">{{ $usersMonth }}</h6>
+                        <p class="">{{ __("Users") }} {{ __("In this Month") }}</p>
+                        
+                    </div>
+                    <div class="">
+                        <div class="w-icon">
+                            <i class="fa-solid fa-users mt-1"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="progress">
+                    <div class="progress-bar bg-gradient-secondary" role="progressbar" style="width: 57%" aria-valuenow="57" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12 layout-spacing">
+        <div class="widget widget-card-four">
+            <div class="widget-content">
+                <div class="w-content">
+                    <div class="w-info">
+                        <h6 class="value">{{ $messagesMonth }}</h6>
+                        <p class="">{{ __("Messages") }} {{ __("In this Month") }}</p>
+                    </div>
+                    <div class="">
+                        <div class="w-icon">
+                            <i class="fa-solid fa-message mt-1"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="progress">
+                    <div class="progress-bar bg-gradient-secondary" role="progressbar" style="width: 57%" aria-valuenow="57" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12 layout-spacing">
+        <div class="widget widget-card-four">
+            <div class="widget-content">
+                <div class="w-content">
+                    <div class="w-info">
+                        <h6 class="value">{{ $messagesMonth }}</h6>
+                        <p class="">{{ __('Orders') }} {{ __("In this Month") }}</p>
+                    </div>
+                    <div class="">
+                        <div class="w-icon">
+                            <i class="fa-solid fa-cart-shopping mt-1"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="progress">
+                    <div class="progress-bar bg-gradient-secondary" role="progressbar" style="width: 57%" aria-valuenow="57" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12 layout-spacing">
+        <div class="widget widget-card-four">
+            <div class="widget-content">
+                <div class="w-content">
+                    <div class="w-info">
                         <h6 class="value">{{ $users }}</h6>
-                        <p class="">{{ __("Users") }}</p>
+                        <p class="">{{ __("all") }} {{ __("Users") }}</p>
                     </div>
                     <div class="">
                         <div class="w-icon">
@@ -47,7 +112,7 @@
                 <div class="w-content">
                     <div class="w-info">
                         <h6 class="value">{{ $messages }}</h6>
-                        <p class="">{{ __("Messages") }}</p>
+                        <p class="">{{ __("all") }} {{ __("Messages") }}</p>
                     </div>
                     <div class="">
                         <div class="w-icon">
@@ -68,7 +133,7 @@
                 <div class="w-content">
                     <div class="w-info">
                         <h6 class="value">{{ $orders }}</h6>
-                        <p class="">{{ __('Orders') }}</p>
+                        <p class="">{{ __("all") }} {{ __('Orders') }}</p>
                     </div>
                     <div class="">
                         <div class="w-icon">
