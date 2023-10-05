@@ -105,18 +105,23 @@ class OrderController extends Controller
     }
 
     public function generateOrderCode()
-{
-    $year = now()->year;
-    $month = now()->month;
-    
-    // Get the last order code for the current month
-    $lastOrder = Order::whereYear('created_at', $year)
-        ->whereMonth('created_at', $month)
-        ->orderBy('id', 'desc')
-        ->first();
-    
-    $increment = $lastOrder ? (int) Str::afterLast($lastOrder->code, '-') + 1 : 0;
-    
-    return $year . '' . $month . '' . $increment;
-}
+    {
+        $year = now()->year;
+        $month = now()->month;
+        $day = now()->day;
+        
+        // Get the last order code for the current month
+        $lastOrder = Order::whereYear('created_at', $year)
+            ->whereMonth('created_at', $month)
+            ->orderBy('id', 'desc')
+            ->first();
+        
+        if ($lastOrder && $lastOrder->created_at->format('Y-m') === now()->format('Y-m')) {
+            $increment = (int) Str::afterLast($lastOrder->code, '-') + 1;
+        } else {
+            $increment = 1;
+        }
+        
+        return $year . sprintf('%02d', $month) . sprintf('%02d', $day) . '-' . sprintf('%04d', $increment);
+    }
 }
