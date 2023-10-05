@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Exports\WinnerExport;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreWinnerRequest;
 use App\Models\User;
 use App\Models\Winner;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
+use PDF;
 
 class WinnerController extends Controller
 {
@@ -110,5 +113,18 @@ class WinnerController extends Controller
         $winner->save();
 
         return back()->with('message', 'active success');
+    }
+
+    public function exportExcel()
+    {
+        return Excel::download(new WinnerExport, 'winners.xlsx');
+    }
+
+    public function exportPdf()
+    {
+        $winners = Winner::all();
+
+        $pdf = PDF::loadView('dashboard.winners.pdf', compact('winners'));
+        $pdf->download('winners.pdf');
     }
 }

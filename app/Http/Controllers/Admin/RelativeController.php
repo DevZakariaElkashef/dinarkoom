@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
 use Maatwebsite\Excel\Facades\Excel;
+use PDF;
 
 class RelativeController extends Controller
 {
@@ -109,7 +110,8 @@ class RelativeController extends Controller
 
     public function exportPdf()
     {
-    // $pdf = PDF::loadView('pdf.document', $data);
-    // $pdf->getMpdf()->AddPage(/*...*/);
+        $relatives = Relative::all();
+        $pdf = PDF::loadView('dashboard.relatives.pdf', compact('relatives'));
+        $pdf->download('relatives.pdf');
     }
 }

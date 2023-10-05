@@ -44,7 +44,7 @@
             <div class="table-responsive">
                 <div class="mb-2 py-2 row justify-content-end">
                     <a href="{{ route("orders.export_excel") }}" class="btn btn-primary">Excel</a>
-                    <a href="{{ route("orders.export_excel") }}" class="btn btn-primary mx-3">PDF</a>
+                    <a href="{{ route("orders.export_pdf") }}" class="btn btn-primary mx-3">PDF</a>
                 </div>
                 <table class="table table-bordered mb-4">
                     <thead>
@@ -90,6 +90,7 @@
                                         data-target="#editOrderModal">
                                         <i class="fa-solid fa-eye"></i>
                                     </a>
+                                    <a href="{{ route('invoice.pdf', $order->id) }}"><i class="fa-solid fa-share"></i></a>
                                     @if (auth()->user()->can('delete orders'))
                                         <a href="#" class="delete-orders-btn m-1" data-id="{{ $order->id }}"
                                             data-toggle="modal" data-target="#deleteOrderModal"><i

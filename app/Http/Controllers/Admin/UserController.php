@@ -101,7 +101,8 @@ class UserController extends Controller
 
     public function exportPdf()
     {
-    // $pdf = PDF::loadView('pdf.document', $data);
-    // $pdf->getMpdf()->AddPage(/*...*/);
+        $users = User::all();
+        $pdf = PDF::loadView('dashboard.users.pdf', compact('users'));
+        $pdf->download('users.pdf');
     }
 }

@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Order;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
+use PDF;
 
 class OrderController extends Controller
 {
@@ -33,7 +34,8 @@ class OrderController extends Controller
 
     public function exportPdf()
     {
-    // $pdf = PDF::loadView('pdf.document', $data);
-    // $pdf->getMpdf()->AddPage(/*...*/);
+        $orders = Order::all();
+        $pdf = PDF::loadView('dashboard.orders.pdf', compact('orders'));
+        $pdf->download('orders.pdf');
     }
 }

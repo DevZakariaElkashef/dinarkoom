@@ -100,6 +100,9 @@ Route::group(
                 Route::resource('roles', RoleController::class);
                 Route::resource('winners', WinnerController::class);
                 Route::get('winners-active/{id}', [WinnerController::class, 'active'])->name('winners.active');
+                Route::get('winners-excel', [WinnerController::class, 'exportExcel'])->name('winners.export_excel');
+                Route::get('winners-pdf', [WinnerController::class, 'exportPdf'])->name('winners.export_pdf');
+                
 
                 Route::get('images-active\{id}', [ImageController::class, 'active'])->name('images.active');
                 Route::get('images-deactive\{id}', [ImageController::class, 'deactive'])->name('images.deactive');

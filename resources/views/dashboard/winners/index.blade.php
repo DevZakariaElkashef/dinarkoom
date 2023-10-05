@@ -44,8 +44,8 @@
         <div class="card-body">
             <div class="table-responsive">
                 <div class="mb-2 py-2 row justify-content-end">
-                    <a href="{{ route("orders.export_excel") }}" class="btn btn-primary">Excel</a>
-                    <a href="{{ route("orders.export_excel") }}" class="btn btn-primary mx-3">PDF</a>
+                    <a href="{{ route("winners.export_excel") }}" class="btn btn-primary">Excel</a>
+                    <a href="{{ route("winners.export_pdf") }}" class="btn btn-primary mx-3">PDF</a>
                 </div>
                 <table class="table table-bordered mb-4">
                     <thead>
