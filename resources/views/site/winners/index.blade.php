@@ -12,22 +12,28 @@
                     <div class="user d-flex align-items-center justify-content-between">
                         <div class="avatar d-flex align-items-center" style="width: 100px;">
                             <img src="{{ asset('site/assets/img/avatar.png') }}" alt="">
-                            <p class="ms-5">{{ $winners->where('status', 1)->first()->user->name }}</p>
+                            <p class="mx-2">{{ $winners->where('status', 1)->first()->user->name }}</p>
                         </div>
-                        <p class="text-start">{{ $winners->where('status', 1)->first()->value }}</p>
+                        <div class="">
+                            <p class="text-start">{{ $winners->where('status', 1)->first()->value }} KD</p>
+                            <p class="text-start">{{ \Carbon\Carbon::createFromFormat('m', $winners->where('status', 1)->first()->month)->locale(app()->getLocale())->format('F') }}</p>
+                        </div>
                     </div>
                 </a>
 
                 <hr>
                 <p>previous winners</p>
                 @foreach ($winners->where('status', '!=', 1) as $winner)
-                <a href="#" class="text-light" style="text-decoration: none;">
+                <a href="#" class="text-light m-2" style="text-decoration: none;">
                     <div class="user d-flex align-items-center justify-content-between">
                         <div class="avatar d-flex align-items-center" style="width: 100px;">
-                            <img src="{{ asset('site/assets/img/avatar.png') }}" alt="">
-                            <p class="ms-5">{{ $winner->user->name }}</p>
+                            <img class="" src="{{ asset('site/assets/img/avatar.png') }}" alt="">
+                            <p class="mx-2">{{ $winner->user->name }}</p>
                         </div>
-                        <p class="text-start">{{ $winner->value }}</p>
+                        <div class="">
+                            <p class="text-start">{{ $winner->value != '' ? $winner->value : 0 }} KD</p>
+                            <p class="text-start">{{ \Carbon\Carbon::createFromFormat('m', $winner->month)->locale(app()->getLocale())->format('F') }}</p>
+                        </div>
                     </div>
                 </a>
                 @endforeach
