@@ -138,7 +138,7 @@
                             <li class="nav-item"><a class="nav-link" href="{{ route('home') }}">{{ __('home') }}</a></li>
                             <li class="nav-item"><a class="nav-link" href="{{ route('countact_us.index') }}">{{ __("contact us") }}</a></li>
                             <li class="nav-item"><a class="nav-link" href="{{ route('about_us.index') }}">{{ __('about us') }}</a></li>
-                            <li class="nav-item"><a class="nav-link" href="winner.html">{{ __('Winners') }}</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{ route("winner.index") }}">{{ __('Winners') }}</a></li>
                             <div class="dropdown">
                                 <a href="#" class="dropdown-toggle nav-link" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512">

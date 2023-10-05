@@ -13,6 +13,7 @@ use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\TextPageController as AdminTextPageController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\WinnerController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Site\ContactUsController;
 use App\Http\Controllers\Site\GuestController;
@@ -20,6 +21,7 @@ use App\Http\Controllers\Site\OrderController;
 use App\Http\Controllers\Site\ProfileController;
 use App\Http\Controllers\Site\RelativeController;
 use App\Http\Controllers\Site\TextPageController;
+use App\Http\Controllers\Site\WinnerController as SiteWinnerController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -93,6 +95,8 @@ Route::group(
                 Route::get('admin-relatives-pdf', [AdminRelativeController::class, 'exportPdf'])->name('admin-relatives.export_pdf');
                 Route::resource('relative-types', RelativeTypeController::class);
                 Route::resource('roles', RoleController::class);
+                Route::resource('winners', WinnerController::class);
+                Route::get('winners-active/{id}', [WinnerController::class, 'active'])->name('winners.active');
 
                 Route::get('images-active\{id}', [ImageController::class, 'active'])->name('images.active');
                 Route::get('images-deactive\{id}', [ImageController::class, 'deactive'])->name('images.deactive');
@@ -125,5 +129,6 @@ Route::group(
 
         Route::get('my-orders', [OrderController::class, 'index'])->name('order.index');
         Route::post('order/store', [OrderController::class, 'store'])->name('order.store');
+        Route::get('winners', [SiteWinnerController::class, 'index'])->name('winner.index');
     }
 );

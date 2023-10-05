@@ -64,6 +64,19 @@
                 </ul>
             </li>
 
+
+            <li class="menu">
+                <a href="{{ route('winners.index') }}"
+                    data-active="{{ isActiveRoute(['winners.index']) ? 'true' : 'false' }}"
+                    aria-expanded="{{ isActiveRoute(['winners.index']) ? 'true' : 'false' }}"
+                    class="dropdown-toggle">
+                    <div class="">
+                        <i class="fa-solid fa-gift"></i>
+                        <span>{{ __('Winners') }}</span>
+                    </div>
+                </a>
+            </li>
+
             <li class="menu">
                 <a href="#relatives-dropdown"
                     data-active="{{ isActiveRoute(['admin-relatives.create', 'admin-relatives.index, relative-types.index']) ? 'true' : 'false' }}"

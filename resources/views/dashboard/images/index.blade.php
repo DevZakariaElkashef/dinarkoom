@@ -96,7 +96,7 @@
                         </div>
                     @endif
                 </div>
-
+            </td>
             <td class="text-center">{{ $image->qty }}</td>
             <td class="text-center">{{ $image->order_count ?? 0 }}</td>
             <td class="text-center">{{ $image->created_at->diffForHumans() }}</td>
