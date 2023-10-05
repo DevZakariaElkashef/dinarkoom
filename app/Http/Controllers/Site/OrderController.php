@@ -60,6 +60,14 @@ class OrderController extends Controller
             return back()->with('message', 'we do not have images this month');
         }
 
+        $image = Image::online()->first();
+
+        if ($image->qty == 0) {
+            return back()->with('message', 'sales are close');
+        }
+        
+        
+
         $userId = $request->user()->id ?? auth('guest')->user()->id;
         $check = Order::where('user_id', $userId)->where('image_id', Image::online()->first()->id)->first();
 
@@ -106,7 +114,10 @@ class OrderController extends Controller
 
         $user = auth()->user() ?? auth('guest')->user();
         
+        $image->qty--;
+        $image->save();
 
+        
 
         PDF::loadView('site.invoice', compact('user', 'order'))->download();
         // must send email        
