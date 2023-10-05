@@ -67,55 +67,55 @@
                             <!-- Right content -->
                             <div class="social-media-icons @if(app()->getLocale() == 'ar' || app()->getLocale() == 'ur') text-start @else text-end @endif">
                                 @if($app && $app->facebook)
-                                    <a class="text-light py-2 mx-1" style="overflow: hidden;" href="{{ $app->facebook }}">
+                                    <a class="text-light py-2 mx-1" style="text-decoration: none;" style="overflow: hidden;" href="{{ $app->facebook }}">
                                         <img src="{{ Storage::url($app->facebook_icon) }}" style="width: 20px !important;">
                                     </a>
                                 @endif
                                
                                 @if($app && $app->whatsapp)
-                                    <a class="text-light py-2 mx-1" href="{{ $app->whatsapp }}">
+                                    <a class="text-light py-2 mx-1" style="text-decoration: none;" href="{{ $app->whatsapp }}">
                                         <img src="{{ Storage::url($app->whatsapp_icon) }}" style="width: 20px !important;">
                                     </a>
                                 @endif
                                 
                                 @if($app && $app->youtube)
-                                    <a class="text-light py-2 mx-1" href="{{ $app->youtube }}">
+                                    <a class="text-light py-2 mx-1" style="text-decoration: none;" href="{{ $app->youtube }}">
                                         <img src="{{ Storage::url($app->youtube_icon) }}" style="width: 20px !important;">
                                     </a>
                                 @endif
                                 
                                 @if($app && $app->twitter)
-                                    <a class="text-light py-2 mx-1" href="{{ $app->twitter }}">
+                                    <a class="text-light py-2 mx-1" style="text-decoration: none;" href="{{ $app->twitter }}">
                                         <img src="{{ Storage::url($app->twitter_icon) }}" style="width: 20px !important;">
                                     </a>
                                 @endif
                                 
                                 @if($app && $app->linkedin)
-                                    <a class="text-light py-2 mx-1" href="{{ $app->linkedin }}">
+                                    <a class="text-light py-2 mx-1" style="text-decoration: none;" href="{{ $app->linkedin }}">
                                         <img src="{{ Storage::url($app->linkedin_icon) }}" style="width: 20px !important;">
                                     </a>
                                 @endif
                                 
                                 @if($app && $app->pinterest)
-                                    <a class="text-light py-2 mx-1" href="{{ $app->pinterest }}">
+                                    <a class="text-light py-2 mx-1" style="text-decoration: none;" href="{{ $app->pinterest }}">
                                         <img src="{{ Storage::url($app->pinterest_icon) }}" style="width: 20px !important;">
                                     </a>
                                 @endif
                                 
                                 @if($app && $app->instagram)
-                                    <a class="text-light py-2 mx-1" href="{{ $app->instagram }}">
+                                    <a class="text-light py-2 mx-1" style="text-decoration: none;" href="{{ $app->instagram }}">
                                         <img src="{{ Storage::url($app->instagram_icon) }}" style="width: 20px !important;">
                                     </a>
                                 @endif
                                 
                                 @if($app && $app->snapchat)
-                                    <a class="text-light py-2 mx-1" href="{{ $app->snapchat }}">
+                                    <a class="text-light py-2 mx-1" style="text-decoration: none;" href="{{ $app->snapchat }}">
                                         <img src="{{ Storage::url($app->snapchat_icon) }}" style="width: 20px !important;">
                                     </a>
                                 @endif
                                 
                                 @if($app && $app->tiktok)
-                                    <a class="text-light py-2 mx-1" href="{{ $app->tiktok }}">
+                                    <a class="text-light py-2 mx-1" style="text-decoration: none;" href="{{ $app->tiktok }}">
                                         <img src="{{ Storage::url($app->tiktok_icon) }}" style="width: 20px !important;">
                                     </a>
                                 @endif
