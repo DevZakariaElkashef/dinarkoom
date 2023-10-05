@@ -32,9 +32,11 @@
             </div>
         </div>
 
+        @if(!$orderedThisMonth)
         <div class="text-center">
             <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#showRelativeModal">{{ __("Buy Now") }}</a>
         </div>
+        @endif
 
         <!-- Modal -->
         <div class="modal fade" id="showRelativeModal" tabindex="-1" aria-labelledby="exampleModalLabel"

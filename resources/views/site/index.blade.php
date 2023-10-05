@@ -8,6 +8,20 @@
             right: -15px;
             background-color: #000;
         }
+        
+        .fullscreen {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            height: 80%;
+            z-index: 9999;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
     </style>
 @endsection
 
@@ -32,20 +46,22 @@
                                 <img src="{{ asset('site/assets/img/header.gif') }}" alt="" style="width: 100%;">
                                 <div class="header-circle-text">
                                     <p class="header-circle-number">{{ $buyers ?? 0 }}</p>
-                                    <p class="header-circle-currency">KD</p>
+                                    <p class="header-circle-currency">{{ $sales ?? 0 }} KD</p>
                                     <p class="text-light header-circle-sentence">{{__("Prize of the month")}}</p>
                                 </div>
 
                                 <div class="card  border-0 mb-3 mt-3 text-light image-to-buy" style="max-width: 300px;background: #000;">
                                     <div class="row g-0">
-                                        <div class="col-md-4">
-                                            <img class="rounded-2" src="{{ $image ? Storage::url($image->thumbnail) : asset('site/assets/img/header-sides.jpg') }}" class="img-fluid rounded-start" alt="...">
+                                        <div class="col-md-4 image-thumbnail">
+                                            <img class="rounded-2 " src="{{ $image ? Storage::url($image->thumbnail) : asset('site/assets/img/header-sides.jpg') }}" class="img-fluid rounded-start" alt="...">
                                         </div>
                                         <div class="col-md-8">
                                             <div class="card-body">
                                                 <h5 class="card-title">{{ __("Digital Photo") }}</h5>
-                                                <p class="card-text">{{ $sales ?? 0 }}  {{ __("KD Sales") }}</p>
-                                                <a class="btn btn-primary btn-lg px-4 me-sm-3" href="{{ route("terms.index") }}">{{ __("Buy Now") }}</a>
+                                                <p class="card-text">{{ $image->price ?? 0 }}  {{ __("KD Sales") }}</p>
+                                                @if(!$orderedThisMonth) 
+                                                    <a class="btn btn-primary btn-lg px-4 me-sm-3" href="{{ route("terms.index") }}">{{ __("Buy Now") }}</a>
+                                                @endif
                                         </div>
                                       </div>
                                     </div>
@@ -71,5 +87,10 @@
     </header>
 @endsection
         
-        
-        
+@section('script')
+    <script>
+        $(document).on('click', '.image-thumbnail', function() {
+            $(this).toggleClass('fullscreen');
+        });
+    </script>
+@endsection

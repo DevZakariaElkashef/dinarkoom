@@ -31,8 +31,8 @@
                         </div>
                         <!-- Civil no input-->
                         <div class="form-floating mb-3">
-                            <input class="form-control" value="{{ old('civil_id') }}" name="civil_id" id="IdNubmer" type="text" placeholder="{{ __("Already have an account?") }} " data-sb-validations="required" />
-                            <label for="IdNubmer">{{ __("Already have an account?") }} </label>
+                            <input class="form-control" value="{{ old('civil_id') }}" name="civil_id" id="IdNubmer" type="text" placeholder="{{ __("Civil ID number") }} " data-sb-validations="required" />
+                            <label for="IdNubmer">{{ __("Civil ID number") }} </label>
                             @error('civil_id')
                                 <div class="text-danger" >{{ $message }}</div>
                             @enderror

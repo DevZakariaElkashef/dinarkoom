@@ -33,7 +33,15 @@ class HomeController extends Controller
         $buyers = Order::where('image_id', $image->id)->count();
         $sales = $buyers * $image->price;
         
+        if (auth()->check()) {
+            $orderedThisMonth = Order::where('user_id', auth()->user()->id)->where('image_id', $image->id)->exists();
+        } elseif(auth('guest')->check()) {
+            $orderedThisMonth = Order::where('user_id', auth('guest')->user()->id)->where('image_id', $image->id)->exists();
+        } else {
+            $orderedThisMonth = false;
+        }
+        
 
-        return view('site.index', compact('rightImage', 'leftImage', 'image', 'buyers', 'sales'));
+        return view('site.index', compact('rightImage', 'leftImage', 'image', 'buyers', 'sales', 'orderedThisMonth'));
     }
 }

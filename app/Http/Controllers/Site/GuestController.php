@@ -22,11 +22,22 @@ class GuestController extends Controller
         // Validate the guest registration form input
         $validatedData = $request->validate([
             'name' => 'required|string|max:255',
-            'email' => 'required|email|unique:users,email',
-            'civil_id' => 'required|string|unique:users,civil_id',
-            'phone' => 'required|string|unique:users,phone',
-            'addition_phone' => 'required|string|unique:users,phone',
+            'email' => 'required|email',
+            'civil_id' => 'required|string',
+            'phone' => 'required|string',
+            'addition_phone' => 'required|string',
         ]);
+
+        $geust = User::where([
+            ['email', $request->email],
+            ['civil_id', $request->civil_id],
+            ['phone', $request->phone],
+            ['addition_phone', $request->addition_phone],
+        ])->first();
+        if ($geust) {
+            // Log in the newly created user
+            Auth::guard('guest')->login($geust);
+        }
 
         // Create a new guest user
         $user = User::create([
@@ -37,7 +48,7 @@ class GuestController extends Controller
             'addition_phone' => $validatedData['addition_phone'],
             'is_guest' => true, // Set the user as a guest
             'role' => 3
-            
+
         ]);
 
         // Log in the newly created user
@@ -45,5 +56,4 @@ class GuestController extends Controller
 
         return back()->with('message', 'wellcome ' . $user->name);
     }
-    
 }
