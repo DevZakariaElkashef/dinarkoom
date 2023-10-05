@@ -37,6 +37,12 @@
             <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#showRelativeModal">{{ __("Buy Now") }}</a>
         </div>
         @endif
+        
+        @if($canDownload)
+        <div class="text-center">
+            <a download href="{{ $image ? Storage::url($image->thumbnail) : asset('site/assets/img/header-sides.jpg') }}" class="btn btn-primary" >{{ __("Download") }}</a>
+        </div>
+        @endif
 
         <!-- Modal -->
         <div class="modal fade" id="showRelativeModal" tabindex="-1" aria-labelledby="exampleModalLabel"

@@ -25,6 +25,7 @@ class TextPageController extends Controller
         
         $image = Image::online()->first();
         
+        
         if (auth()->check()) {
             $orderedThisMonth = Order::where('user_id', auth()->user()->id)->where('image_id', $image->id)->exists();
         } elseif(auth('guest')->check()) {
@@ -33,7 +34,9 @@ class TextPageController extends Controller
             $orderedThisMonth = false;
         }
 
-        return view('site.text_pages.terms', compact('content', 'orderedThisMonth'));
+        $canDownload = Order::where('image_id', $image->id)->where('user_id', auth()->user()->id)->exists();
+
+        return view('site.text_pages.terms', compact('content', 'orderedThisMonth', 'canDownload', 'image'));
     }
 
 

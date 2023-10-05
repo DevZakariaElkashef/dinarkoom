@@ -62,6 +62,10 @@
                                                 @if(!$orderedThisMonth) 
                                                     <a class="btn btn-primary btn-lg px-4 me-sm-3" href="{{ route("terms.index") }}">{{ __("Buy Now") }}</a>
                                                 @endif
+
+                                                @if($canDownload)
+                                                <a class="btn btn-primary btn-lg px-4 me-sm-3" href="{{ $image ? Storage::url($image->thumbnail) : asset('site/assets/img/header-sides.jpg') }}" download>{{ __("Download") }}</a>
+                                                @endif
                                         </div>
                                       </div>
                                     </div>
