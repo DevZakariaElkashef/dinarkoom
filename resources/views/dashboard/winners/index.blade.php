@@ -100,13 +100,10 @@
                                 </td>
                                 <td class="">
                                     <a href="#" class="m-1 edit-winner-btn" data-id="{{ $winner->id }}"
-                                        data-date="{{ $winner->date }}"
-                                        data-status="{{ $winner->status ? 'success' : 'faild' }}"
-                                        data-user_name="{{ $winner->user->name }}"
-                                        data-user_email="{{ $winner->user->email }}"
-                                        data-user_phone="{{ $winner->user->phone }}"
-                                        data-user_addition_phone="{{ $winner->user->addition_phone }}"
-                                        data-user_civil_id="{{ $winner->user->civil_id }}" data-toggle="modal"
+                                        data-id="{{ $winner->id }}"
+                                        data-name="{{ $winner->user->name }}"
+                                        data-value="{{ $winner->value }}"
+                                        data-toggle="modal"
                                         data-target="#editWinnerModal">
                                         <i class="fa-solid fa-pen"></i>
                                     </a>
@@ -149,28 +146,19 @@
         })
 
         // show user info in the modal
-        $(document).on('click', '.edit-order-btn', function() {
+        $(document).on('click', '.edit-winner-btn', function() {
+            
             let id = $(this).data("id");
-            let date = $(this).data("date");
-            let status = $(this).data("status");
-            let user_name = $(this).data("user_name");
-            let user_email = $(this).data("user_email");
-            let user_phone = $(this).data("user_phone");
-            let user_addition_phone = $(this).data("user_addition_phone");
-            let user_civil_id = $(this).data("user_civil_id");
+            let value = $(this).data("value");
+            let name = $(this).data("name");
 
-            $('#orderId').text(id);
-            $('#OrderUserName').text(user_name);
-            $('#OrderUserEmail').text(user_email);
-            $('#OrderUserPhone').text(user_phone);
-            $('#OrderUserAdditionPhone').text(user_addition_phone);
-            $('#OrderUserCivilId').text(user_civil_id);
-            $('#OrderStatus').text(status);
-            $('#OrderDate').text(date);
+            $('#winnerName').text(name);
+            $('#winnerValue').val(value);
 
-            let url = '{{ route('orders.update', ':id') }}'
+
+            let url = '{{ route('winners.update', ':id') }}'
             url = url.replace(':id', id);
-            $('#updateOrderForm').attr('action', url)
+            $('#editWinnerForm').attr('action', url)
 
         })
     </script>

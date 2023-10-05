@@ -70,7 +70,15 @@ class WinnerController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $data = $request->validate([
+            'user_id' => 'nullable|exists:users,id',
+            'value' => 'required'
+        ]);
+
+        $winner = Winner::findOrFail($id);
+        $winner->update($data);
+
+        return back()->with('message', 'updated success');
     }
 
     /**
