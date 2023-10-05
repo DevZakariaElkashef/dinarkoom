@@ -79,7 +79,7 @@
                                 </td>
                                 <td class="text-center">{{ $order->created_at->format('y/m/d -- h-i-s a') }}</td>
                                 <td class="">
-                                    <a href="#" class="m-1 edit-order-btn" data-id="{{ $order->id }}"
+                                    <a href="#" class="m-1 edit-order-btn" data-id="{{ $order->code }}"
                                         data-date="{{ $order->date }}"
                                         data-status="{{ $order->status ? 'success' : 'faild' }}"
                                         data-user_name="{{ $order->user->name }}"
