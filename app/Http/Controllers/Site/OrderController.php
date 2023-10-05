@@ -34,6 +34,7 @@ class OrderController extends Controller
                 'phone' => 'required|exists:users,phone',
                 'addition_phone' => 'required|exists:users,addition_phone',
                 'civil_id' => 'required|exists:users,civil_id',
+                'terms' => 'required'
             ]);
             
             if ($validator->fails()) {
@@ -44,7 +45,8 @@ class OrderController extends Controller
 
             
             $validator = Validator::make($request->all(), [
-                'civil_id' => 'required'
+                'civil_id' => 'required',
+                'terms' => 'required'
             ]);
             
             if ($validator->fails()) {

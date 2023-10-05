@@ -51,6 +51,9 @@
                         @csrf
                         <div class="modal-body">
 
+
+                            
+
                             @auth('guest')
                             <!-- Name input-->
                             <div class="form-floating mb-3">
@@ -108,6 +111,15 @@
                                 </select>
                             </div>
                             @endauth
+
+                            <div class="mt-3" >
+                                <label class="text-dark">
+                                    <input name="terms" value="0" type="checkbox"> I agree to the terms and conditions
+                                    @error('terms')
+                                        <div class="text-danger" >{{ $message }}</div>
+                                    @enderror
+                                </label>
+                            </div>
 
                         </div>
                         <div class="modal-footer">
