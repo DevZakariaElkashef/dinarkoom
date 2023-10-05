@@ -17,6 +17,7 @@ use App\Http\Controllers\Admin\WinnerController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Site\ContactUsController;
 use App\Http\Controllers\Site\GuestController;
+use App\Http\Controllers\Site\InvoiceController;
 use App\Http\Controllers\Site\OrderController;
 use App\Http\Controllers\Site\ProfileController;
 use App\Http\Controllers\Site\RelativeController;
@@ -67,6 +68,7 @@ Route::group(
 
         Route::get('/', [HomeController::class, 'index'])->name('home');
 
+
         Route::get('guest/register', [GuestController::class, 'register'])->name('guest.register');
         Route::post('guest/register', [GuestController::class, 'store'])->name('guest.store');
 
@@ -78,6 +80,7 @@ Route::group(
             Route::get('profile/edit-password', [ProfileController::class, 'editPassword'])->name('profile.editPassword');
             Route::post('profile/update-password', [ProfileController::class, 'updatePassword'])->name('profile.updatePassword');
             Route::resource('relatives', RelativeController::class);
+            Route::get('invice/{id}', [InvoiceController::class, 'index'])->name('invoice.pdf');
 
             // admin
             Route::prefix('admin')->group(function () {

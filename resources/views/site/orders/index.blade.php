@@ -23,7 +23,7 @@
                         <p class="mb-4">Address: 20 fake street</p>
                     </div>
                     <div class="col-md-3 d-flex justify-content-end align-items-center">
-                        <a href="#" class="btn btn-primary">{{ __("Extract Invoice") }}</a>
+                        <a href="{{ route('invoice.pdf', $order->id) }}" class="btn btn-primary">{{ __("Extract Invoice") }}</a>
                     </div>
                 </div>
             @endforeach
