@@ -49,8 +49,51 @@
                         @csrf
                         <div class="modal-body">
 
+                            @auth('guest')
+                            <!-- Name input-->
+                            <div class="form-floating mb-3">
+                                <input class="form-control" value="{{ old('name') }}" name="name" id="userName" type="text" placeholder="{{ __("User name") }}" data-sb-validations="required" />
+                                <label class="text-dark" for="userName">{{ __("Name as in Civil ID") }}</label>
+                                @error('name')
+                                    <div class="text-danger" >{{ $message }}</div>
+                                @enderror
+
+                            </div>
+                            <!-- Civil no input-->
+                            <div class="form-floating mb-3">
+                                <input class="form-control" value="{{ old('civil_id') }}" name="civil_id" id="IdNubmer" type="text" placeholder="{{ __("Already have an account?") }} " data-sb-validations="required" />
+                                <label class="text-dark" for="IdNubmer">{{ __("Already have an account?") }} </label>
+                                @error('civil_id')
+                                    <div class="text-danger" >{{ $message }}</div>
+                                @enderror
+                            </div>
+                            <!-- MObile no input-->
+                            <div class="form-floating mb-3">
+                                <input class="form-control" value="{{ old('phone') }}" name="phone" id="mobile1" type="text" placeholder="{{ __("Phone") }} " data-sb-validations="required" />
+                                <label class="text-dark" for="mobile1">{{ __("Phone") }} </label>
+                                @error('phone')
+                                    <div class="text-danger" >{{ $message }}</div>
+                                @enderror
+                            </div>
+                            <!-- MObile no input-->
+                            <div class="form-floating mb-3">
+                                <input class="form-control" value="{{ old("addition_phone") }}" name="addition_phone" id="mobile2" type="text" placeholder="{{ __("Addition_Phone") }} " data-sb-validations="required" />
+                                <label class="text-dark" for="mobile2">{{ __("Addition_Phone") }} </label>
+                                @error('addition_phone')
+                                    <div class="text-danger" >{{ $message }}</div>
+                                @enderror
+                            </div>
+                            <!-- Email address input-->
+                            <div class="form-floating mb-3">
+                                <input class="form-control" value="email" name="email" id="email" type="email" placeholder="name@example.com" data-sb-validations="required,email" />
+                                <label class="text-dark" for="email">{{ __("Email Address") }}</label>
+                                @error('email')
+                                    <div class="text-danger" >{{ $message }}</div>
+                                @enderror
+                            </div>
+                            @else
                             <div class="form-group">
-                                <label for="civil_id" class="text-dark">{{ __("Buyer") }}</label>
+                                <label class="text-dark" for="civil_id" class="text-dark">{{ __("Buyer") }}</label>
                                 <select name="civil_id" class="form-control">
                                     <option selected disabled>{{ __("Choose buyer") }}</option>
                                     <option value="@if(auth()->check()) {{ auth()->user()->civil_id }} @endif  @if(auth('guest')->check()) {{ auth('guest')->user()->civil_id }} @endif">{{ __("For myself") }}</option>
@@ -62,6 +105,7 @@
                                     @endif
                                 </select>
                             </div>
+                            @endauth
 
                         </div>
                         <div class="modal-footer">

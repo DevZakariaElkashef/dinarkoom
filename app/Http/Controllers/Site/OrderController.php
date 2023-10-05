@@ -11,6 +11,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
+
 
 class OrderController extends Controller
 {
@@ -24,17 +26,33 @@ class OrderController extends Controller
 
     public function store(Request $request)
     {
-        
-        $validator = Validator::make($request->all(), [
-            'civil_id' => 'required'
-        ]);
-        
+        if(auth('guest')->check()) {
 
-        if ($validator->fails()) {
-            session()->flash('message', __("Faild_to_order!"));
-            return Redirect::back()->withErrors($validator)->withInput();
+            $validator = Validator::make($request->all(), [
+                'name' => 'required',
+                'email' => 'required|exists:users,email',
+                'phone' => 'required|exists:users,phone',
+                'addition_phone' => 'required|exists:users,addition_phone',
+                'civil_id' => 'required|exists:users,civil_id',
+            ]);
+            
+            if ($validator->fails()) {
+                session()->flash('message', __("Faild_to_order!"));
+                return Redirect::back()->withErrors($validator)->withInput();
+            }
+        } else {
+
+            
+            $validator = Validator::make($request->all(), [
+                'civil_id' => 'required'
+            ]);
+            
+            if ($validator->fails()) {
+                session()->flash('message', __("Faild_to_order!"));
+                return Redirect::back()->withErrors($validator)->withInput();
+            }
         }
-
+            
         if (Image::online()->first() == null) {
             return back()->with('message', 'we do not have images this month');
         }
@@ -52,7 +70,8 @@ class OrderController extends Controller
                 'user_id' => auth('guest')->user()->id,
                 'image_id' => Image::online()->first()->id,
                 'date' => now(),
-                'invoice_id' => '123413241234'
+                'invoice_id' => '123413241234',
+                'code' => $this->generateOrderCode()
             ]);
 
         } else {
@@ -63,7 +82,8 @@ class OrderController extends Controller
                     'user_id' => $request->user()->id,
                     'image_id' => Image::online()->first()->id,
                     'date' => now(),
-                    'invoice_id' => '123413241234'
+                    'invoice_id' => '123413241234',
+                    'code' => $this->generateOrderCode()
                 ]);
 
             } else {
@@ -73,7 +93,8 @@ class OrderController extends Controller
                     'relative_id' => Relative::where('civil_id', $request->civil_id)->first()->id,
                     'image_id' => Image::online()->first()->id,
                     'date' => now(),
-                    'invoice_id' => '123413241234'
+                    'invoice_id' => '123413241234',
+                    'code' => $this->generateOrderCode()
                 ]);
             }
 
@@ -82,4 +103,20 @@ class OrderController extends Controller
         return back()->with('message', 'you have ordered succefully!');
         
     }
+
+    public function generateOrderCode()
+{
+    $year = now()->year;
+    $month = now()->month;
+    
+    // Get the last order code for the current month
+    $lastOrder = Order::whereYear('created_at', $year)
+        ->whereMonth('created_at', $month)
+        ->orderBy('id', 'desc')
+        ->first();
+    
+    $increment = $lastOrder ? (int) Str::afterLast($lastOrder->code, '-') + 1 : 0;
+    
+    return $year . '' . $month . '' . $increment;
+}
 }

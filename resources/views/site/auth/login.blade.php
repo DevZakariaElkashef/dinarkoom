@@ -46,7 +46,7 @@
                         <!-- Submit error message-->
                         <!-- Submit Button-->
                         <div class="d-grid mt-2"><button type="submit" class="btn btn-primary btn-lg" id="submitButton" type="submit">{{ __("Submit") }}</button></div>
-                        <div class="d-grid mt-2"><a href="{{ url('/') }}" class="btn btn-secondary btn-lg">{{ __("Continue As Guest") }}</a></div>
+                        <div class="d-grid mt-2"><a href="{{ route("guest.register") }}" class="btn btn-secondary btn-lg">{{ __("Continue As Guest") }}</a></div>
                     </form>
                 </div>
             </div>

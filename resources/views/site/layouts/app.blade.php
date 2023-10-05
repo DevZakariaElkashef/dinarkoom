@@ -158,7 +158,7 @@
                             </li>
                             @auth
                             <div class="dropdown">
-                                <span class="badge badge-pill badge-primary text-light bg-primary p-1" style="float:right;margin-bottom:-10px;">{{ $notifications->count() }}</span> <!-- your badge -->
+                                <span class="badge badge-pill badge-primary text-light bg-primary p-1" style="float:right;margin-bottom:-10px;">{{ $notifications->count() ?? 0 }}</span> <!-- your badge -->
                                 <a href="#" class="dropdown-toggle nav-link" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512">
                                         <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
@@ -167,7 +167,7 @@
                                 </a>
                                     
                                 <ul class="dropdown-menu">
-                                    @foreach ($notifications as $notification)
+                                    @forelse ($notifications as $notification)
                                         <li><a class="dropdown-item show-notify-btn" 
                                                 href="#" 
                                                 data-id="{{ $notification->id }}"
@@ -175,7 +175,9 @@
                                                 data-body="{{ $notification->{'body_' . app()->getLocale()} }}"
                                                 data-bs-toggle="modal" 
                                                 data-bs-target="#showNotification">{{ $notification->{'title_' . app()->getLocale()} }}</a></li>
-                                    @endforeach
+                                    @empty
+                                    <li><span class="dropdown-item">{{ __("empty") }}</span></li>
+                                    @endforelse
                                 </ul>
                             </div>
                             @endauth
