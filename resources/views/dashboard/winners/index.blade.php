@@ -54,6 +54,7 @@
                             <th class="text-center">{{ __('User') }}</th>
                             <th class="text-center">{{ __('Added by') }}</th>
                             <th class="text-center">{{ __('Status') }}</th>
+                            <th class="text-center">{{ __('Value') }}</th>
                             <th class="text-center">{{ __('Date') }}</th>
                             <th class="">{{ __('Action') }}</th>
                         </tr>
@@ -65,6 +66,7 @@
 
                                 <td class="text-center">{{ $winner->user->name }}</td>
                                 <td class="text-center">{{ $winner->admin->name }}</td>
+                                <td class="text-center">{{ $winner->value != '' ? $winner->value : 0 }}</td>
 
                                 <td class="text-center">
 

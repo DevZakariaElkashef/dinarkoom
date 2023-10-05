@@ -50,11 +50,15 @@
           <select id="user_id" class="form-control" name="user_id">
             <option selected disabled>{{ __("Choose..") }}</option>
             @foreach ($users as $user)
-            
             <option value="{{ $user->id }}">{{ $user->name }}</option>
             @endforeach
             
           </select>
+        </div>
+
+        <div class="form-group">
+          <label for="value">{{ __("value") }}</label>
+          <input id="value" class="form-control" type="number" name="value">
         </div>
 
         </div>

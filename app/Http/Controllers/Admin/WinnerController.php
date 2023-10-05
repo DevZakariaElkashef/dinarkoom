@@ -37,7 +37,8 @@ class WinnerController extends Controller
         $winner = Winner::create([
             'user_id' => $request->user_id,
             'admin_id' => $request->user()->id,
-            'month' => Carbon::now()->month
+            'month' => Carbon::now()->month,
+            'value' => $request->value
         ]);
         
         foreach(Winner::where('id', '!=', $winner->id)->get() as $win) {

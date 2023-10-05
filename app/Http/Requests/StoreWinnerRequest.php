@@ -22,7 +22,8 @@ class StoreWinnerRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'user_id',
+            'user_id' => 'required',
+            'value' => 'required'
         ];
     }
 }
