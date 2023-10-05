@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\SendNotificationsRequest;
 use App\Models\Notification;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -22,8 +23,30 @@ class NotificationController extends Controller
         return view('dashboard.notifications.create', compact('users'));
     }
 
-    public function store(Request $request)
+    public function store(SendNotificationsRequest $request)
     {
-        dd($request->all());
+        foreach($request->users as $user) {
+            Notification::create([
+                'user_id' => $user,
+                'title_en' => $request->title_en,
+                'body_en' => $request->body_en,
+                'title_ar' => $request->title_ar,
+                'body_ar' => $request->body_ar,
+                'title_ur' => $request->title_ur,
+                'body_ur' => $request->body_ur,
+                'title_fil' => $request->title_fil,
+                'body_fil' => $request->body_fil,
+            ]);
+        }
+
+        return back()->with('message', 'sent success');
+
+    }
+
+    public function destroy($id)
+    {
+        Notification::findOrfail($id)->delete();
+
+        return back()->with('message', 'deleted success');
     }
 }

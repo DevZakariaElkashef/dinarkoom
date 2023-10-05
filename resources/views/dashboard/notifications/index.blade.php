@@ -30,8 +30,10 @@
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>{{ __("Title") }}</th>
-                            <th>{{ __("Content") }}</th>
+                            <th>{{ __("Title") }} {{ __("In english") }}</th>
+                            <th>{{ __("Title") }} {{ __("In arabic") }}</th>
+                            <th>{{ __("Title") }} {{ __("In Urdu") }}</th>
+                            <th>{{ __("Title") }} {{ __("In Filibino") }}</th>
                             {{-- @if(auth()->user()->can('edit users') || auth()->user()->can('delete users')) --}}
                             <th>{{ __("Action") }}</th>
                             {{-- @endif --}}
@@ -42,19 +44,21 @@
                         @foreach ($notifications as $notify)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
-                                <td>{{ $notify->title }}</td>
-                                <td>{{ $notify->body }}</td>
+                                <td>{{ $notify->title_en }}</td>
+                                <td>{{ $notify->title_ar }}</td>
+                                <td>{{ $notify->title_ur }}</td>
+                                <td>{{ $notify->title_fil }}</td>
                                 {{-- @if(auth()->user()->can('edit users') || auth()->user()->can('delete users')) --}}
                                     <td class="">
                                             {{-- @if(auth()->user()->can('edit users')) --}}
                                         <a href="#" 
-                                            class="m-1 edit-user-btn"
-                                            data-id="{{ $user->id }}"
+                                            {{-- class="m-1 edit-notification-btn"
+                                            data-id="{{ $notify->id }}"
                                             data-toggle="modal" 
-                                            data-target="#editUserModal"><i class="fa-solid fa-pen"></i></a>
+                                            data-target="#editNotificationModal"><i class="fa-solid fa-pen"></i></a> --}}
                                             {{-- @endif --}}
                                             {{-- @if(auth()->user()->can('delete users')) --}}
-                                                <a href="#" class="delete-user-btn m-1" data-id="{{ $user->id }}" data-toggle="modal" data-target="#deleteUserModal"><i class="fa-solid fa-trash"></i></a>
+                                                <a href="#" class="delete-notification-btn m-1" data-id="{{ $notify->id }}" data-toggle="modal" data-target="#deleteNotificationModal"><i class="fa-solid fa-trash"></i></a>
                                             {{-- @endif --}}
                                     </td>
                                 {{-- @endif --}}
@@ -65,12 +69,12 @@
                 </table>
 
                 <div class="text-center">
-                    {{ $notifications->links() }}
+                    {{-- {{ $notifications->links() }} --}}
                 </div>
             </div>
 
 
-            @include('dashboard.users.__modals')
+            @include('dashboard.notifications.__modals')
             
         </div>
     </div>
@@ -81,13 +85,13 @@
     <script>
 
         // delete usre
-        $(document).on('click', '.delete-user-btn', function(){
+        $(document).on('click', '.delete-notification-btn', function(){
             let id = $(this).data('id');
 
-            let url = '{{ route("users.destroy", ":id") }}';
+            let url = '{{ route("notification.destroy", ":id") }}';
             url = url.replace(':id', id);
             console.log(url);
-            $('#deleteUserForm').attr('action', url);
+            $('#deleteNotificationForm').attr('action', url);
         })
 
         // show user info in the modal

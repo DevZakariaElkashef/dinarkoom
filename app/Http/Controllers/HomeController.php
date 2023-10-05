@@ -32,6 +32,7 @@ class HomeController extends Controller
         $image = Image::online()->first();
         $buyers = Order::where('image_id', $image->id)->count();
         $sales = $buyers * $image->price;
+        
 
         return view('site.index', compact('rightImage', 'leftImage', 'image', 'buyers', 'sales'));
     }
