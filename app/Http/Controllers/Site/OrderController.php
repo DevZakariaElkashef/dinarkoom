@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
+use PDF;
 
 
 class OrderController extends Controller
@@ -68,7 +69,7 @@ class OrderController extends Controller
 
 
         if (auth('guest')->check()) {
-            Order::create([
+            $order = Order::create([
                 'user_id' => auth('guest')->user()->id,
                 'image_id' => Image::online()->first()->id,
                 'date' => now(),
@@ -80,7 +81,7 @@ class OrderController extends Controller
 
             if ($request->user()->civil_id == $request->civil_id) {
                 
-                Order::create([
+                $order = Order::create([
                     'user_id' => $request->user()->id,
                     'image_id' => Image::online()->first()->id,
                     'date' => now(),
@@ -90,7 +91,7 @@ class OrderController extends Controller
 
             } else {
 
-                Order::create([
+                $order = Order::create([
                     'user_id' => $request->user()->id,
                     'relative_id' => Relative::where('civil_id', $request->civil_id)->first()->id,
                     'image_id' => Image::online()->first()->id,
@@ -102,7 +103,15 @@ class OrderController extends Controller
 
         }
 
-        return back()->with('message', 'you have ordered succefully!');
+
+        $user = auth()->user() ?? auth('guest')->user();
+        
+
+
+        PDF::loadView('site.invoice', compact('user', 'order'))->download();
+        // must send email        
+
+        return back()->with('message', 'you have ord    ered succefully!');
         
     }
 
