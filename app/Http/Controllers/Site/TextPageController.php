@@ -34,7 +34,13 @@ class TextPageController extends Controller
             $orderedThisMonth = false;
         }
 
-        $canDownload = Order::where('image_id', $image->id)->where('user_id', auth()->user()->id)->exists();
+        if(auth()->check()) {
+            $canDownload = Order::where('image_id', $image->id)->where('user_id', auth()->user()->id)->exists();
+        } elseif(auth('guest')->check()) {
+            $canDownload = Order::where('image_id', $image->id)->where('user_id', auth('guest')->user()->id)->exists();
+        } else {
+            $canDownload = false;
+        }
 
         return view('site.text_pages.terms', compact('content', 'orderedThisMonth', 'canDownload', 'image'));
     }

@@ -4,8 +4,8 @@
             <th>#</th>
             <th class="text-center">{{ __('User') }}</th>
             <th class="text-center">{{ __('Added by') }}</th>
-            <th class="text-center">{{ __('Status') }}</th>
             <th class="text-center">{{ __('Value') }}</th>
+            <th class="text-center">{{ __('Status') }}</th>
             <th class="text-center">{{ __('Date') }}</th>
             @if (auth()->user()->can('edit winners') ||
                     auth()->user()->can('delete winners'))

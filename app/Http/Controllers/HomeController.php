@@ -32,6 +32,7 @@ class HomeController extends Controller
         $image = Image::online()->first();
         $buyers = Order::where('image_id', $image->id)->count();
         $sales = $buyers * $image->price;
+        
         if(auth()->check()) {
             $canDownload = Order::where('image_id', $image->id)->where('user_id', auth()->user()->id)->exists();
         } elseif(auth('guest')->check()) {
