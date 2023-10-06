@@ -4,10 +4,10 @@
         
         <!-- Header-->
         <section class="bg-dark text-light py-5">
-            <h1 class="text-center">Winners</h1>
+            <h1 class="text-center">{{__("Winners")}}</h1>
             <div class="text-center" style="width: 60%; margin: auto;">
 
-                <p>winner of this month</p>
+                <p>{{__("winner of this month")}}</p>
                 <a href="#" class="text-light" style="text-decoration: none;">
                     <div class="user d-flex align-items-center justify-content-between">
                         <div class="avatar d-flex align-items-center" style="width: 100px;">
@@ -22,7 +22,7 @@
                 </a>
 
                 <hr>
-                <p>previous winners</p>
+                <p></p>
                 @foreach ($winners->where('status', '!=', 1) as $winner)
                 <a href="#" class="text-light m-2" style="text-decoration: none;">
                     <div class="user d-flex align-items-center justify-content-between">

@@ -1,5 +1,16 @@
 @extends('dashboard.layouts.app')
 
+
+@section('breadcrumb')
+    <nav class="breadcrumb-one" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{{ route('dashboard.index') }}">{{ __('Dashboard') }}</a></li>
+            <li class="breadcrumb-item"><a href="{{ route('settings.index') }}">{{ __('Setting') }}</a></li>
+            <li class="breadcrumb-item active" aria-current="page"><span>{{ __('view') }}</span></li>
+        </ol>
+    </nav>
+@endsection
+
 @section('content')
     <div class="mt-3">
         <div class="card">
@@ -290,25 +301,25 @@
 
                             <div class="col-md-3 mb-2">
                                 <div class="form-group">
-                                    <label for="logout_time">Logout time in minutes</label>
+                                    <label for="logout_time">{{ __("Logout time in minutes") }}</label>
                                     <input id="logout_time" class="form-control" type="number" name="logout_time" value="{{ $setts->logout_time ?? '' }}">
                                 </div>
                             </div>
                             <div class="col-md-3 mb-2">
                                 <div class="form-group">
-                                    <label for="phone">Phone</label>
+                                    <label for="phone">{{ __('Phone') }}</label>
                                     <input id="phone" class="form-control" type="text" name="phone" value="{{ $setts->phone ?? '' }}">
                                 </div>
                             </div>
                             <div class="col-md-6 mb-2">
                                 <div class="form-group">
-                                    <label for="email">email</label>
+                                    <label for="email">{{ __("Email") }}</label>
                                     <input id="email" class="form-control" type="text" name="email" value="{{ $setts->email ?? '' }}">
                                 </div>
                             </div>
                             <div class="col-md-12 mb-2">
                                 <div class="form-group">
-                                    <label for="address">address</label>
+                                    <label for="address">{{ __("address") }}</label>
                                     <textarea id="address" class="form-control" name="address" >{{ $setts->address ?? '' }}</textarea>
                                 </div>
                             </div>

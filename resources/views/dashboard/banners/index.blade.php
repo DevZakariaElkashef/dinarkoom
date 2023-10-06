@@ -7,7 +7,7 @@
     <nav class="breadcrumb-one" aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="{{ route('dashboard.index') }}">{{ __('Dashboard') }}</a></li>
-            <li class="breadcrumb-item"><a href="{{ route('users.index') }}">{{ __('Banner') }}</a></li>
+            <li class="breadcrumb-item"><a href="{{ route('users.index') }}">{{ __('Ads') }}</a></li>
             <li class="breadcrumb-item active" aria-current="page"><span>{{ __('view') }}</span></li>
         </ol>
     </nav>

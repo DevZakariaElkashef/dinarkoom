@@ -74,7 +74,7 @@
                 <p class="mb-3">{{ __('Message') }}: <span id="senderMessage"></span></p>
 
                 <hr>
-                <p>Replay: <span id="replaymessage"></span> </p>
+                <p>{{ __("Replay") }}: <span id="replaymessage"></span> </p>
 
             </div>
             <div class="modal-footer">

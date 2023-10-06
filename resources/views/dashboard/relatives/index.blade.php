@@ -7,7 +7,7 @@
     <nav class="breadcrumb-one" aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="{{ route('dashboard.index') }}">{{ __('Dashboard') }}</a></li>
-            <li class="breadcrumb-item"><a href="{{ route('admin-relatives.index') }}">{{ __('Relatievs') }}</a></li>
+            <li class="breadcrumb-item"><a href="{{ route('admin-relatives.index') }}">{{ __('Relatives') }}</a></li>
             <li class="breadcrumb-item active" aria-current="page"><span>{{ __('view') }}</span></li>
         </ol>
     </nav>
@@ -18,7 +18,7 @@
     <div class="card mt-3">
         <div class="card-header ">
             <div class="p-2 row justify-content-between">
-                <h4>{{ __('View Relatives') }}</h4>
+                <h4>{{ __('View Relative') }}</h4>
                 @if (auth()->user()->can('add relatives'))
                     <a href="{{ route('admin-relatives.create') }}" class="btn btn-primary">{{ __('Add Relative') }}</a>
                 @endif
@@ -37,10 +37,10 @@
                     <div class="">
 
                         @if (auth()->user()->can('export relatives excel'))
-                            <a href="{{ route('admin-relatives.export_excel') }}" class="btn btn-primary">Excel</a>
+                            <a href="{{ route('admin-relatives.export_excel') }}" class="btn btn-primary">{{ __("Excel") }}</a>
                         @endif
                         @if (auth()->user()->can('export relatives pdf'))
-                            <a href="{{ route('admin-relatives.export_pdf') }}" class="btn btn-primary mx-3">PDF</a>
+                            <a href="{{ route('admin-relatives.export_pdf') }}" class="btn btn-primary mx-3">{{ __('PDF') }}</a>
                         @endif
                     </div>
                 </div>

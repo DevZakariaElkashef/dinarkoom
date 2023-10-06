@@ -2,7 +2,7 @@
     <thead>
         <tr>
             <th>#</th>
-            <th class="text-center">{{ __('User') }}</th>
+            <th class="text-center">{{ __('User name') }}</th>
             <th class="text-center">{{ __('purchased for') }}</th>
             <th class="text-center">{{ __('Status') }}</th>
             <th class="text-center">{{ __('Date') }}</th>

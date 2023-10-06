@@ -17,7 +17,7 @@
             <div class="p-2 row justify-content-between">
                 <h4>{{ __('Add User') }}</h4>
 
-                <a href="{{ route('users.index') }}" class="btn btn-secondary">{{ __('Back') }}</a>
+                <a href="{{ route('notification.index') }}" class="btn btn-secondary">{{ __('Back') }}</a>
             </div>
         </div>
         <form action="{{ route('notification.store') }}" method="post">
@@ -26,16 +26,16 @@
 
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                     <li class="nav-item" role="presentation">
-                      <button class="nav-link active" id="english-tab" data-toggle="tab" data-target="#english" type="button" role="tab" aria-controls="english" aria-selected="true">english</button>
+                      <button class="nav-link active" id="english-tab" data-toggle="tab" data-target="#english" type="button" role="tab" aria-controls="english" aria-selected="true">{{ __("English") }}</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                      <button class="nav-link" id="arabic-tab" data-toggle="tab" data-target="#arabic" type="button" role="tab" aria-controls="arabic" aria-selected="false">arabic</button>
+                      <button class="nav-link" id="arabic-tab" data-toggle="tab" data-target="#arabic" type="button" role="tab" aria-controls="arabic" aria-selected="false">{{ __('Arabic') }}</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                      <button class="nav-link" id="urdu-tab" data-toggle="tab" data-target="#urdu" type="button" role="tab" aria-controls="urdu" aria-selected="false">urdu</button>
+                      <button class="nav-link" id="urdu-tab" data-toggle="tab" data-target="#urdu" type="button" role="tab" aria-controls="urdu" aria-selected="false">{{ __('Urdu') }}</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                      <button class="nav-link" id="filibino-tab" data-toggle="tab" data-target="#filibino" type="button" role="tab" aria-controls="filibino" aria-selected="false">filibino</button>
+                      <button class="nav-link" id="filibino-tab" data-toggle="tab" data-target="#filibino" type="button" role="tab" aria-controls="filibino" aria-selected="false">{{ __("Filipino") }}</button>
                     </li>
                   </ul>
                   <div class="tab-content" id="myTabContent">

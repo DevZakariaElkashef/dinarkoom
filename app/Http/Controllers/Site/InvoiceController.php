@@ -12,7 +12,14 @@ class InvoiceController extends Controller
     public function index(Request $request, $id)
     {
     $user = $request->user();
-    $order = Order::where('id', $id)->where('user_id', $user->id)->firstOrFail();
+    
+    if ($user->can('export orders pdf')) {
+
+        $order = Order::where('id', $id)->firstOrFail();
+    } else {
+
+        $order = Order::where('id', $id)->where('user_id', $user->id)->firstOrFail();
+    }
 
     $pdf = PDF::loadView('site.invoice', compact('user', 'order'));
     $pdf->download();

@@ -5,14 +5,14 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
-class StoreRelativeRequest extends FormRequest
+class UpdateRelativeRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      */
     public function authorize(): bool
     {
-        return true;
+        return false;
     }
 
     /**
@@ -20,13 +20,11 @@ class StoreRelativeRequest extends FormRequest
      *
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
      */
-    public static function rules($userId = null)
+    public static function rules($userId): array
     {
         $uniqueRule = Rule::unique('relatives')->ignore($userId);
-
+        
         $rules = [
-            'user_id' => ['required'],
-            'relative_type_id' => ['required'],
             'name' => ['required', 'string', 'max:255'],
             'civil_id' => ['required', $uniqueRule],
         ];

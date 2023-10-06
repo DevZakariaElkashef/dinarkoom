@@ -206,6 +206,33 @@
 "Replay" : "الرد",
 "Add Message" : "إضافة رسالة",
 "Right_Image" : "الصورة اليمنى",
-"Left_Image" : "الصورة اليسرى"
+"Left_Image" : "الصورة اليسرى",
+
+
+"Register Date": "تاريخ التسجيل",
+"himself": "نفسه",
+"online": "عبر الإنترنت",
+"address": "العنوان",
+"Notification": "الإشعار",
+"Title": "العنوان",
+"Selct Users": "حدد المستخدمين",
+"Send": "إرسال",
+"Download": "تحميل",
+"winner of this month": "الفائز لهذا الشهر",
+"previous winners": "الفائزون السابقون",
+"Purchased For": "مشترى لصالحه",
+"Relative": "قريب",
+"Myself": "نفسي",
+"20 fake street": "شارع 20 وهمي",
+"Send Notification": "إرسال إشعار",
+"PDF": "PDF",
+"Excel": "Excel",
+"View Relative": "عرض القريب",
+"Add Relative Type": "إضافة نوع قريب",
+"View relatives Types": "عرض أنواع الأقارب",
+"Logout time in minutes": "وقت تسجيل الخروج بالدقائق",
+"welocme message": "رسالة الترحيب",
+"Description": "الوصف"
+  
 
 }

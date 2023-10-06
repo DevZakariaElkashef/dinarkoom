@@ -41,15 +41,15 @@
         
           <div class="modal-body ">
             
-            <h4 class="mb-3">Order: {{ __("#") }} <span id="orderId"></span></h4>
+            <h4 class="mb-3">{{ __("Order") }}: {{ __("#") }} <span id="orderId"></span></h4>
             <p class="mb-3">{{ __("Name") }}: <span id="OrderUserName"></span></p>
-            <p class="mb-3">{{ __("email") }}: <span id="OrderUserEmail"></span></p>
-            <p class="mb-3">{{ __("phone") }}: <span id="OrderUserPhone"></span></p>
-            <p class="mb-3">{{ __("addition_phone") }}: <span id="OrderUserAdditionPhone"></span></p>
-            <p class="mb-3">{{ __("civil_id") }}: <span id="OrderUserCivilId"></span></p>
+            <p class="mb-3">{{ __("Email") }}: <span id="OrderUserEmail"></span></p>
+            <p class="mb-3">{{ __("Phone") }}: <span id="OrderUserPhone"></span></p>
+            <p class="mb-3">{{ __("Addition_Phone") }}: <span id="OrderUserAdditionPhone"></span></p>
+            <p class="mb-3">{{ __("Civil_id") }}: <span id="OrderUserCivilId"></span></p>
             <p class="mb-3">{{ __("Relative") }}: <span id="OrderUserEmail"></span></p>
-            <p class="mb-3">{{ __("status") }}: <span id="OrderStatus"></span></p>
-            <p class="mb-3">{{ __("date") }}: <span id="OrderDate"></span></p>
+            <p class="mb-3">{{ __("Status") }}: <span id="OrderStatus"></span></p>
+            <p class="mb-3">{{ __("Date") }}: <span id="OrderDate"></span></p>
 
 
           </div>

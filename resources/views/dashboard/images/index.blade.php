@@ -84,7 +84,7 @@
                         @if ($image->active)
                             {{ __('Active') }}
                         @else
-                            {{ __('Not_Active') }}
+                            {{ __('Not Active') }}
                         @endif
                     </button>
                     @if (auth()->user()->can('active images'))

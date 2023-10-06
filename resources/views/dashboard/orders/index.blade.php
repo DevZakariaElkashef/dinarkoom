@@ -51,10 +51,10 @@
                     </div>
                     <div class="">
                         @if (auth()->user()->can('export orders excel'))
-                            <a href="{{ route('orders.export_excel') }}" class="btn btn-primary">Excel</a>
+                            <a href="{{ route('orders.export_excel') }}" class="btn btn-primary">{{ __("Excel") }}</a>
                         @endif
                         @if (auth()->user()->can('export orders pdf'))
-                            <a href="{{ route('orders.export_pdf') }}" class="btn btn-primary mx-3">PDF</a>
+                            <a href="{{ route('orders.export_pdf') }}" class="btn btn-primary mx-3">{{ __("PDF") }}</a>
                         @endif
                     </div>
                 </div>

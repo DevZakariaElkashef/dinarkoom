@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Exports\RelativeExport;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreRelativeRequest;
+use App\Http\Requests\UpdateRelativeRequest;
 use App\Models\Relative;
 use App\Models\RelativeType;
 use App\Models\User;
@@ -78,7 +79,7 @@ class RelativeController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $validator = Validator::make($request->all(), StoreRelativeRequest::rules($id));
+        $validator = Validator::make($request->all(), UpdateRelativeRequest::rules($id));
 
         if ($validator->fails()) {
             session()->flash('message', __("Faild_to_store_relative!"));

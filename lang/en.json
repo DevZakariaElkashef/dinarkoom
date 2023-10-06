@@ -223,6 +223,25 @@
     "Notification" : "Notification",
     "Title" : "Title",
     "Selct Users" : "Selct Users",
-    "Send" : "Send"    
+    "Send" : "Send",
+    "Download": "Download",
+    "winner of this month" : "winner of this month",
+    "previous winners" : "previous winners",
+    "Purchased For" : "Purchased For",
+    "Relative" : "Relative",
+    "Myself" : "Myself",
+    "20 fake street" : "20 fake street",
+    "Send Notification" : "Send Notification",
+    "PDF" : "PDF",
+    "Excel" : "Excel",
+    "View Relative" :"View Relative",
+    "Add Relative Type": "Add Relative Type",
+    "View relatives Types" : "View relatives Types",
+    "Logout time in minutes" : "Logout time in minutes",
+    "welocme message" :"welocme message",
+    "Description" :"Description"
+    
+    
+
     
 }

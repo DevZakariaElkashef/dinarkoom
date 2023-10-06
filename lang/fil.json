@@ -206,6 +206,31 @@
 "Replay" : "Replay",
 "Add Message" : "Magdagdag ng Mensahe",
 "Right_Image" : "Kanan na Larawan",
-"Left_Image" : "Kaliwang Larawan"
+"Left_Image" : "Kaliwang Larawan",
+
+"Register Date": "Petsa ng Pagsusuri",
+"himself": "kanya",
+"online": "online",
+"address": "address",
+"Notification": "Abiso",
+"Title": "Pamagat",
+"Selct Users": "Piliin ang mga User",
+"Send": "Ipadala",
+"Download": "I-download",
+"winner of this month": "nanalo ng buwan na ito",
+"previous winners": "mga naunang nanalo",
+"Purchased For": "Binili Para Sa",
+"Relative": "Kamag-anak",
+"Myself": "Ako mismo",
+"20 fake street": "20 pekeng kalye",
+"Send Notification": "Ipadala ang Abiso",
+"PDF": "PDF",
+"Excel": "Excel",
+"View Relative": "Tingnan ang Kamag-anak",
+"Add Relative Type": "Magdagdag ng Uri ng Kamag-anak",
+"View relatives Types": "Tingnan ang mga Uri ng Kamag-anak",
+"Logout time in minutes": "Oras ng Pag-logout sa mga minuto",
+"welocme message": "Mensahe ng Pagtanggap",
+"Description": "Paglalarawan"
     
 }
