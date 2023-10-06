@@ -114,4 +114,17 @@ class RelativeController extends Controller
         $pdf = PDF::loadView('dashboard.relatives.pdf', compact('relatives'));
         $pdf->download('relatives.pdf');
     }
+
+    public function search(Request $request)
+    {
+        $value = $request->value;
+
+        $relatives = User::where('name', 'like', "%$value%")
+                    ->orWhere('civil_id', 'like', "%$value%")
+                    ->latest()
+                    ->paginate(10);
+
+        return view('dashboard.relatives.table', compact('relatives'))->render();
+
+    }
 }

@@ -89,6 +89,7 @@ Route::group(
                 Route::resource('users', UserController::class);
                 Route::get('users-excel', [UserController::class, 'exportExcel'])->name('users.export_excel');
                 Route::get('users-pdf', [UserController::class, 'exportPdf'])->name('users.export_pdf');
+                Route::get('user-search', [UserController::class, 'search'])->name('users.serach');
                 Route::resource('banners', BannerController::class);
                 Route::resource('images', ImageController::class);
                 Route::resource('contacts', ContactController::class);
@@ -96,12 +97,14 @@ Route::group(
                 Route::resource('admin-relatives', AdminRelativeController::class);
                 Route::get('admin-relatives-excel', [AdminRelativeController::class, 'exportExcel'])->name('admin-relatives.export_excel');
                 Route::get('admin-relatives-pdf', [AdminRelativeController::class, 'exportPdf'])->name('admin-relatives.export_pdf');
+                Route::get('admin-relatives-search', [AdminRelativeController::class, 'search'])->name('admin-relatives.serach');
                 Route::resource('relative-types', RelativeTypeController::class);
                 Route::resource('roles', RoleController::class);
                 Route::resource('winners', WinnerController::class);
                 Route::get('winners-active/{id}', [WinnerController::class, 'active'])->name('winners.active');
                 Route::get('winners-excel', [WinnerController::class, 'exportExcel'])->name('winners.export_excel');
                 Route::get('winners-pdf', [WinnerController::class, 'exportPdf'])->name('winners.export_pdf');
+                Route::get('winners-search', [WinnerController::class, 'search'])->name('winners.serach');
                 
 
                 Route::get('images-active\{id}', [ImageController::class, 'active'])->name('images.active');
@@ -117,6 +120,7 @@ Route::group(
                 Route::get('orders-pdf', [AdminOrderController::class, 'exportPdf'])->name('orders.export_pdf');
                 Route::delete('orders/{id}', [AdminOrderController::class, 'destroy'])->name('orders.destroy');
                 Route::put('orders/{id}', [AdminOrderController::class, 'update'])->name('orders.update');
+                Route::get('orders-search', [AdminOrderController::class, 'search'])->name('orders.serach');
                 Route::get('notifications', [NotificationController::class, 'index'])->name('notification.index');
                 Route::get('notifications/send', [NotificationController::class, 'create'])->name('notification.create');
                 Route::post('notifications/send', [NotificationController::class, 'store'])->name('notification.store');

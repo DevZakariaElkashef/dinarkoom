@@ -38,4 +38,18 @@ class OrderController extends Controller
         $pdf = PDF::loadView('dashboard.orders.pdf', compact('orders'));
         $pdf->download('orders.pdf');
     }
+
+    public function search(Request $request)
+    {
+        $value = $request->value;
+
+        $orders = Order::whereHas('user', function ($query) use ($value) {
+            $query->where('name', 'like', "%$value%");
+        })
+        ->latest()
+        ->paginate(10);
+
+        return view('dashboard.orders.table', compact('orders'))->render();
+
+    }
 }

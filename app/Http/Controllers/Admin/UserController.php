@@ -105,4 +105,20 @@ class UserController extends Controller
         $pdf = PDF::loadView('dashboard.users.pdf', compact('users'));
         $pdf->download('users.pdf');
     }
+
+    public function search(Request $request)
+    {
+        $value = $request->value;
+
+        $users = User::where('name', 'like', "%$value%")
+                    ->orWhere('phone', 'like', "%$value%")
+                    ->orWhere('addition_phone', 'like', "%$value%")
+                    ->orWhere('email', 'like', "%$value%")
+                    ->orWhere('civil_id', 'like', "%$value%")
+                    ->latest()
+                    ->paginate(10);
+
+        return view('dashboard.users.table', compact('users'))->render();
+
+    }
 }

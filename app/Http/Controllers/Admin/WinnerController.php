@@ -127,4 +127,17 @@ class WinnerController extends Controller
         $pdf = PDF::loadView('dashboard.winners.pdf', compact('winners'));
         $pdf->download('winners.pdf');
     }
+
+    public function search(Request $request)
+    {
+        $value = $request->value;
+
+        $winners = Winner::whereHas('user', function ($query) use ($value) {
+            $query->where('name', 'like', "%$value%");
+        })->latest('status')->paginate(10);
+                    
+
+        return view('dashboard.winners.table', compact('winners'))->render();
+
+    }
 }
