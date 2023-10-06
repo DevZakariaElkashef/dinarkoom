@@ -15,7 +15,7 @@ class AutoLogout
     public function __construct(Store $session)
     {
         $this->session = $session;
-        $this->timeout = Setting::first()->logout_time ?? 15;
+        $this->timeout = (Setting::first()->logout_time * 60) ?? 900;
     }
 
     public function handle($request, Closure $next)
