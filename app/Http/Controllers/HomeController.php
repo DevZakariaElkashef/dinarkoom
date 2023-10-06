@@ -48,7 +48,6 @@ class HomeController extends Controller
         } else {
             $orderedThisMonth = false;
         }
-        
 
         return view('site.index', compact('rightImage', 'leftImage', 'image', 'buyers', 'sales', 'orderedThisMonth', 'canDownload'));
     }

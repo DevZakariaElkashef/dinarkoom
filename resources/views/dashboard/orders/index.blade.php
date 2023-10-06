@@ -44,14 +44,21 @@
             <div class="table-responsive">
                 <div class="mb-2 py-2 row justify-content-between">
                     <div class="">
-                        <input type="text" class="form-control mx-3" placeholder="{{ __("search ...") }}" id="orderSerach">
+                        @if (auth()->user()->can('search orders'))
+                            <input type="text" class="form-control mx-3" placeholder="{{ __('search ...') }}"
+                                id="orderSerach">
+                        @endif
                     </div>
                     <div class="">
-                        <a href="{{ route("orders.export_excel") }}" class="btn btn-primary">Excel</a>
-                        <a href="{{ route("orders.export_pdf") }}" class="btn btn-primary mx-3">PDF</a>
+                        @if (auth()->user()->can('export orders excel'))
+                            <a href="{{ route('orders.export_excel') }}" class="btn btn-primary">Excel</a>
+                        @endif
+                        @if (auth()->user()->can('export orders pdf'))
+                            <a href="{{ route('orders.export_pdf') }}" class="btn btn-primary mx-3">PDF</a>
+                        @endif
                     </div>
                 </div>
-                
+
                 @include('dashboard.orders.table')
 
                 <div class="text-center">
@@ -70,8 +77,7 @@
 @section('script')
     <script src="https://cdn.ckeditor.com/ckeditor5/39.0.2/classic/ckeditor.js"></script>
     <script>
-
-        $(document).on('keyup', '#orderSerach', function(e){
+        $(document).on('keyup', '#orderSerach', function(e) {
             e.preventDefault();
             let value = $(this).val();
             let url = "{{ route('orders.serach') }}"
@@ -79,9 +85,11 @@
             $.ajax({
                 type: "get",
                 url: url,
-                data: {value: value},
-                success: function (response) {
-                    
+                data: {
+                    value: value
+                },
+                success: function(response) {
+
                     $('#ordersTable').html();
                     $('#ordersTable').html(response);
 

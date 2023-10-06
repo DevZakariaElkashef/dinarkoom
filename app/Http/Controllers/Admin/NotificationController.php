@@ -6,13 +6,13 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\SendNotificationsRequest;
 use App\Models\Notification;
 use App\Models\User;
-use Illuminate\Http\Request;
 
 class NotificationController extends Controller
 {
     public function index()
     {
-        $notifications = Notification::latest()->paginate(10);
+        $notifications = Notification::latest()->get();
+        // dd($notifications);
 
         return view('dashboard.notifications.index', compact('notifications'));
     }

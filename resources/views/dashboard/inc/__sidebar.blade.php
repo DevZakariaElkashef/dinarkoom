@@ -5,7 +5,7 @@
 
         <ul class="list-unstyled menu-categories" id="accordionExample">
 
-            
+
             <li class="menu">
                 <a href="#starter-kit" data-active="{{ isActiveRoute('dashboard.index') ? 'true' : 'false' }}"
                     aria-expanded="{{ isActiveRoute(['dashboard.index']) ? 'true' : 'false' }}" data-toggle="collapse"
@@ -29,7 +29,7 @@
                     </li>
                 </ul>
             </li>
-            
+
 
             <li class="menu">
                 <a href="#users-dropdown"
@@ -65,17 +65,19 @@
             </li>
 
 
-            <li class="menu">
-                <a href="{{ route('winners.index') }}"
-                    data-active="{{ isActiveRoute(['winners.index']) ? 'true' : 'false' }}"
-                    aria-expanded="{{ isActiveRoute(['winners.index']) ? 'true' : 'false' }}"
-                    class="dropdown-toggle">
-                    <div class="">
-                        <i class="fa-solid fa-gift"></i>
-                        <span>{{ __('Winners') }}</span>
-                    </div>
-                </a>
-            </li>
+            @if (auth()->user()->can('view winners'))
+                <li class="menu">
+                    <a href="{{ route('winners.index') }}"
+                        data-active="{{ isActiveRoute(['winners.index']) ? 'true' : 'false' }}"
+                        aria-expanded="{{ isActiveRoute(['winners.index']) ? 'true' : 'false' }}"
+                        class="dropdown-toggle">
+                        <div class="">
+                            <i class="fa-solid fa-gift"></i>
+                            <span>{{ __('Winners') }}</span>
+                        </div>
+                    </a>
+                </li>
+            @endif
 
             <li class="menu">
                 <a href="#relatives-dropdown"
@@ -150,19 +152,19 @@
                 </ul>
             </li>
 
-            {{-- @if (auth()->user()->can('view notifications')) --}}
-                <li class="menu">
-                    <a href="{{ route('notification.index') }}"
-                        data-active="{{ isActiveRoute(['notification.index']) ? 'true' : 'false' }}"
-                        aria-expanded="{{ isActiveRoute(['notification.index']) ? 'true' : 'false' }}"
-                        class="dropdown-toggle">
-                        <div class="">
-                            <i class="fa-solid fa-bell"></i>
-                            <span>{{ __('Notification') }}</span>
-                        </div>
-                    </a>
-                </li>
-            {{-- @endif --}}
+            @if (auth()->user()->can('view notification'))
+            <li class="menu">
+                <a href="{{ route('notification.index') }}"
+                    data-active="{{ isActiveRoute(['notification.index']) ? 'true' : 'false' }}"
+                    aria-expanded="{{ isActiveRoute(['notification.index']) ? 'true' : 'false' }}"
+                    class="dropdown-toggle">
+                    <div class="">
+                        <i class="fa-solid fa-bell"></i>
+                        <span>{{ __('Notification') }}</span>
+                    </div>
+                </a>
+            </li>
+            @endif
 
             @if (auth()->user()->can('view ads'))
                 <li class="menu">
@@ -227,46 +229,47 @@
                 </ul>
             </li>
 
-            @if(auth()->user()->can('view messages'))
-            <li class="menu">
-                <a href="{{ route('contacts.index') }}"
-                    data-active="{{ isActiveRoute(['contacts.index']) ? 'true' : 'false' }}"
-                    aria-expanded="{{ isActiveRoute(['contacts.index']) ? 'true' : 'false' }}"
-                    class="dropdown-toggle">
-                    <div class="">
-                        <i class="fa-solid fa-message"></i>
-                        <span>{{ __('Messages') }}</span>
-                    </div>
-                </a>
-            </li>
+            @if (auth()->user()->can('view messages'))
+                <li class="menu">
+                    <a href="{{ route('contacts.index') }}"
+                        data-active="{{ isActiveRoute(['contacts.index']) ? 'true' : 'false' }}"
+                        aria-expanded="{{ isActiveRoute(['contacts.index']) ? 'true' : 'false' }}"
+                        class="dropdown-toggle">
+                        <div class="">
+                            <i class="fa-solid fa-message"></i>
+                            <span>{{ __('Messages') }}</span>
+                        </div>
+                    </a>
+                </li>
             @endif
 
-            @if(auth()->user()->can('add roles'))
-            <li class="menu">
-                <a href="{{ route('roles.index') }}"
-                    data-active="{{ isActiveRoute(['roles.index']) ? 'true' : 'false' }}"
-                    aria-expanded="{{ isActiveRoute(['roles.index']) ? 'true' : 'false' }}" class="dropdown-toggle">
-                    <div class="">
-                        <i class="fa-solid fa-user-gear"></i>
-                        <span>{{ __('Permissions') }}</span>
-                    </div>
-                </a>
-            </li>
+            @if (auth()->user()->can('add roles'))
+                <li class="menu">
+                    <a href="{{ route('roles.index') }}"
+                        data-active="{{ isActiveRoute(['roles.index']) ? 'true' : 'false' }}"
+                        aria-expanded="{{ isActiveRoute(['roles.index']) ? 'true' : 'false' }}"
+                        class="dropdown-toggle">
+                        <div class="">
+                            <i class="fa-solid fa-user-gear"></i>
+                            <span>{{ __('Permissions') }}</span>
+                        </div>
+                    </a>
+                </li>
             @endif
 
 
-            @if(auth()->user()->can('view settings'))
-            <li class="menu">
-                <a href="{{ route('settings.index') }}"
-                    data-active="{{ isActiveRoute(['settings.index']) ? 'true' : 'false' }}"
-                    aria-expanded="{{ isActiveRoute(['settings.index']) ? 'true' : 'false' }}"
-                    class="dropdown-toggle">
-                    <div class="">
-                        <i class="fa-solid fa-gear"></i>
-                        <span>{{ __('Setting') }}</span>
-                    </div>
-                </a>
-            </li>
+            @if (auth()->user()->can('view settings'))
+                <li class="menu">
+                    <a href="{{ route('settings.index') }}"
+                        data-active="{{ isActiveRoute(['settings.index']) ? 'true' : 'false' }}"
+                        aria-expanded="{{ isActiveRoute(['settings.index']) ? 'true' : 'false' }}"
+                        class="dropdown-toggle">
+                        <div class="">
+                            <i class="fa-solid fa-gear"></i>
+                            <span>{{ __('Setting') }}</span>
+                        </div>
+                    </a>
+                </li>
             @endif
 
         </ul>

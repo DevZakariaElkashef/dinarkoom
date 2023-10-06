@@ -28,14 +28,23 @@
             <div class="table-responsive">
                 <div class="mb-2 py-2 row justify-content-between">
                     <div class="mr-5">
-                        <input type="text" class="form-control mx-3" placeholder="{{ __("search ...") }}" id="relativeSerach">
+                        @if (auth()->user()->can('search relatives'))
+                            <input type="text" class="form-control mx-3" placeholder="{{ __('search ...') }}"
+                                id="relativeSerach">
+                        @endif
+
                     </div>
                     <div class="">
-                        <a href="{{ route("admin-relatives.export_excel") }}" class="btn btn-primary">Excel</a>
-                        <a href="{{ route("admin-relatives.export_pdf") }}" class="btn btn-primary mx-3">PDF</a>
+
+                        @if (auth()->user()->can('export relatives excel'))
+                            <a href="{{ route('admin-relatives.export_excel') }}" class="btn btn-primary">Excel</a>
+                        @endif
+                        @if (auth()->user()->can('export relatives pdf'))
+                            <a href="{{ route('admin-relatives.export_pdf') }}" class="btn btn-primary mx-3">PDF</a>
+                        @endif
                     </div>
                 </div>
-                
+
                 @include('dashboard.relatives.table')
 
                 <div class="text-center">
@@ -53,8 +62,7 @@
 
 @section('script')
     <script>
-        
-        $(document).on('keyup', '#relativeSerach', function(e){
+        $(document).on('keyup', '#relativeSerach', function(e) {
             e.preventDefault();
             let value = $(this).val();
             let url = "{{ route('admin-relatives.serach') }}"
@@ -62,9 +70,11 @@
             $.ajax({
                 type: "get",
                 url: url,
-                data: {value: value},
-                success: function (response) {
-                    
+                data: {
+                    value: value
+                },
+                success: function(response) {
+
                     $('#relativesTable').html();
                     $('#relativesTable').html(response);
 

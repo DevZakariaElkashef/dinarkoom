@@ -38,21 +38,32 @@
         <div class="card-header ">
             <div class="p-2 row justify-content-between">
                 <h4>{{ __('View Winners') }}</h4>
-                <a href="#" data-toggle="modal" data-target="#createWinnerModal" class="btn btn-primary">{{ __("Add Winner") }}</a>
+                @if (auth()->user()->can('add winners'))
+                    <a href="#" data-toggle="modal" data-target="#createWinnerModal"
+                        class="btn btn-primary">{{ __('Add Winner') }}</a>
+                @endif
+
             </div>
         </div>
         <div class="card-body">
             <div class="table-responsive">
                 <div class="mb-2 py-2 row justify-content-between">
                     <div class="mr-5">
-                        <input type="text" class="form-control mx-3" placeholder="{{ __("search ...") }}" id="winnerSerach">
+                        @if (auth()->user()->can('search winners'))
+                            <input type="text" class="form-control mx-3" placeholder="{{ __('search ...') }}"
+                                id="winnerSerach">
+                        @endif
                     </div>
                     <div class="">
-                        <a href="{{ route("winners.export_excel") }}" class="btn btn-primary">Excel</a>
-                        <a href="{{ route("winners.export_pdf") }}" class="btn btn-primary mx-3">PDF</a>
+                        @if (auth()->user()->can('export winners excel'))
+                            <a href="{{ route('winners.export_excel') }}" class="btn btn-primary">Excel</a>
+                        @endif
+                        @if (auth()->user()->can('export winners pdf'))
+                            <a href="{{ route('winners.export_pdf') }}" class="btn btn-primary mx-3">PDF</a>
+                        @endif
                     </div>
                 </div>
-                
+
                 @include('dashboard.winners.table')
                 <div class="text-center">
                     {{ $winners->links() }}
@@ -70,8 +81,7 @@
 @section('script')
     <script src="https://cdn.ckeditor.com/ckeditor5/39.0.2/classic/ckeditor.js"></script>
     <script>
-
-        $(document).on('keyup', '#winnerSerach', function(e){
+        $(document).on('keyup', '#winnerSerach', function(e) {
             e.preventDefault();
             let value = $(this).val();
             let url = "{{ route('winners.serach') }}"
@@ -79,9 +89,11 @@
             $.ajax({
                 type: "get",
                 url: url,
-                data: {value: value},
-                success: function (response) {
-                    
+                data: {
+                    value: value
+                },
+                success: function(response) {
+
                     $('#winnersTable').html();
                     $('#winnersTable').html(response);
 
@@ -102,7 +114,7 @@
 
         // show user info in the modal
         $(document).on('click', '.edit-winner-btn', function() {
-            
+
             let id = $(this).data("id");
             let value = $(this).data("value");
             let name = $(this).data("name");

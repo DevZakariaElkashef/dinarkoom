@@ -18,8 +18,8 @@
     <div class="card mt-3">
         <div class="card-header ">
             <div class="p-2 row justify-content-between">
-                <h4>{{ __('View Relatives Types') }}</h4>
-                @if (auth()->user()->can('add relation type'))
+                <h4>{{ __('View relatives Types') }}</h4>
+                @if (auth()->user()->can('add relative type'))
                     <a href="#" data-toggle="modal" data-target="#createTypeModal"
                         class="btn btn-primary">{{ __('Add Relative Type') }}</a>
                 @endif
@@ -32,8 +32,8 @@
                         <tr>
                             <th>#</th>
                             <th>{{ __('Name') }}</th>
-                            @if (auth()->user()->can('edit relation type') ||
-                                    auth()->user()->can('delete relation type'))
+                            @if (auth()->user()->can('edit relative type') ||
+                                    auth()->user()->can('delete relative type'))
                                 <th>{{ __('Action') }}</th>
                             @endif
 
@@ -44,17 +44,17 @@
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $type->{'name_' . app()->getLocale()} }}</td>
-                                @if (auth()->user()->can('edit relation type') ||
-                                        auth()->user()->can('delete relation type'))
+                                @if (auth()->user()->can('edit relative type') ||
+                                        auth()->user()->can('delete relative type'))
                                     <td class="">
-                                        @if (auth()->user()->can('edit relation type'))
+                                        @if (auth()->user()->can('edit relative type'))
                                             <a href="#" class="m-1 edit-type-btn" data-id="{{ $type->id }}"
                                                 data-name_ar="{{ $type->name_ar }}" data-name_en="{{ $type->name_en }}"
                                                 data-name_ur="{{ $type->name_ur }}" data-name_fil="{{ $type->name_fil }}"
                                                 data-toggle="modal" data-target="#updateTypeModal"><i
                                                     class="fa-solid fa-pen"></i></a>
                                         @endif
-                                        @if (auth()->user()->can('delete relation type'))
+                                        @if (auth()->user()->can('delete relative type'))
                                             <a href="#" class="delete-type-btn m-1" data-id="{{ $type->id }}"
                                                 data-toggle="modal" data-target="#deleteTypeModal"><i
                                                     class="fa-solid fa-trash"></i></a>

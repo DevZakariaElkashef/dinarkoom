@@ -51,6 +51,8 @@ class GuestController extends Controller
 
         ]);
 
+        $user->assignRole('guest');
+
         // Log in the newly created user
         Auth::guard('guest')->login($user);
 
