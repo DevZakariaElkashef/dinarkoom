@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Models\Setting;
 use Closure;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Session\Store;
@@ -9,10 +10,12 @@ use Illuminate\Session\Store;
 class AutoLogout
 {
     protected $session;
+    protected $timeout;
 
     public function __construct(Store $session)
     {
         $this->session = $session;
+        $this->timeout = Setting::first()->logout_time ?? 15;
     }
 
     public function handle($request, Closure $next)
@@ -24,7 +27,7 @@ class AutoLogout
         if ($this->session->has('lastActivity')) {
             $lastActivity = $this->session->get('lastActivity');
 
-            if (time() - $lastActivity > env('SESSION_LIFETIME')) {
+            if (time() - $lastActivity > $this->timeout) {
                 // turn off online
                 $user = $request->user();
                 $user->is_online = 0;

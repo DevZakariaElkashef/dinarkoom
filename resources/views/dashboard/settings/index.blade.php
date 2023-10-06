@@ -288,7 +288,13 @@
 
                         <div class="row mt-3">
 
-                            <div class="col-md-6 mb-2">
+                            <div class="col-md-3 mb-2">
+                                <div class="form-group">
+                                    <label for="logout_time">Logout time in minutes</label>
+                                    <input id="logout_time" class="form-control" type="number" name="logout_time" value="{{ $setts->logout_time ?? '' }}">
+                                </div>
+                            </div>
+                            <div class="col-md-3 mb-2">
                                 <div class="form-group">
                                     <label for="phone">Phone</label>
                                     <input id="phone" class="form-control" type="text" name="phone" value="{{ $setts->phone ?? '' }}">
@@ -300,10 +306,38 @@
                                     <input id="email" class="form-control" type="text" name="email" value="{{ $setts->email ?? '' }}">
                                 </div>
                             </div>
-                            <div class="col-md-6 mb-2">
+                            <div class="col-md-12 mb-2">
                                 <div class="form-group">
                                     <label for="address">address</label>
-                                    <input id="address" class="form-control" type="text" name="address" value="{{ $setts->address ?? '' }}">
+                                    <textarea id="address" class="form-control" name="address" >{{ $setts->address ?? '' }}</textarea>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12 mb-2">
+                                <div class="form-group">
+                                    <label for="welcome_en">{{ __("welocme message") }} {{ __("In english") }}</label>
+                                    <textarea id="welcome_en" class="form-control" name="welcome_en" >{{ $setts->welcome_en ?? '' }}</textarea>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12 mb-2">
+                                <div class="form-group">
+                                    <label for="welcome_ar">{{ __("welocme message") }} {{ __("In arabic") }}</label>
+                                    <textarea id="welcome_ar" class="form-control" name="welcome_ar" >{{ $setts->welcome_ar ?? '' }}</textarea>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12 mb-2">
+                                <div class="form-group">
+                                    <label for="welcome_ur">{{ __("welocme message") }} {{ __("In Urdu") }}</label>
+                                    <textarea id="welcome_ur" class="form-control" name="welcome_ur" >{{ $setts->welcome_ur ?? '' }}</textarea>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12 mb-2">
+                                <div class="form-group">
+                                    <label for="welcome_fil">{{ __("welocme message") }} {{ __("In Filibino") }}</label>
+                                    <textarea id="welcome_fil" class="form-control" name="welcome_fil" >{{ $setts->welcome_fil ?? '' }}</textarea>
                                 </div>
                             </div>
                         </div>
@@ -323,6 +357,30 @@
 @endsection
 
 @section('script')
+<script src="https://cdn.ckeditor.com/ckeditor5/39.0.2/classic/ckeditor.js"></script>
+<script>
+    ClassicEditor
+        .create(document.querySelector('#welcome_en'))
+        .catch(error => {
+            console.error(error);
+        });
+
+    ClassicEditor
+        .create(document.querySelector('#welcome_ar'))
+        .catch(error => {
+            console.error(error);
+        });
+    ClassicEditor
+        .create(document.querySelector('#welcome_ur'))
+        .catch(error => {
+            console.error(error);
+        });
+    ClassicEditor
+        .create(document.querySelector('#welcome_fil'))
+        .catch(error => {
+            console.error(error);
+        });
+</script>
 
 <script>
   function leftPreviewImage(input) {
