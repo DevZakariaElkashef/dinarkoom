@@ -35,7 +35,7 @@ class AutoLogout
 
                 Auth::logout();
                 $this->session->flush();
-                return redirect('/login')->with('message', 'Session expired. Please log in again.');
+                return redirect('/login')->with('message', __("Session expired. Please log in again."));
             }
         }
 

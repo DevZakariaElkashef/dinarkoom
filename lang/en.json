@@ -239,7 +239,65 @@
     "View relatives Types" : "View relatives Types",
     "Logout time in minutes" : "Logout time in minutes",
     "welocme message" :"welocme message",
-    "Description" :"Description"
+    "Description" :"Description",
+
+
+
+
+    "image_created_seccessfullty" : "Image Created Successfully",
+    "image_updated_seccessfullty" : "Image Updated Successfully",
+    "replaying successfullay": "replaying Successfully",
+    "image_deleted_successfully" : "Image Deleted Successfully",
+    "Image_Active_successfully" : "Image Active Successfully",
+    "Image_Deactive_successfully" : "Image Deactive Successfully",
+    "Notification Sent Successfully" :"Notification Sent Successfully",
+    "Notification Deleted Successfully" : "Notification Deleted Successfully",
+    "Order Deleted Successfully" :"Order Deleted Successfully",
+    "Relative Created Successfully" : "Relative Created Successfully",
+    "Relative Updated Successfully" : "Relative Updated Successfully",
+    "Relative Deleted Successfully" : "Relative Deleted Successfully",
+    "Type Created Successfully"  :"Type Created Successfully",
+    "Type Updated Successfully" : "Type Updated Successfully",
+    "Type Deleted Successfully" : "Type Deleted Successfully",
+    "Role Created Successfully" : "Role Created Successfully",
+    "Settings Created Successfully" : "Settings Created Successfully",
+    "Settings Updated Successfully" : "Settings Updated Successfully",
+    "About Page Text Created Successfully" : "About Page Text Created Successfully",
+    "Terms Page Text Created Successfully" : "Terms Page Text Created Successfully",
+    "User_Added_Successfully" : "User Added Successfully",
+    "User_Update_Successfully" : "User Update Successfully",
+    "User_Deleted_Successfully" : "User Deleted Successfully",
+    "Winner Added Successfully" : "Winner Added Successfully",
+    "Winner Updated Successfully" : "Winner Updated Successfully",
+    "Winner Deleted Successfully" : "Winner Deleted Successfully",
+    "Winner has been active" : "Winner has been active",
+    "Your Message Sent Successfully" : "Your Message Sent Successfully",
+    "Wellcome" : "Wellcome",
+    "We do not have images this month" : "We do not have images this month",
+    "Sales Are Close" : "Sales Are Close",
+    "you can not buy this month" : "you can not buy this month",
+    "You have ordered successfully!" : "You have ordered successfully!",
+    "Your Profile Updated Successfully."  : "Your Profile Updated Successfully.",
+    "Your Password Updated Successfully." : "Your Password Updated Successfully.",
+    "Session expired. Please log in again." : "Session expired. Please log in again.",
+    "Verification link sent!" : "Verification link sent!",
+    "Welcome Back!" : "Welcome Back!",
+
+    "all" : "All",
+    "In this Month" : "In this Month",
+    
+    "Add Winner" : "Add Winner",
+    "Edit Winner" : "Edit Winner",
+    "View Winners" : "View Winners",
+    "search ..." : "search ...",
+    "Value" : "Value",
+    
+    
+    "Not Replaid" : "Not Replaid",
+    "Replaid" : "Replaid",
+    "Role Deleted Successfully" : "Role Deleted Successfully",
+    "Role Updated Successfully" : "Role Updated Successfully"
+    
     
     
 

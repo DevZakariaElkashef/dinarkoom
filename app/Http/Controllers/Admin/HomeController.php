@@ -12,7 +12,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        session()->flash('message', __("welcome back!"));
+        session()->flash('message', __("Welcome Back!"));
         
         $usersMonth = User::whereMonth('created_at', date('m'))->count();
         $messagesMonth = ContactUs::whereMonth('created_at', date('m'))->count();

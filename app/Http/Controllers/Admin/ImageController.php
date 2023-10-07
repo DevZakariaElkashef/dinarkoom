@@ -64,7 +64,7 @@ class ImageController extends Controller
             }
         }
 
-        return back()->with('message', __("added_Image_successfully"));
+        return back()->with('message', __("image_created_seccessfullty"));
 
     }
 
@@ -109,7 +109,7 @@ class ImageController extends Controller
         $data['user_id'] = $request->user()->id;
         $image->update($data);
 
-        return back()->with('message', __("added_Image_successfully"));
+        return back()->with('message', __("image_created_seccessfullty"));
     }
 
     /**

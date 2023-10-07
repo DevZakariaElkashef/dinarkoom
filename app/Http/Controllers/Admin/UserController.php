@@ -55,7 +55,7 @@ class UserController extends Controller
         $user = User::create($data);
         $user->assignRole($role);
 
-        return back()->with('message', __("User_Added_Successfully."));
+        return back()->with('message', __("User_Added_Successfully"));
         
     }
 
@@ -79,7 +79,7 @@ class UserController extends Controller
 
         User::findOrFail($id)->update($data);
 
-        return back()->with('message', __("User_Update_Successfully."));
+        return back()->with('message', __("User_Update_Successfully"));
     }
 
     /**
@@ -91,7 +91,7 @@ class UserController extends Controller
         
         $user->delete();
         
-        return back()->with('message', __("User_Deleted_Successfully."));
+        return back()->with('message', __("User_Deleted_Successfully"));
     }
 
     public function exportExcel()

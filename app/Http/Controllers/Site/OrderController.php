@@ -3,12 +3,14 @@
 namespace App\Http\Controllers\Site;
 
 use App\Http\Controllers\Controller;
+use App\Mail\SendInvoiceMail;
 use App\Models\Image;
 use App\Models\Order;
 use App\Models\Relative;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
@@ -57,13 +59,13 @@ class OrderController extends Controller
         }
             
         if (Image::online()->first() == null) {
-            return back()->with('message', 'we do not have images this month');
+            return back()->with('message', {{ __("We do not have images this month") }});
         }
 
         $image = Image::online()->first();
 
         if ($image->qty == 0) {
-            return back()->with('message', 'sales are close');
+            return back()->with('message', __('Sales Are Close'));
         }
         
         
@@ -72,7 +74,7 @@ class OrderController extends Controller
         $check = Order::where('user_id', $userId)->where('image_id', Image::online()->first()->id)->first();
 
         if ($check) {
-            return back()->with('message', 'you can not buy this month');
+            return back()->with('message', __("you can not buy this month"));
         }
 
 
@@ -117,12 +119,12 @@ class OrderController extends Controller
         $image->qty--;
         $image->save();
 
-        
+        Mail::to($user->email)->send(new SendInvoiceMail($order, $user));
 
         PDF::loadView('site.invoice', compact('user', 'order'))->download();
-        // must send email        
 
-        return back()->with('message', 'you have ord    ered succefully!');
+        return back()->with('message', __("You have ordered successfully!"));
+
         
     }
 

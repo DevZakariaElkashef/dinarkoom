@@ -56,6 +56,6 @@ class GuestController extends Controller
         // Log in the newly created user
         Auth::guard('guest')->login($user);
 
-        return back()->with('message', 'wellcome ' . $user->name);
+        return back()->with('message', __("Wellcome") . $user->name);
     }
 }

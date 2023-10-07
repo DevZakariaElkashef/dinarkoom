@@ -129,7 +129,7 @@ class SettingController extends Controller
         {
             Setting::create($data);
 
-            return back()->with('message', 'created_succces');
+            return back()->with('message', __("Settings Created Successfully"));
             
         } else {
             $setts = Setting::findOrFail($id);
@@ -176,7 +176,7 @@ class SettingController extends Controller
 
             $setts->update($data);
             
-            return back()->with('message', 'updated_succces');
+            return back()->with('message', _("Settings Updated Successfully"));
         }
     }
 

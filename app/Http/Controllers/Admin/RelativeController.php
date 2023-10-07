@@ -55,7 +55,7 @@ class RelativeController extends Controller
 
         Relative::create($data);
 
-        return back()->with('message', 'relative created successfully');
+        return back()->with('message', __("Relative Created Successfully"));
     }
 
     /**
@@ -91,7 +91,7 @@ class RelativeController extends Controller
         $relative = Relative::findOrFail($id);
         $relative->update($data);
         
-        return back()->with('message', 'relative updated successfully');
+        return back()->with('message', __("Relative Updated Successfully"));
     }
 
     /**
@@ -101,7 +101,7 @@ class RelativeController extends Controller
     {
         $relative = Relative::findOrFail($id);
         $relative->delete();
-        return back()->with('message', 'relative deleted successfully');
+        return back()->with('message', __("Relative Deleted Successfully"));
     }
 
     public function exportExcel()

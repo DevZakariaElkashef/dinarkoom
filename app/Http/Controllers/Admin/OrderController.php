@@ -23,7 +23,7 @@ class OrderController extends Controller
 
         $order->delete();
 
-        return back()->with('message', 'deleted successfully');
+        return back()->with('message', __("Order Deleted Successfully"));
     }
 
 

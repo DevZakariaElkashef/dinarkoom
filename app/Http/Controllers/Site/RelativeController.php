@@ -49,7 +49,7 @@ class RelativeController extends Controller
 
         Relative::create($data);
 
-        return back()->with('message', 'relatieve created successfully');
+        return back()->with('message', __("Relative Created Successfully"));
     }
 
     /**

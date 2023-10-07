@@ -27,7 +27,7 @@ class TextPageController extends Controller
         }
 
 
-        return back()->with('message', __('Created_Successfuly'));
+        return back()->with('message', __('About Page Text Created Successfully'));
     }
     
     public function termsIndex()
@@ -48,6 +48,6 @@ class TextPageController extends Controller
             $page->update($data);
         }
 
-        return back()->with('message', __('Created_Successfuly'));
+        return back()->with('message', __('Terms Page Text Created Successfully'));
     }
 }

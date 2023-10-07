@@ -2,8 +2,8 @@
     <thead>
         <tr>
             <th>#</th>
-            <th class="text-center">{{ __('User') }}</th>
-            <th class="text-center">{{ __('Added by') }}</th>
+            <th class="text-center">{{ __('User name') }}</th>
+            <th class="text-center">{{ __('Added_by') }}</th>
             <th class="text-center">{{ __('Value') }}</th>
             <th class="text-center">{{ __('Status') }}</th>
             <th class="text-center">{{ __('Date') }}</th>
@@ -32,7 +32,7 @@
                             @if ($winner->status)
                                 {{ __('Active') }}
                             @else
-                                {{ __('Not_Active') }}
+                                {{ __('Not Active') }}
                             @endif
                         </button>
                         @if (auth()->user()->can('active winners'))

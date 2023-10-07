@@ -39,9 +39,9 @@
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $role->name }}</td>
-                                <td>{{ $role->name }}</td>
+                                <td>{{ App\Models\User::role($role->name)->count() }}</td>
                                 <td class="">
-                                    <a href="#"><i class="fa-solid fa-pen"></i></a>
+                                    <a href="#" class="edit-role-brn" data-id="{{ $role->id }}" data-name="{{ $role->name }}" data-toggle="modal" data-target="#editRolesModal"><i class="fa-solid fa-pen"></i></a>
                                     <a href="#" class="delete-role-btn m-1" data-id="{{ $role->id }}" data-toggle="modal" data-target="#deleteRoleModal"><i class="fa-solid fa-trash"></i></a>
                                 </td>
                             </tr>
@@ -67,27 +67,24 @@
     <script>
 
         // delete usre
-        $(document).on('click', '.delete-user-btn', function(){
+        $(document).on('click', '.delete-role-btn', function(){
             let id = $(this).data('id');
 
-            let url = '{{ route("users.destroy", ":id") }}';
+            let url = '{{ route("roles.destroy", ":id") }}';
             url = url.replace(':id', id);
             console.log(url);
-            $('#deleteUserForm').attr('action', url);
+            $('#deleteRoleForm').attr('action', url);
         })
 
         // show user info in the modal
-        $(document).on('click', '.edit-user-btn', function(){
+        $(document).on('click', '.edit-role-brn', function(){
+            
             $("#editName").val($(this).data("name"));
-            $("#email").val($(this).data("email"));
-            $("#phone").val($(this).data("phone"));
-            $("#additionPhone").val($(this).data("addition_phone"));
-            $("#civilId").val($(this).data("civil_id"));
 
-            let url = '{{ route("users.update", ":id") }}'
+            let url = '{{ route("roles.update", ":id") }}'
             url = url.replace(':id', $(this).data('id'));
             
-            $('#updateUserForm').attr('action', url)
+            $('#updateRoleForm').attr('action', url)
         })
 
     </script>

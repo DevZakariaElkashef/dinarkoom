@@ -48,7 +48,7 @@ class RoleController extends Controller
             }
         }
 
-        return back()->with('message', 'role created success');
+        return back()->with('message', __("Role Created Successfully"));
 
 
     }
@@ -74,7 +74,15 @@ class RoleController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+            'name' => 'required'
+        ]);
+
+        $role = Role::findOrFail($id);
+        $role->update(['name' => $request->name]);
+        $role->save();
+
+        return back()->with('message', __("Role Updated Successfully"));
     }
 
     /**
@@ -82,6 +90,8 @@ class RoleController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        Role::findOrFail($id)->delete();
+
+        return back()->with('message', __("Role Deleted Successfully"));
     }
 }

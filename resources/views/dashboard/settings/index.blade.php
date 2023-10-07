@@ -43,7 +43,7 @@
                                 </div>
                                 <div class="custom-file">
 
-                                    <label class="custom-file-label" for="customFile">Choose file</label>
+                                    <label class="custom-file-label" for="customFile">{{ __("Choose file") }}</label>
                                     <input name="logo" type="file" onchange="leftPreviewImage(this)" class="custom-file-input" id="customFile">
                                     
                                     @error('logo')
@@ -56,50 +56,50 @@
 
                             <div class="col-md-6 mt-5">
                                 <div class="form-group">
-                                    <label for="name">{{ __("Name") }} {{ __("In_english") }}</label>
+                                    <label for="name">{{ __("Name") }} {{ __("In english") }}</label>
                                     <input id="name" class="form-control" type="text" name="name_en" value="{{ $setts->name_en ?? '' }}">
                                 </div>
                             </div>
                             <div class="col-md-6 mt-5">
                                 <div class="form-group">
-                                    <label for="name">{{ __("Name") }} {{ __("In_arabic") }}</label>
+                                    <label for="name">{{ __("Name") }} {{ __("In arabic") }}</label>
                                     <input id="name" class="form-control" type="text" name="name_ar" value="{{ $setts->name_ar ?? '' }}">
                                 </div>
                             </div>
                             <div class="col-md-6 mt-2">
                                 <div class="form-group">
-                                    <label for="name">{{ __("Name") }} {{ __("In_urdo") }}</label>
+                                    <label for="name">{{ __("Name") }} {{ __("In Urdu") }}</label>
                                     <input id="name" class="form-control" type="text" name="name_ur" value="{{ $setts->name_ur ?? '' }}">
                                 </div>
                             </div>
                             <div class="col-md-6 mt-2">
                                 <div class="form-group">
-                                    <label for="name">{{ __("Name") }} {{ __("In_filbino") }}</label>
+                                    <label for="name">{{ __("Name") }} {{ __("In Filibino") }}</label>
                                     <input id="name" class="form-control" type="text" name="name_fil" value="{{ $setts->name_fil ?? '' }}">
                                 </div>
                             </div>
                             
                             <div class="col-md-6 mt-2">
                                 <div class="form-group">
-                                    <label for="name">{{ __("Description") }} {{ __("In_english") }}</label>
+                                    <label for="name">{{ __("Description") }} {{ __("In english") }}</label>
                                     <textarea id="name" class="form-control" type="text" name="description_en">{{ $setts->description_en ?? '' }}</textarea>
                                 </div>
                             </div>
                             <div class="col-md-6 mt-2">
                                 <div class="form-group">
-                                    <label for="name">{{ __("Description") }} {{ __("In_arabic") }}</label>
+                                    <label for="name">{{ __("Description") }} {{ __("In arabic") }}</label>
                                     <textarea id="name" class="form-control" type="text" name="description_ar">{{ $setts->description_ar ?? '' }}</textarea>
                                 </div>
                             </div>
                             <div class="col-md-6 mt-2">
                                 <div class="form-group">
-                                    <label for="name">{{ __("Description") }} {{ __("In_urdo") }}</label>
+                                    <label for="name">{{ __("Description") }} {{ __("In Urdu") }}</label>
                                     <textarea id="name" class="form-control" type="text" name="description_ur">{{ $setts->description_ur ?? '' }}</textarea>
                                 </div>
                             </div>
                             <div class="col-md-6 mt-2">
                                 <div class="form-group">
-                                    <label for="name">{{ __("Description") }} {{ __("In_filbino") }}</label>
+                                    <label for="name">{{ __("Description") }} {{ __("In Filibino") }}</label>
                                     <textarea id="name" class="form-control" type="text" name="description_fil">{{ $setts->description_fil ?? '' }}</textarea>
                                 </div>
                             </div>

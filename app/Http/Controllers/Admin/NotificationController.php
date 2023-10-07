@@ -39,7 +39,7 @@ class NotificationController extends Controller
             ]);
         }
 
-        return back()->with('message', 'sent success');
+        return back()->with('message', __("Notification Sent Successfully"));
 
     }
 
@@ -47,6 +47,6 @@ class NotificationController extends Controller
     {
         Notification::findOrfail($id)->delete();
 
-        return back()->with('message', 'deleted success');
+        return back()->with('message', __("Notification Deleted Successfully"));
     }
 }

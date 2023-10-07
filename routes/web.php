@@ -140,5 +140,8 @@ Route::group(
         Route::get('my-orders', [OrderController::class, 'index'])->name('order.index');
         Route::post('order/store', [OrderController::class, 'store'])->name('order.store');
         Route::get('winners', [SiteWinnerController::class, 'index'])->name('winner.index');
+
+
+        Route::view('won', 'mail.winner');
     }
 );

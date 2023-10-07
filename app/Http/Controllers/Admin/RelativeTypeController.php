@@ -82,7 +82,7 @@ class RelativeTypeController extends Controller
         $type = RelativeType::findOrFail($id);
         $type->update($data);
 
-        return back()->with('message', 'type updated successfully');
+        return back()->with('message', __("Type Updated Successfully"));
     }
 
     /**
@@ -94,6 +94,6 @@ class RelativeTypeController extends Controller
 
         $type->delete();
 
-        return back()->with('message', 'type deleted successfully');
+        return back()->with('message', __("Type Deleted Successfully"));
     }
 }

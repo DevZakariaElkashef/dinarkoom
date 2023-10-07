@@ -5,10 +5,13 @@ namespace App\Http\Controllers\Admin;
 use App\Exports\WinnerExport;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreWinnerRequest;
+use App\Mail\CongratsWinnerMail;
+use App\Models\Notification;
 use App\Models\User;
 use App\Models\Winner;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Maatwebsite\Excel\Facades\Excel;
 use PDF;
 
@@ -49,7 +52,7 @@ class WinnerController extends Controller
             $win->save();
         }
 
-        return back()->with('message', 'added success');
+        return back()->with('message', __("Winner Added Successfully"));
     }
 
     /**
@@ -81,7 +84,7 @@ class WinnerController extends Controller
         $winner = Winner::findOrFail($id);
         $winner->update($data);
 
-        return back()->with('message', 'updated success');
+        return back()->with('message', __("Winner Updated Successfully"));
     }
 
     /**
@@ -91,7 +94,7 @@ class WinnerController extends Controller
     {
         Winner::findOrFail($id)->delete();
 
-        return back()->with('message', 'deleted success');
+        return back()->with('message', __("Winner Deleted Successfully"));
     }
 
     public function active($id)
@@ -112,7 +115,21 @@ class WinnerController extends Controller
 
         $winner->save();
 
-        return back()->with('message', 'active success');
+        Notification::create([
+            'user_id' => $winner->user_id,
+            'title_en' => 'You won with us',
+            'title_ar' => 'لقد ربحت معنا',
+            'title_ur' => 'آپ ہمارے ساتھ جیت گئے۔',
+            'title_fil' => 'Nanalo ka sa amin',
+            'body_en' => 'You have won '. $winner->value .' with us this month',
+            'body_ar' => 'لقد ربحت معنا  ' . $winner->value .' هذا الشهر',
+            'body_fil' => 'Nanalo ka ng '. $winner->value .' sa amin ngayong buwan',
+            'body_ur' => 'آپ اس مہینے ہمارے ساتھ '. $winner->value .' جیت چکے ہیں۔',
+        ]);
+
+        Mail::to($winner->user->email)->send(new CongratsWinnerMail($winner->value));
+
+        return back()->with('message', __("Winner has been active"));
     }
 
     public function exportExcel()
