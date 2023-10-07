@@ -59,7 +59,7 @@ class OrderController extends Controller
         }
             
         if (Image::online()->first() == null) {
-            return back()->with('message', {{ __("We do not have images this month") }});
+            return back()->with('message',  __("We do not have images this month"));
         }
 
         $image = Image::online()->first();
