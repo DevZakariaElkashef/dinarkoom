@@ -49,6 +49,22 @@
                 @enderror
               </div>
 
+              <div class="row">
+
+                @foreach ($permissions as $permission)
+                <div class="col-md-3 mb-3">
+                  <div class="form-check">
+                    <input class="form-check-input" name="options[]" type="checkbox" value="{{ $permission->id }}" id="permission{{ $permission->id }}">
+                    <label class="form-check-label" for="permission{{ $permission->id }}">
+                      {{ $permission->name }}
+                    </label>
+                  </div>
+  
+                </div>
+  
+                @endforeach
+              </div>
+
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ __("Close") }}</button>

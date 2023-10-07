@@ -41,7 +41,7 @@
                                 <td>{{ $role->name }}</td>
                                 <td>{{ App\Models\User::role($role->name)->count() }}</td>
                                 <td class="">
-                                    <a href="#" class="edit-role-brn" data-id="{{ $role->id }}" data-name="{{ $role->name }}" data-toggle="modal" data-target="#editRolesModal"><i class="fa-solid fa-pen"></i></a>
+                                    <a href="{{ route("roles.edit", $role->id) }}"><i class="fa-solid fa-pen"></i></a>
                                     <a href="#" class="delete-role-btn m-1" data-id="{{ $role->id }}" data-toggle="modal" data-target="#deleteRoleModal"><i class="fa-solid fa-trash"></i></a>
                                 </td>
                             </tr>
