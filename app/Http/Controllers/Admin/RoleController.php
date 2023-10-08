@@ -16,7 +16,8 @@ class RoleController extends Controller
     public function index()
     {
         $roles = Role::latest()->paginate(10);
-        return view('dashboard.roles.index', compact('roles'));
+        $permissions = Permission::all();
+        return view('dashboard.roles.index', compact('roles', 'permissions'));
     }
 
     /**
