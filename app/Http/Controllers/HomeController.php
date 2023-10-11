@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Auction;
 use App\Models\Image;
 use App\Models\Order;
 use App\Models\Banner;
+use Carbon\Carbon;
 
 class HomeController extends Controller
 {
@@ -48,11 +50,17 @@ class HomeController extends Controller
             $orderedThisMonth = false;
         }
 
+        $auction = Auction::where('month', 10)
+                ->whereYear('created_at', Carbon::now()->year)
+                ->first();
+
+        $auction = $auction ? $auction->value : 0;
+
 
         
 
         
 
-        return view('site.index', compact('rightImage', 'leftImage', 'image', 'buyers', 'sales', 'orderedThisMonth', 'canDownload'));
+        return view('site.index', compact('rightImage', 'leftImage', 'image', 'buyers', 'sales', 'orderedThisMonth', 'canDownload', 'auction'));
     }
 }

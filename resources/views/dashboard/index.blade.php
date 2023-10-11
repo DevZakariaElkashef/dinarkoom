@@ -17,8 +17,35 @@
 
 @section('content')
     
+<div class="row justify-content-center my-4">
+    <div class="col-md-12">
 
-<div class="row mt-5">
+        <form action="{{ route('auction.update', $auction->id) }}" method="post">
+            @csrf
+            <div class="form-group">
+                <label for="value">{{ __("Sales") }} {{ __("In this Month") }}</label>
+                <input id="value" class="form-control" type="number" name="value" value="{{ $auction ? $auction->value : 0 }}">
+            </div>
+            <div class="form-group" id="myDiv" @if($auction && $auction->site_discount) style="display: block;" @else style="display: none;" @endif>
+                <label for="tax_value">{{ __("Discount value") }}</label>
+                <input id="tax_value" class="form-control" type="number" disabled>
+            </div>
+
+            <!-- Default switch -->
+            <div class="custom-control custom-switch">
+                <input type="checkbox" name="site_discount" class="custom-control-input" @if($auction && $auction->site_discount) checked @endif id="customSwitches">
+                <label class="custom-control-label" for="customSwitches">{{ __("Do you want to discount the site percentage?") }}</label>
+            </div>
+
+            <div class="d-flex justify-content-end">
+                <button type="submit" class="btn btn-primary">{{ __("Update") }}</button>
+            </div>
+        </form>
+        
+    </div>    
+</div>
+
+<div class="row mt-1">
 
     <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12 layout-spacing">
         <div class="widget widget-card-four">
@@ -161,6 +188,57 @@
                 text: '{{ session("message") }}',
                 pos: 'top-right',
                 duration: 5000,
+            });
+
+
+
+            $(document).ready(function() {
+
+                let auctionInput = $('#value');
+
+                let discountInput = $('#tax_value');
+
+                let auctionValue = "{{ $auction->value ?? 0 }}";
+                
+                let discount = "{{ $discountValue }}";
+                
+                let test = parseFloat(auctionValue)  / (1- (discount / 100));
+                test = test.toFixed(2);
+
+                discountInput.val(test);
+
+                let newAuction = auctionValue - (auctionValue * (discount / 100));
+                
+                let discountValue = auctionValue * (discount / 100);
+
+
+                let canChange = "{{ $auction->site_discount }}";
+
+                
+
+                $('#customSwitches').change(function() {
+                    if ($(this).is(':checked')) {
+
+                        if (canChange == 1) {
+                            
+
+                        } else {
+                            auctionInput.val(newAuction);
+                            discountInput.val(discountValue);
+                        }
+
+                        $('#myDiv').show();
+                    } else {
+
+                        if (canChange == 1) {
+
+                        } else {
+                            auctionInput.val(auctionValue);
+                        }
+
+                        $('#myDiv').hide();
+                    }
+                });
             });
         </script>
     @endif

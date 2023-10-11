@@ -6,6 +6,7 @@ use App\Exports\WinnerExport;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreWinnerRequest;
 use App\Mail\CongratsWinnerMail;
+use App\Models\Auction;
 use App\Models\Notification;
 use App\Models\User;
 use App\Models\Winner;
@@ -24,7 +25,11 @@ class WinnerController extends Controller
     {
         $winners = Winner::with('user', 'admin')->latest('month')->latest('status')->paginate(10);
         $users = User::all();
-        return view('dashboard.winners.index', compact('winners', 'users'));
+        $auction = Auction::where('month', Carbon::now()->month)
+                ->whereYear('created_at', Carbon::now()->year)
+                ->first();
+
+        return view('dashboard.winners.index', compact('winners', 'users', 'auction'));
     }
 
     /**
@@ -106,6 +111,12 @@ class WinnerController extends Controller
             
         } else {
             $winner->status = 1;
+
+            $auction = Auction::where('month', Carbon::now()->month)
+                ->whereYear('created_at', Carbon::now()->year)
+                ->first();
+
+            $winner->value = $auction->value;
             
             foreach(Winner::where('id', '!=', $winner->id)->get() as $win) {
                 $win->status = 0;

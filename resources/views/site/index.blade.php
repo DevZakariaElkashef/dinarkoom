@@ -46,7 +46,7 @@
                                 <img src="{{ asset('site/assets/img/header.gif') }}" alt="" style="width: 100%;">
                                 <div class="header-circle-text">
                                     <p class="header-circle-number">{{ $buyers ?? 0 }}</p>
-                                    <p class="header-circle-currency">{{ $sales ?? 0 }} KD</p>
+                                    <p class="header-circle-currency">{{ $auction ?? 0 }} KD</p>
                                     <p class="text-light header-circle-sentence">{{__("Prize of the month")}}</p>
                                 </div>
 

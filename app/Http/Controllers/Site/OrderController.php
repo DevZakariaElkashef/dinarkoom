@@ -4,10 +4,12 @@ namespace App\Http\Controllers\Site;
 
 use App\Http\Controllers\Controller;
 use App\Mail\SendInvoiceMail;
+use App\Models\Auction;
 use App\Models\Image;
 use App\Models\Order;
 use App\Models\Relative;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
@@ -118,6 +120,12 @@ class OrderController extends Controller
         
         $image->qty--;
         $image->save();
+
+        $auction = Auction::where('month', Carbon::now()->month)
+                ->whereYear('created_at', Carbon::now()->year)
+                ->first();
+        $auction->value += $image->price;
+        $auction->save();
 
         Mail::to($user->email)->send(new SendInvoiceMail($order, $user));
 

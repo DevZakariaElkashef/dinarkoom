@@ -299,13 +299,21 @@
 
                         <div class="row mt-3">
 
-                            <div class="col-md-3 mb-2">
+                            <div class="col-md-6 mb-2">
                                 <div class="form-group">
                                     <label for="logout_time">{{ __("Logout time in minutes") }}</label>
                                     <input id="logout_time" class="form-control" type="number" name="logout_time" value="{{ $setts->logout_time ?? '' }}">
                                 </div>
                             </div>
-                            <div class="col-md-3 mb-2">
+
+                            <div class="col-md-6 mb-2">
+                                <div class="form-group">
+                                    <label for="site_discount">{{ __("Site Discount") }}</label>
+                                    <input id="site_discount" class="form-control" type="number" name="site_discount" value="{{ $setts->site_discount ?? 0 }}">
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 mb-2">
                                 <div class="form-group">
                                     <label for="phone">{{ __('Phone') }}</label>
                                     <input id="phone" class="form-control" type="text" name="phone" value="{{ $setts->phone ?? '' }}">

@@ -58,7 +58,7 @@
 
         <div class="form-group">
           <label for="value">{{ __("value") }}</label>
-          <input id="value" class="form-control" type="number" name="value">
+          <input id="value" class="form-control" type="number" name="value" value="{{ $auction->value ?? 0 }}">
         </div>
 
         </div>

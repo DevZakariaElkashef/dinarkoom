@@ -312,11 +312,12 @@
     "No Orders Yet" : "No Orders Yet",
     "This data does not match" : "This data does not match",
     "No Relative Types Yet" : "No Relative Types Yet",
-    "Sorry, I do not know the required language" :"Sorry, I do not know the required language"
+    "Sorry, I do not know the required language" :"Sorry, I do not know the required language",
     
     
     
-    
-
+    "Do you want to discount the site percentage?" : "Do you want to discount the site percentage?",
+    "Discount value" : "Discount value",
+    "Site Discount" : "Site Discount"
     
 }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AuctionController;
 use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\HomeController as AdminHomeController;
@@ -125,6 +126,8 @@ Route::group(
                 Route::get('notifications/send', [NotificationController::class, 'create'])->name('notification.create');
                 Route::post('notifications/send', [NotificationController::class, 'store'])->name('notification.store');
                 Route::delete('notifications/{id}', [NotificationController::class, 'destroy'])->name('notification.destroy');
+
+                Route::post('update-auction/{id}', [AuctionController::class, 'update'])->name('auction.update');
             });
         });
 
