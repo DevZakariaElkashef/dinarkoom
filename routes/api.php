@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\ContactUsController;
 use App\Http\Controllers\Api\HomeController;
 use App\Http\Controllers\Api\OrderController;
 use App\Http\Controllers\Api\ProfileController;
@@ -38,6 +39,8 @@ Route::get('winners', [WinnersController::class, 'index']);
 Route::post('make-orders', [OrderController::class, 'store']);
 
 Route::get('relative-types', [RelativeTypeController::class, 'index']);
+
+Route::post('contact-us', [ContactUsController::class, 'store']);
 
 
 Route::middleware('auth:sanctum')->group(function(){

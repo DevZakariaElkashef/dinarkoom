@@ -25,7 +25,6 @@ class AuthController extends Controller
             'addition_phone' => 'required|unique:users,addition_phone',
             'civil_id' => 'required|unique:users,civil_id',
             'password' => 'required|min:8|same:confirm'
-
         ]);
 
 
@@ -40,6 +39,7 @@ class AuthController extends Controller
             'phone' => $request->phone,
             'addition_phone' => $request->addition_phone,
             'civil_id' => $request->civil_id,
+            'password' => Hash::make($request->password)
         ]);
 
         $user->assignRole('client');
@@ -86,6 +86,8 @@ class AuthController extends Controller
     public function logout(Request $request)
     {
         $user = $request->user();
+        $user->is_online = 0;
+        $user->save();
         $user->tokens()->delete();
 
         return $this->sendResponse('', __('user logout successfully'));
