@@ -36,7 +36,7 @@ class OrderController extends Controller
             $check = Order::where('user_id', $user->id)->where('image_id', Image::online()->first()->id)->first();
 
             if ($check) {
-                return $this->sendResponse('', __("you can not buy this month"));
+                return $this->sendError(__("you can not buy this month"), 403);
             }
 
 
@@ -106,7 +106,7 @@ class OrderController extends Controller
                 $check = Order::where('user_id', $guest->id)->where('image_id', Image::online()->first()->id)->first();
 
                 if ($check) {
-                    return $this->sendResponse('', __("you can not buy this month"));
+                    return $this->sendError(__("you can not buy this month"));
                 }
 
                 // create order
