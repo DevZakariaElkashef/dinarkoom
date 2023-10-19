@@ -29,10 +29,16 @@ class RelativeController extends Controller
         $validator = Validator::make($request->all(), [
 
             'name' => 'required|string|max:255',
-            'civil_id' => 'required|unique:relatives,civil_id',
+            'civil_id' => 'required|digits:12|regex:/^[123]/|unique:relatives,civil_id',
             'type_id' => 'required|exists:relative_types,id'
 
         ]);
+
+        $validator->setAttributeNames([
+            'name' => __("User name"),
+            'civil_id' =>  __("Civil ID number"),
+        ]);
+
 
         if ($validator->fails()) {
 

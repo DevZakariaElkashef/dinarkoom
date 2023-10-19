@@ -74,9 +74,9 @@ class User extends Authenticatable implements MustVerifyEmail
         $rules = [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'email', $uniqueRule],
-            'civil_id' => ['required', $uniqueRule],
-            'phone' => ['required', 'string', 'max:255', $uniqueRule],
-            'addition_phone' => ['required', 'string', 'max:255', $uniqueRule],
+            'civil_id' => ['required', 'digits:12', 'regex:/^[123]/',  $uniqueRule],
+            'phone' => ['required', 'digits:8', 'regex:/^[124569]/', $uniqueRule],
+            'addition_phone' => ['required', 'different:phone', 'digits:8', 'regex:/^[124569]/', $uniqueRule],
             'password' => ['nullable', 'min:8'],
             'role_id' => ['nullable']
         ];

@@ -43,20 +43,33 @@ class RegisterController extends Controller
 
     /**
      * Get a validator for an incoming registration request.
-     *
+     *  6-5-9-4 (8) - 2-1 (8)
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
-    protected function validator(array $data)
+    protected function validator(array $data) 
     {
-        return Validator::make($data, [
+        $validator = Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'same:confirm_password'],
-            'civil_id' => ['required', 'unique:users'],
-            'phone' => ['required', 'unique:users'],
-            'addition_phone' => ['required', 'unique:users'],
+            'civil_id' => ['required', 'digits:12', 'regex:/^[123]/', 'unique:users'],
+            'phone' => ['required', 'digits:8', 'regex:/^[124569]/', 'unique:users'],
+            'addition_phone' => ['required', 'different:phone', 'digits:8', 'regex:/^[124569]/', 'unique:users'],
         ]);
+
+        $validator->setAttributeNames([
+            'name' => __("User name"),
+            'email' => __('Email Address'),
+            'password' => __("Password"),
+            'civil_id' =>  __("Civil ID number"),
+            'phone' => __("Phone"),
+            'addition_phone' => __("Addition_Phone")
+        ]);
+
+
+        return $validator;
+
     }
 
     /**

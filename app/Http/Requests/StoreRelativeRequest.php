@@ -28,7 +28,7 @@ class StoreRelativeRequest extends FormRequest
             'user_id' => ['required'],
             'relative_type_id' => ['required'],
             'name' => ['required', 'string', 'max:255'],
-            'civil_id' => ['required', $uniqueRule],
+            'civil_id' => ['required', 'digits:12', 'regex:/^[123]/', $uniqueRule],
         ];
 
         return $rules;

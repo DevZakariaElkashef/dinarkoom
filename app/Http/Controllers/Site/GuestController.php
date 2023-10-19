@@ -21,11 +21,11 @@ class GuestController extends Controller
     {
         // Validate the guest registration form input
         $validatedData = $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|email',
-            'civil_id' => 'required|string',
-            'phone' => 'required|string',
-            'addition_phone' => 'required|string',
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255'],
+            'civil_id' => ['required', 'digits:12', 'regex:/^[123]/'],
+            'phone' => ['required', 'digits:8', 'regex:/^[124569]/'],
+            'addition_phone' => ['required', 'different:phone', 'digits:8', 'regex:/^[124569]/'],
         ]);
 
         $geust = User::where([

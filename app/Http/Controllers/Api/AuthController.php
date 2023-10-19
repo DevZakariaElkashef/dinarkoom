@@ -19,12 +19,21 @@ class AuthController extends Controller
     {
         $validator = Validator::make($request->all(), [
 
-            'name' => 'required',
-            'email' => 'required|unique:users,email',
-            'phone' => 'required|unique:users,phone',
-            'addition_phone' => 'required|unique:users,addition_phone',
-            'civil_id' => 'required|unique:users,civil_id',
-            'password' => 'required|min:8|same:confirm'
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:8', 'same:confirm'],
+            'phone' => ['required', 'digits:8', 'regex:/^[124569]/', 'unique:users'],
+            'addition_phone' => ['required', 'different:phone', 'digits:8', 'regex:/^[124569]/', 'unique:users'],
+            'civil_id' => ['required', 'digits:12', 'regex:/^[123]/', 'unique:users'],
+        ]);
+
+        $validator->setAttributeNames([
+            'name' => __("User name"),
+            'email' => __('Email Address'),
+            'password' => __("Password"),
+            'civil_id' =>  __("Civil ID number"),
+            'phone' => __("Phone"),
+            'addition_phone' => __("Addition_Phone")
         ]);
 
 

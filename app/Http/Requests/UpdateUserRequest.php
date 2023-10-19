@@ -25,15 +25,22 @@ class UpdateUserRequest extends FormRequest
         return [
             'name' => 'required|string|max:255',
             'civil_id' => [
-                'required',
+                'required', 
+                'digits:12', 
+                'regex:/^[123]/',
                 Rule::unique('users')->ignore($this->user()->id, 'id')
             ],
             'phone' => [
-                'required',
+                'required', 
+                'digits:8', 
+                'regex:/^[124569]/',
                 Rule::unique('users')->ignore($this->user()->id, 'id')
             ],
             'addition_phone' => [
-                'required',
+                'required', 
+                'different:phone', 
+                'digits:8', 
+                'regex:/^[124569]/',
                 Rule::unique('users')->ignore($this->user()->id, 'id')
             ],
             'email' => [

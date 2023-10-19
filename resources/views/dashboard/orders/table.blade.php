@@ -42,7 +42,9 @@
                         data-target="#editOrderModal">
                         <i class="fa-solid fa-eye"></i>
                     </a>
+                    @if (auth()->user()->can('export orders pdf'))
                     <a href="{{ route('invoice.pdf', $order->id) }}"><i class="fa-solid fa-share"></i></a>
+                    @endif
                     @if (auth()->user()->can('delete orders'))
                         <a href="#" class="delete-orders-btn m-1" data-id="{{ $order->id }}"
                             data-toggle="modal" data-target="#deleteOrderModal"><i
